@@ -14,20 +14,34 @@ foo
 
 * `Course page <https://bovreg.github.io/atacseq-workshop-limoges>`_
 
+
+
+.. |bjorn| image:: images/jespinosa.jpg
+  :alt: Alternative text
+
+.. |gabri| image:: images/jespinosa.jpg
+  :alt: Alternative text
   
 .. |jespi| image:: images/jespinosa.jpg
   :alt: Alternative text
 
-.. .. |julia| image:: images/jponomarenko.jpg
-..   :alt: Alternative text
+.. |test| image:: images/jespinosa.jpg
+  :alt: Alternative text
+
 
 
 .. list-table:: Main instructors:
-    :widths: 50
-    :header-rows: 1
+   :widths: 50 50 50 50
+   :header-rows: 1
 
-    *- Jose Espinosa-Carrasco
-    * - |jespi|
+   * - Björn Langer
+     - Gabriel Costa
+     - Jose Espinosa-Carrasco
+     - Test
+   * - |bjorn|
+     - |gabri|
+     - |jespi|
+     - |test|
 
 .. _home-page-outline:
 
