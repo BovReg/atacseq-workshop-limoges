@@ -1,7 +1,7 @@
 .. _home-page:
 
 *******************
-Reproducible ATAC-seq data analysis using the nfcore/atacseq pipeline
+Reproducible ATAC-seq data analysis using the nf-core/atacseq pipeline
 *******************
 
 
