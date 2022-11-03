@@ -1,2 +1,3 @@
-# atacseq-course-limoges
-ATAC-seq tutorial to be used during Limoges Course (November 2022)
+# BovReg workshop ATAC-seq data analysis
+
+Course webpage https://bovreg.github.io/atacseq-workshop-limoges
