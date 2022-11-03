@@ -12,7 +12,7 @@ About the course
 
 foo
 
-* `Course page <https://www.crg.eu/en/event/coursescrg-reproducible-research-and-data-analysis-using-containers-nextflow-2022>`_
+* `Course page <https://bovreg.github.io/atacseq-workshop-limoges>`_
 
   
 .. |jespi| image:: images/jespinosa.jpg
@@ -22,9 +22,8 @@ foo
 ..   :alt: Alternative text
 
 
-
 .. list-table:: Main instructors:
-   :widths: 50 50 50 50
+   :widths: 50
    :header-rows: 1
 
      - Björn Langer
