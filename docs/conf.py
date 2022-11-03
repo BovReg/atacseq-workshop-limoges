@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'BovReg workshop ATAC-seq data analaysis2'
+project = u'BovReg workshop ATAC-seq data analaysis'
 copyright = u'2022, CRG'
 author = u'Jose Espinosa-Carrasco'
 author = u'Bjorn-Langer'
