@@ -23,12 +23,11 @@ foo
 
 
 .. list-table:: Main instructors:
-   :widths: 50
-   :header-rows: 1
+    :widths: 50
+    :header-rows: 1
 
-     - Jose Espinosa-Carrasco
-
-   * - |jespi|
+    *- Jose Espinosa-Carrasco
+    * - |jespi|
 
 .. _home-page-outline:
 
