@@ -26,13 +26,9 @@ foo
    :widths: 50
    :header-rows: 1
 
-     - Björn Langer
      - Jose Espinosa-Carrasco
-     - Gabriel Costa
-   * - |luca|
-     - |toni|
-     - |jespi|
-     - |julia|
+
+   * - |jespi|
 
 .. _home-page-outline:
 
