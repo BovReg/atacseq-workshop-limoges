@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setup &mdash; BovReg workshop ATAC-seq data analaysis  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="About the course" href="about.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> BovReg workshop ATAC-seq data analaysis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">About the course</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#steps-to-launch-the-aws-cloud-9-environment">Steps to launch the AWS cloud 9 environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#training-materials-download">Training materials download</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BovReg workshop ATAC-seq data analaysis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Setup</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="setup">
+<span id="setup-page"></span><h1>Setup<a class="headerlink" href="#setup" title="Permalink to this heading"></a></h1>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
+<p>Nextflow can be used on any POSIX compatible system (Linux, OS X, etc).
+It requires Bash and <a class="reference external" href="https://www.oracle.com/java/technologies/downloads/">Java</a>
+11 (or later, up to 18) to be installed.</p>
+<p>Optional requirements:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.docker.com/">Docker</a> [Docker] engine 1.10.x (or later)</p></li>
+<li><p><a class="reference external" href="https://github.com/sylabs/singularity">Singularity</a> 2.5.x (or later, optional)</p></li>
+<li><p><a class="reference external" href="https://aws.amazon.com/cloud9/">AWS Cloud 9</a> environment properly configured (provided)</p></li>
+</ul>
+</section>
+<section id="steps-to-launch-the-aws-cloud-9-environment">
+<h2>Steps to launch the AWS cloud 9 environment<a class="headerlink" href="#steps-to-launch-the-aws-cloud-9-environment" title="Permalink to this heading"></a></h2>
+<p>For this tutorial, we will use the <a class="reference external" href="https://aws.amazon.com/en/cloud9/">AWS Cloud 9 virtual environment</a>.</p>
+<p>To launch the environment, you just need to sign in the AWS console with the
+<a class="reference external" href="https://www.crg.eu/en/cedric_notredame&quot;">CBCRG</a> account and specify
+your (first) name as the IAM user. Below we included the list with all the users name created:</p>
+</section>
+<section id="training-materials-download">
+<h2>Training materials download<a class="headerlink" href="#training-materials-download" title="Permalink to this heading"></a></h2>
+<p>Once you <a class="reference internal" href="#steps-to-launch-the-aws-cloud-9-environment"><span class="std std-ref">launched the environment</span></a>, download the training materials running the command below
+on the terminal window that you will find at the botton of the IDE:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg .
+</pre></div>
+</div>
+<p><a class="reference external" href="https://eu-west-1.console.aws.amazon.com/cloud9/home">https://eu-west-1.console.aws.amazon.com/cloud9/home</a></p>
+<p>s3 bucket atacseq-training-bovreg</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="about.html" class="btn btn-neutral float-left" title="About the course" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, CRG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
