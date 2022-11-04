@@ -71,11 +71,15 @@ updated in the framework of BovReg to analyse the ATAC-seq data produced by the 
 .. * Run a pipeline in diverse computational environments (local, HPC, cloud).
 .. * Share a pipeline.
 
-.. .. _home-page-prereq:
+.. _home-page-prereq:
 
-Prerequisite / technical requirements
-============
+Workshop prerequisites
+======================
 
+* UNIX-based environments (i.e. basic UNIX commands).
+* Being comfortable working with the CLI (command-line interface) in a Linux-based environment.
+* Familiar with scripting languages.
+* Basic knowledge of bioinformatics tools.
 
 Being comfortable working with the CLI (command-line interface) in a Linux-based environment.
 .. Knowledge of containers is not mandatory. The course materials is online in the dedicated GitHub page for self-learning.
@@ -86,7 +90,7 @@ Being comfortable working with the CLI (command-line interface) in a Linux-based
 
 .. Having a `GitHub account <https://github.com/join>`_ is recommended.
 
-.. .. _home-page-dates:
+.. _home-page-dates:
 
 Dates, location and agenda
 ==========================
@@ -95,12 +99,12 @@ Dates, location and agenda
 
 * Location: Faculty of Science and Technology - 123 Avenue Albert Thomas - Building M; Université de Limoges
 
-_home-page-program:
+.. _home-page-agenda:
 
 Suggested agenda
 =================
 
-_home-page-day1:
+.. _home-page-day1:
 
 Wednesday November 9
 ---------------------
@@ -109,7 +113,7 @@ Wednesday November 9
 * 10:30 - 10:45
 * 10:45 - 12:00
 
-_home-page-day1:
+.. _home-page-day1:
 
 Thursday November 10
 --------------------
