@@ -16,32 +16,25 @@ foo
 
 
 
-.. |bjorn| image:: images/jespinosa.jpg
+.. |bjorn| image:: images/blanger.jpg
   :alt: Alternative text
 
-.. |gabri| image:: images/jespinosa.jpg
+.. |gabri| image:: images/gcosta.jpg
   :alt: Alternative text
   
 .. |jespi| image:: images/jespinosa.jpg
   :alt: Alternative text
 
-.. |test| image:: images/jespinosa.jpg
-  :alt: Alternative text
-
-
-
 .. list-table:: Main instructors:
-   :widths: 50 50 50 50
+   :widths: 50 50 50
    :header-rows: 1
 
    * - Björn Langer
      - Gabriel Costa
      - Jose Espinosa-Carrasco
-     - Test
    * - |bjorn|
      - |gabri|
      - |jespi|
-     - |test|
 
 .. _home-page-outline:
 
