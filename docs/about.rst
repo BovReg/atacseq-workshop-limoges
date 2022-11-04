@@ -9,7 +9,7 @@ About the course
 
 
 This is the documentation for the tutorial that will take place on the framework of the 'BOVREG - ATAC-Seq Workshop' 
-course organized by the `BovReg project<https://www.bovreg.eu/>`_ in the Université de Limoges.
+course organized by the `BovReg project   <https://www.bovreg.eu/>`_ in the Université de Limoges.
 
 * `Course page <https://bovreg.github.io/atacseq-workshop-limoges>`_
 
