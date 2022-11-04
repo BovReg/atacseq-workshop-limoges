@@ -48,7 +48,12 @@ foo
 Outline
 ============
 
-bar
+This bioinformatics part of the workshop will train participants to use nf-core pipelines. nf-core is a community that 
+maintains a set of Nextflow high-standards pipelines that perform the most common bioinformatics analyses. In particular, 
+the practical will consist on a broad introduction on how to run nf-core pipelines with the help of the nf-core tools and 
+a more specific section dedicated to the analysis of ATAC-seq data using the nf-core/atacseq pipeline. This pipeline was 
+updated in the framework of BovReg to analyse the ATAC-seq data produced by the project.
+
 
 .. This Linux Containers and Nextflow course will train participants to build Nextflow pipelines and run them with `Singularity <https://sylabs.io/singularity/>`_ containers.
 
@@ -78,11 +83,11 @@ bar
 
 .. .. _home-page-prereq:
 
-.. Prerequisite / technical requirements
-.. ============
+Prerequisite / technical requirements
+============
 
 
-.. Being comfortable working with the CLI (command-line interface) in a Linux-based environment.
+Being comfortable working with the CLI (command-line interface) in a Linux-based environment.
 .. Knowledge of containers is not mandatory. The course materials is online in the dedicated GitHub page for self-learning.
 
 .. Practitioners will need to connect during the course to a remote server via the "ssh" protocotol. You can learn about it `here <https://www.hostinger.com/tutorials/ssh-tutorial-how-does-ssh-work>`_
@@ -93,15 +98,15 @@ bar
 
 .. .. _home-page-dates:
 
-.. Dates, time, location
-.. ============
+Dates, time, location
+============
 
-.. * Dates: Monday May 30 - Friday June 3, 2022. Tuesday June 7, 2022
+* Dates: Wednesday November 9 - Thursday November 10, 2022.
 
-.. * 9:30 - 13:30 **CET**
+* 9:30 - 13:30 **CET**
 
 
-.. * Location: virtual, via Zoom.
+* Location: Faculty of Science and Technology - 123 Avenue Albert Thomas - Building M; Université de Limoges
 
 .. .. _home-page-program:
 
