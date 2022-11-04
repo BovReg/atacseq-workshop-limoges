@@ -5,16 +5,13 @@ About the course
 **************
 
 .. autosummary::
-   :toctree: generated
+  :toctree: generated
 
 
-.. This slow-paced hands-on course is designed for absolute beginners who want to start using  `Nextflow DSL2 <https://www.nextflow.io>`_ to achieve reproducibility of the data analysis.
-
-foo
+This is the documentation for the tutorial that will take place on the framework of the 'BOVREG - ATAC-Seq Workshop' 
+course organized by the `BovReg project<https://www.bovreg.eu/>`_ in the Université de Limoges.
 
 * `Course page <https://bovreg.github.io/atacseq-workshop-limoges>`_
-
-
 
 .. |bjorn| image:: images/blanger.jpg
   :alt: Alternative text
