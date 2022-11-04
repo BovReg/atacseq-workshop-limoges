@@ -88,75 +88,32 @@ Being comfortable working with the CLI (command-line interface) in a Linux-based
 
 .. .. _home-page-dates:
 
-Dates, time, location
-============
+Dates, location and agenda
+==========================
 
 * Dates: Wednesday November 9 - Thursday November 10, 2022.
 
-* 9:30 - 13:30 **CET**
-
-
 * Location: Faculty of Science and Technology - 123 Avenue Albert Thomas - Building M; Université de Limoges
 
-.. .. _home-page-program:
+_home-page-program:
 
+Suggested agenda
+=================
 
-.. Suggested program
-.. ============
+_home-page-day1:
 
+Wednesday November 9
+---------------------
 
-.. .. _home-page-day1:
+* 09:00 - 10:30
+* 10:30 - 10:45
+* 10:45 - 12:00
 
-.. Day 1: Introduction to Linux containers and Docker (May 30)
-.. -------------
+_home-page-day1:
 
-.. * 09:30-11:00 Introduction to containers and Docker
-.. * 11:00-11:30 Break
-.. * 11:30-13:30 Docker
+Thursday November 10
+--------------------
 
-.. .. _home-page-day2:
-
-.. Day 2: Docker and Singularity (May 31)
-.. -------------
-
-.. * 09:30-11:00 More advanced Docker
-.. * 11:00-11:30 Coffee break
-.. * 11:30-13:30 Singularity
-
-.. .. _home-page-day3:
-
-.. Day 3: Understand and run a basic Nexflow pipeline (June 1)
-.. -------------
-
-.. * 09:30-11:00 Introduction to Nextflow
-.. * 11:00-11:30 Coffee break
-.. * 11:30-13:30 Making simple scripts
-
-.. .. _home-page-day4:
-
-.. Day 4: Write, modify and run a complex pipeline (June 2)
-.. -------------
-
-.. * 09:30-11:00 Decoupling params, resources and main script
-.. * 11:00-11:30 Coffee break
-.. * 11:30-13:30 Using public pipelines
-
-.. .. _home-page-day5:
-
-.. Day 5: Run a Nextflow pipeline in different environments, share and report (June 3)
-.. -------------
-
-.. * 09:30-11:00 Profiles and cloud
-.. * 11:00-11:30 Coffee break
-.. * 11:30-13:30 Modules and Tower
-
-.. .. _home-page-day6:
-
-.. Day 6: nf-core (June 7)
-.. -------------
-
-.. * 09:30-10:30 Introduction to nf-core (TBC)
-.. * 10:30-11:00 nf-core for users I (TBC)
-.. * 11:00-11:30 Coffee break (TBC)
-.. * 11:30-12:30 nf-core for users II (TBC)
-.. * 12:30-13:30 nf-core for developers (TBC)
+* 09:00 - 10:30
+* 10:30 - 10:45
+* 10:45 - 12:00
