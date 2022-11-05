@@ -26,6 +26,16 @@ To launch the environment, you just need to sign in the AWS console with the
 `CBCRG <https://www.crg.eu/en/cedric_notredame">`_ account and specify
 your (first) name as the IAM user. Below we included the list with all the users name created:
 
+1. Open this address on your browser:  https://eu-west-1.console.aws.amazon.com/cloud9/home
+
+2. Once you are in the AWS login page, select **IAM USER** and please fill the credentials below:
+
+..    Account ID: **885800555707**
+
+..    IAM user name: (your username as listed above)
+
+..    Password: provided by the organization
+
 Training materials download
 ===========================
 
@@ -34,8 +44,9 @@ on the terminal window that you will find at the botton of the IDE:
 
 .. code-block:: console
     
-        $ aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg .
+        $ aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/setup ./setup/
 
+        $ source setup/all.sh
 
 
 
