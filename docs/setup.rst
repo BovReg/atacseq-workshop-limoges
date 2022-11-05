@@ -48,14 +48,52 @@ on the terminal window that you will find at the botton of the IDE:
 
         $ source setup/all.sh
 
+        $ aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/data ./data/
+
+        $ aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/config ./config/
+
+        .. $ aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/data.tar.gz .
+
+        .. $ tar -xvf data.tar.gz
+
+Nextflow Installation
+=====================
+
+Install the latest version of Nextflow copy & pasting the following snippet in a terminal window:
+
+.. code-block:: console
+
+    curl https://get.nextflow.io | bash
+    mv nextflow ~/bin
+
+Check the correct installation running the following command:
+
+.. code-block:: console
+    
+    nextflow info
+
+nf-core Installation
+=====================
+
+Install nf-core, a python package with helper tools provided by the nf-core community, using the command below:
+
+.. code-block:: console
+
+    pip install nf-core
+
+
+.. -[nf-core/atacseq] Pipeline completed successfully-
+.. Completed at: 05-Nov-2022 16:14:25
+.. Duration    : 27m 12s
+.. CPU hours   : 0.6
+.. Succeeded   : 176
+
+.. ANAIDR CONFIGURATION THE LA PIPELINE
 
 
 
 
+.. https://eu-west-1.console.aws.amazon.com/cloud9/home
 
-
-
-https://eu-west-1.console.aws.amazon.com/cloud9/home
-
-s3 bucket atacseq-training-bovreg
+.. s3 bucket atacseq-training-bovreg
 
