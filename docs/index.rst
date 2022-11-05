@@ -14,3 +14,5 @@ Contents:
 
    about
    setup
+   nf-core
+   ATAC-seq pipeline
