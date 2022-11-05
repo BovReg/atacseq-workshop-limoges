@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nf-core &mdash; BovReg workshop ATAC-seq data analaysis  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Setup" href="setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> BovReg workshop ATAC-seq data analaysis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">About the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nf-core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction-to-nf-core">Introduction to nf-core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#community">Community</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pipelines">Pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#guidelines">Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#helper-tools">Helper tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paper">Paper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#nf-core-for-users">nf-core for users</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#listing-pipelines">Listing pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filtering-available-nf-core-pipelines">Filtering available nf-core pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pulling-pipelines">Pulling pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#launching-pipelines">Launching pipelines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nf-core-configs-and-profiles">nf-core configs and profiles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nf-core-configs">nf-core configs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nf-core-core-profiles">nf-core core profiles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#institutional-profiles">Institutional profiles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#custom-config">Custom config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#running-pipelines-with-test-data">Running pipelines with test data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#downloading-pipelines">Downloading pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pipeline-output">Pipeline output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#nf-core-for-developers">nf-core for developers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-pipelines">Creating pipelines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#linting-pipelines">Linting pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nf-core-schema">nf-core schema</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#nf-core-modules">nf-core modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#listing-modules">Listing modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#showing-information-about-a-module">Showing information about a module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-modules-in-a-pipeline">Installing modules in a pipeline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#removing-modules-from-a-pipeline">Removing modules from a pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-modules">Creating modules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#other-commands-for-developing-nf-core-modules">Other commands for developing nf-core modules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lint-modules">Lint modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-unit-test">Create unit test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-module-test-using-pytest">Run module test using pytest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bump-bioconda-and-containers-versions-of-a-module-tool">Bump bioconda and containers versions of a module tool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-the-name-of-a-mulled-container">Generate the name of a mulled container</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Exercise</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#interesting-links">Interesting links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BovReg workshop ATAC-seq data analaysis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">nf-core</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <a class="reference internal image-reference" href="_images/nf-core-logo.png" id="nf-core-page"><img alt="_images/nf-core-logo.png" id="nf-core-page" src="_images/nf-core-logo.png" style="width: 400px;" /></a>
+<section id="nf-core">
+<h1>nf-core<a class="headerlink" href="#nf-core" title="Permalink to this heading"></a></h1>
+<section id="introduction-to-nf-core">
+<h2>Introduction to nf-core<a class="headerlink" href="#introduction-to-nf-core" title="Permalink to this heading"></a></h2>
+<p>nf-core is a community effort to collect a curated set of analysis pipelines built using Nextflow. As such nf-core is:</p>
+<ul class="simple">
+<li><p>A community of users and developers.</p></li>
+<li><p>A curated set of analysis pipelines build using Nextflow.</p></li>
+<li><p>A set of guidelines (standard).</p></li>
+<li><p>A set of helper tools.</p></li>
+</ul>
+<section id="community">
+<h3>Community<a class="headerlink" href="#community" title="Permalink to this heading"></a></h3>
+<p>The nf-core community is a collaborative effort that has been growing since its creation in early 2018, as you can check on
+the <a class="reference external" href="https://nf-co.re/stats/">nf-core stats site</a>.</p>
+<a class="reference internal image-reference" href="_images/nfcore_community.png"><img alt="_images/nfcore_community.png" src="_images/nfcore_community.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="_images/nfcore_community_map.png"><img alt="_images/nfcore_community_map.png" src="_images/nfcore_community_map.png" style="width: 600px;" /></a>
+</section>
+<section id="pipelines">
+<h3>Pipelines<a class="headerlink" href="#pipelines" title="Permalink to this heading"></a></h3>
+<p>Currently, there are 72 pipelines that are available as part of nf-core (41 released, 25 under development and 6 archived).
+You can browse all of them on this <a class="reference external" href="https://nf-co.re/pipelines">link</a>.</p>
+</section>
+<section id="guidelines">
+<h3>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this heading"></a></h3>
+<p>All nf-core pipelines must meet a series of requirements or guidelines. These guidelines ensure that all nf-core pipelines
+follow the same standard and stick to current computational standards to achieve reproducibility, interoperability and
+portability. The guidelines are make available on <a class="reference external" href="https://nf-co.re/docs/contributing/guidelines">this</a> link.</p>
+</section>
+<section id="helper-tools">
+<h3>Helper tools<a class="headerlink" href="#helper-tools" title="Permalink to this heading"></a></h3>
+<p>To ease the use and development of nf-core pipelines, the community makes available a set of helper tools that we will
+introduce on this tutorial.</p>
+</section>
+<section id="paper">
+<h3>Paper<a class="headerlink" href="#paper" title="Permalink to this heading"></a></h3>
+<p>The main nf-core paper was published in 2020 in <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/32055031/">Nature Biotechnology</a> and
+describes the community and the nf-core framework.</p>
+<a class="reference internal image-reference" href="_images/nf-core-paper.png"><img alt="_images/nf-core-paper.png" src="_images/nf-core-paper.png" style="width: 600px;" /></a>
+</section>
+<section id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h3>
+<p>You can use Conda to install nf-core tools. In the command below we create a new named environment that includes nf-core
+and then, we activate it.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda create --name nf-core nf-core=2. -c bioconda -c conda-forge -y</span>
+<span class="go">conda activate nf-core</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Find alternative ways of installation on the nf-core <a class="reference external" href="https://nf-co.re/tools/#installation">documentation</a></p>
+</div>
+<p>We can now check the nf-core available commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">    $ </span>nf-core -h
+<span class="go">                                      ,--./,-.</span>
+<span class="go">      ___     __   __   __   ___     /,-._.--~\</span>
+<span class="go">|\ | |__  __ /  ` /  \ |__) |__         }  {</span>
+<span class="go">| \| |       \__, \__/ |  \ |___     \`-._,-`-,</span>
+<span class="go">                                      `._,._,&#39;</span>
+
+<span class="go">nf-core/tools version 2.4.1 - https://nf-co.re</span>
+
+<span class="go">    Usage: nf-core [OPTIONS] COMMAND [ARGS]...</span>
+
+<span class="go">    nf-core/tools provides a set of helper tools for use with nf-core Nextflow pipelines.</span>
+<span class="go">    It is designed for both end-users running pipelines and also developers creating new pipelines.</span>
+
+<span class="go">    ╭─ Options ────────────────────────────────────────────────────────────────────────────────────────╮</span>
+<span class="go">    │  --version                   Show the version and exit.                                          │</span>
+<span class="go">    │  --verbose   -v              Print verbose output to the console.                                │</span>
+<span class="go">    │  --log-file  -l  &lt;filename&gt;  Save a verbose log to a file.                                       │</span>
+<span class="go">    │  --help      -h              Show this message and exit.                                         │</span>
+<span class="go">    ╰──────────────────────────────────────────────────────────────────────────────────────────────────╯</span>
+<span class="go">    ╭─ Commands for users ─────────────────────────────────────────────────────────────────────────────╮</span>
+<span class="go">    │  list      List available nf-core pipelines with local info.                                     │</span>
+<span class="go">    │  launch    Launch a pipeline using a web GUI or command line prompts.                            │</span>
+<span class="go">    │  download  Download a pipeline, nf-core/configs and pipeline singularity images.                 │</span>
+<span class="go">    │  licences  List software licences for a given workflow.                                          │</span>
+<span class="go">    ╰──────────────────────────────────────────────────────────────────────────────────────────────────╯</span>
+<span class="go">    ╭─ Commands for developers ────────────────────────────────────────────────────────────────────────╮</span>
+<span class="go">    │  create        Create a new pipeline using the nf-core template.                                 │</span>
+<span class="go">    │  lint          Check pipeline code against nf-core guidelines.                                   │</span>
+<span class="go">    │  modules       Commands to manage Nextflow DSL2 modules (tool wrappers).                         │</span>
+<span class="go">    │  schema        Suite of tools for developers to manage pipeline schema.                          │</span>
+<span class="go">    │  bump-version  Update nf-core pipeline version number.                                           │</span>
+<span class="go">    │  sync          Sync a pipeline TEMPLATE branch with the nf-core template.                        │</span>
+<span class="go">    ╰──────────────────────────────────────────────────────────────────────────────────────────────────╯</span>
+</pre></div>
+</div>
+<p>As shown in the screenshot, nf-core tools provides with some commands meant for users and with some commands meant
+for developers. We will start first discussing how nf-core can be used from a user point of view.</p>
+</section>
+</section>
+<section id="nf-core-for-users">
+<h2>nf-core for users<a class="headerlink" href="#nf-core-for-users" title="Permalink to this heading"></a></h2>
+<section id="listing-pipelines">
+<h3>Listing pipelines<a class="headerlink" href="#listing-pipelines" title="Permalink to this heading"></a></h3>
+<p>To show all the nf-core available pipelines, we can use the nf-core list command. This command also
+provides some other information as the last version of each of the nf-core pipelines, its publication and
+and when you last pulled the pipeline to your local system.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">    $ </span>nf-core list
+
+<span class="go">                                      ,--./,-.</span>
+<span class="go">      ___     __   __   __   ___     /,-._.--~\</span>
+<span class="go">|\ | |__  __ /  ` /  \ |__) |__         }  {</span>
+<span class="go">| \| |       \__, \__/ |  \ |___     \`-._,-`-,</span>
+<span class="go">                                      `._,._,&#39;</span>
+
+<span class="go">nf-core/tools version 2.4.1 - https://nf-co.re</span>
+
+
+<span class="go">    ┏━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━┓</span>
+<span class="go">    ┃ Pipeline Name          ┃ Stars ┃ Latest Release ┃      Released ┃  Last Pulled ┃ Have latest release? ┃</span>
+<span class="go">    ┡━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━┩</span>
+<span class="go">    │ airrflow               │    19 │          2.2.0 │    2 days ago │            - │ -                    │</span>
+<span class="go">    │ circdna                │     4 │          1.0.0 │    5 days ago │            - │ -                    │</span>
+<span class="go">    │ smrnaseq               │    39 │          2.0.0 │    5 days ago │ 7 months ago │ No (v1.1.0)          │</span>
+<span class="go">    │ rnaseq                 │   465 │          3.8.1 │   1 weeks ago │   6 days ago │ Yes (v3.8.1)         │</span>
+<span class="go">    │ ampliseq               │    88 │          2.3.2 │   1 weeks ago │            - │ -                    │</span>
+<span class="go">    │ mnaseseq               │     7 │          1.0.0 │   2 weeks ago │            - │ -                    │</span>
+<span class="go">    │ rnafusion              │    71 │          2.0.0 │   3 weeks ago │            - │ -                    │</span>
+<span class="go">    │ fetchngs               │    58 │            1.6 │   3 weeks ago │  2 weeks ago │ No (v1.5)            │</span>
+<span class="go">    │ atacseq                │   107 │          1.2.2 │   3 weeks ago │  2 weeks ago │ Yes (v1.2.2)         │</span>
+<span class="go">    │ mhcquant               │    19 │          2.3.1 │   4 weeks ago │            - │ -                    │</span>
+<span class="go">    │ hicar                  │     2 │          1.0.0 │  1 months ago │            - │ -                    │</span>
+<span class="go">    │ quantms                │     1 │            1.0 │  1 months ago │            - │ -                    │</span>
+<span class="go">    │ eager                  │    66 │          2.4.4 │  2 months ago │            - │ -                    │</span>
+<span class="go">    │ viralrecon             │    70 │          2.4.1 │  3 months ago │ 7 months ago │ No (v2.2)            │</span>
+<span class="go">    │ cutandrun              │    27 │            1.1 │  5 months ago │            - │ -                    │</span>
+<span class="go">    │ epitopeprediction      │    18 │          2.0.0 │  6 months ago │            - │ -                    │</span>
+<span class="go">    │ nanoseq                │    76 │          2.0.1 │  6 months ago │            - │ -                    │</span>
+<span class="go">    │ mag                    │    88 │          2.1.1 │  6 months ago │            - │ -                    │</span>
+<span class="go">    │ bacass                 │    35 │          2.0.0 │  9 months ago │            - │ -                    │</span>
+<span class="go">    │ bactmap                │    29 │          1.0.0 │ 12 months ago │            - │ -                    │</span>
+<span class="go">    │ sarek                  │   168 │          2.7.1 │ 12 months ago │ 2 months ago │ Yes (v2.7.1)         │</span>
+<span class="go">    [..truncated..]</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The pipelines can be sorted by latest release (<code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">release</span></code>, default), by the last time you pulled a local copy
+(<code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">pulled</span></code>), alphabetically (<code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">name</span></code>) or by the number of GitHub stars (<code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">stars</span></code>).</p>
+</div>
+</section>
+<section id="filtering-available-nf-core-pipelines">
+<h3>Filtering available nf-core pipelines<a class="headerlink" href="#filtering-available-nf-core-pipelines" title="Permalink to this heading"></a></h3>
+<p>It is also possible to use keywords after the <code class="docutils literal notranslate"><span class="pre">list</span></code> command so that the list of pipelines is shortened to those
+matching the keywords or including them in the description. We can use the command below to filter on the <strong>rna</strong>
+and <strong>rna-seq</strong> keywords:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">    $ </span>nf-core list rna rna-seq
+
+<span class="go">                                      ,--./,-.</span>
+<span class="go">      ___     __   __   __   ___     /,-._.--~\</span>
+<span class="go">|\ | |__  __ /  ` /  \ |__) |__         }  {</span>
+<span class="go">| \| |       \__, \__/ |  \ |___     \`-._,-`-,</span>
+<span class="go">                                      `._,._,&#39;</span>
+
+<span class="go">nf-core/tools version 2.4.1 - https://nf-co.re</span>
+
+<span class="go">    ┏━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━┓</span>
+<span class="go">    ┃ Pipeline Name          ┃ Stars ┃ Latest Release ┃    Released ┃  Last Pulled ┃ Have latest release? ┃</span>
+<span class="go">    ┡━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━┩</span>
+<span class="go">    │ smrnaseq               │    39 │          2.0.0 │  5 days ago │ 7 months ago │ No (v1.1.0)          │</span>
+<span class="go">    │ rnaseq                 │   465 │          3.8.1 │ 1 weeks ago │   6 days ago │ Yes (v3.8.1)         │</span>
+<span class="go">    │ rnafusion              │    71 │          2.0.0 │ 3 weeks ago │            - │ -                    │</span>
+<span class="go">    │ dualrnaseq             │     7 │          1.0.0 │ 1 years ago │            - │ -                    │</span>
+<span class="go">    │ circrna                │    18 │            dev │           - │            - │ -                    │</span>
+<span class="go">    │ lncpipe                │    23 │            dev │           - │            - │ -                    │</span>
+<span class="go">    │ scflow                 │    12 │            dev │           - │            - │ -                    │</span>
+<span class="go">    │ spatialtranscriptomics │     3 │            dev │           - │            - │ -                    │</span>
+<span class="go">    └────────────────────────┴───────┴────────────────┴─────────────┴──────────────┴──────────────────────┘</span>
+</pre></div>
+</div>
+</section>
+<section id="pulling-pipelines">
+<h3>Pulling pipelines<a class="headerlink" href="#pulling-pipelines" title="Permalink to this heading"></a></h3>
+<p>Once we have identified the nf-core pipeline we want to use we can pull it using the Nextflow <a class="reference external" href="https://www.nextflow.io/docs/latest/sharing.html#pulling-or-updating-a-project">built-in functionality</a>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nextflow pull nf-core/&lt;PIPELINE&gt;</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Nextflow will also automatically pull a project if you use <code class="docutils literal notranslate"><span class="pre">nextflow</span> <span class="pre">run</span> <span class="pre">nf-core/&lt;PIPELINE&gt;</span></code></p>
+</div>
+</section>
+<section id="launching-pipelines">
+<h3>Launching pipelines<a class="headerlink" href="#launching-pipelines" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">launch</span></code> command enables to launch nf-core, and also Nextflow, pipelines via a web-based graphical interface or an
+interactive command-line wizard tool. This command becomes handy for pipelines with a considerable number of parameters
+since it displays the documentation alongside each of the parameters and validate your inputs.</p>
+<p>We can now launch an nf-core pipeline:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nf-core launch</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The pipelines can be sorted by latest release (<code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">release</span></code>, default), by the last time you pulled a local copy
+(<code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">pulled</span></code>), alphabetically (<code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">name</span></code>) or by the number of GitHub stars (<code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">stars</span></code>).</p>
+</div>
+<p>To render the description of the parameters, its grouping and defaults, the tool uses the <code class="docutils literal notranslate"><span class="pre">nextflow_schema.json</span></code>. This
+JSON file is bundled with the pipeline and includes all the information mentioned above, see an example <a class="reference external" href="https://github.com/nf-core/rnaseq/blob/03d17893618c44075e4c91d83dc0e72b58f6f0f7/nextflow_schema.json">here</a>.</p>
+<p>The chosen not default parameters are dumped into a JSON file called <code class="docutils literal notranslate"><span class="pre">nf-params.json</span></code>. This file can be provided to new
+executions using the <code class="docutils literal notranslate"><span class="pre">-params-file</span></code> flag. See below an example:</p>
+<p>It is a good practice in terms of reproducibility to explicitly indicate the version (revision) of the pipeline that
+you want to use, this can be indicated using the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag e.g. <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">launch</span> <span class="pre">rnaseq</span> <span class="pre">-r</span> <span class="pre">3.8.1</span></code>.</p>
+<section id="exercise">
+<h4>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading"></a></h4>
+<p>Pull version <code class="docutils literal notranslate"><span class="pre">3.8.1</span></code> of the nf-core/rnaseq pipeline, run it using the <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">launch</span></code> command and produce the <code class="docutils literal notranslate"><span class="pre">nf-params.json</span></code>.</p>
+<details>
+<summary><a>Solution</a></summary><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nextflow pull nf-core/rnaseq -r 3.8.1</span>
+<span class="go">nf-core launch rnaseq -r 3.8.1</span>
+</pre></div>
+</div>
+</details><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="nf-core-configs-and-profiles">
+<h3>nf-core configs and profiles<a class="headerlink" href="#nf-core-configs-and-profiles" title="Permalink to this heading"></a></h3>
+<section id="nf-core-configs">
+<h4>nf-core configs<a class="headerlink" href="#nf-core-configs" title="Permalink to this heading"></a></h4>
+<p>We have already introduced Nextflow configuration files and profiles during the course. Config files are used by
+nf-core pipelines to specify the computational requirements of the pipeline, define custom parameters and set which
+software management system to be used (Docker, Singularity or Conda). As an example take a look to the <a class="reference external" href="https://github.com/nf-core/smrnaseq/blob/master/conf/base.config">base.config</a>
+that is used to set sensible defaults for the computational resources needed by the pipeline.</p>
+</section>
+<section id="nf-core-core-profiles">
+<h4>nf-core core profiles<a class="headerlink" href="#nf-core-core-profiles" title="Permalink to this heading"></a></h4>
+<p>nf-core pipelines use profiles to bundle a set of configuration attributes. By doing so, we can activate these
+attributes by using the <code class="docutils literal notranslate"><span class="pre">-profile</span></code> Nextflow command line option.  All nf-core pipelines come along with a set of common
+&quot;Core profiles&quot; that include the <code class="docutils literal notranslate"><span class="pre">conda</span></code>, <code class="docutils literal notranslate"><span class="pre">docker</span></code> and <code class="docutils literal notranslate"><span class="pre">singularity</span></code> that define which software manager to use and the
+<code class="docutils literal notranslate"><span class="pre">test</span></code> profile that specifies a minimal test dataset to check that the pipelines works properly.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each configuration file can include one or several profiles</p>
+</div>
+</section>
+<section id="institutional-profiles">
+<h4>Institutional profiles<a class="headerlink" href="#institutional-profiles" title="Permalink to this heading"></a></h4>
+<p>Institutional profiles are profiles where you can specify the configuration attributes for your institution system. They are
+hosted in <a class="reference external" href="https://github.com/nf-core/configs">https://github.com/nf-core/configs</a> and all pipelines pull this repository when a pipeline is run. The idea is that
+these profiles set the custom config attributes to run nf-core pipelines in your institution (scheduler, container technology,
+resources, etc.). This way all the users in a cluster can make use of the profile just setting the profile of your institution
+(<code class="docutils literal notranslate"><span class="pre">-profile</span> <span class="pre">institution</span></code>).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can use more than profile at a time by separating them by a comma without space, e.g. <code class="docutils literal notranslate"><span class="pre">-profile</span> <span class="pre">test,docker</span></code></p>
+</div>
+</section>
+<section id="custom-config">
+<h4>Custom config<a class="headerlink" href="#custom-config" title="Permalink to this heading"></a></h4>
+<p>If you need to provide any custom parameter or setting when running a nf-core pipeline, you can do it by creating a local custom
+config file and add it to your command with the <code class="docutils literal notranslate"><span class="pre">-c</span></code> flag.</p>
+<a class="reference internal image-reference" href="_images/nfcore_config.png"><img alt="_images/nfcore_config.png" src="_images/nfcore_config.png" style="width: 600px;" /></a>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>Image from <a class="reference external" href="https://carpentries-incubator.github.io/workflows-nextflow/">https://carpentries-incubator.github.io/workflows-nextflow</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Profiles will be prioritized from left to right in case conflicting settings are found.</p>
+</div>
+</section>
+<section id="id3">
+<h4>Exercise<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Create a custom config that sets <code class="docutils literal notranslate"><span class="pre">params.email</span></code> to your email address and try to run the pipeline.</p></li>
+</ul>
+<details>
+<summary><a>Solution</a></summary><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">echo &#39;params.email = &quot;youremail@address.com&quot;&#39; &gt; mycustom.config</span>
+<span class="go">nextflow run nf-core/rnaseq -r 3.8.1 -profile test,docker -c mycustom.config --outdir results</span>
+</pre></div>
+</div>
+</details><ul class="simple">
+<li><p>Create a custom config that sets the process cpus to 2 and the memory to 8 Gb.</p></li>
+</ul>
+<details>
+<summary><a>Solution</a></summary></details><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="running-pipelines-with-test-data">
+<h3>Running pipelines with test data<a class="headerlink" href="#running-pipelines-with-test-data" title="Permalink to this heading"></a></h3>
+<p>All nf-core pipelines include a special configuration named <code class="docutils literal notranslate"><span class="pre">test</span></code>. This configuration defines all the files and parameters to test
+all pipeline functionality with a minimal dataset. Thus, although the functionality of the pipeline is maintained often the results
+are not meaningful. As an example, find on the snippet below the test configuration of the <a class="reference external" href="https://github.com/nf-core/rnaseq/">nf-core/rnaseq</a>.
+pipeline.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can find the current version of the above config above <a class="reference external" href="https://github.com/nf-core/rnaseq/blob/master/conf/test.config">here</a></p>
+</div>
+</section>
+<section id="downloading-pipelines">
+<h3>Downloading pipelines<a class="headerlink" href="#downloading-pipelines" title="Permalink to this heading"></a></h3>
+<p>If your HPC system or server does not have an internet connection you can still run nf-core pipelines by fetching the
+pipeline files first and then, manually transferring them to your system.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">download</span></code> option simplifies this process and ensures the correct versioning of all the code and containers
+needed to run the pipeline. By default, the command will download the pipeline code and the institutional <a class="reference external" href="https://github.com/nf-core/configs">nf-core/configs</a>
+files. Again, the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag allows to fetch a given revision of the pipeline.</p>
+<p>Finally, you can also download any singularity image files required by the pipeline, if you specify the <code class="docutils literal notranslate"><span class="pre">--singularity</span></code> flag.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you don't provide any option to <code class="docutils literal notranslate"><span class="pre">`nf-core</span> <span class="pre">download</span></code> an interactive prompt will ask you for the required options.</p>
+</div>
+<p>We can now try to download the rnaseq pipeline using the command below:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nf-core download rnaseq</span>
+</pre></div>
+</div>
+<p>Now we can inspect the structure of the downloaded directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tree -L <span class="m">2</span> nf-core-rnaseq-3.8.1/
+
+<span class="go">nf-core-rnaseq-3.8.1/</span>
+<span class="go">├── configs</span>
+<span class="go">│   ├── ..truncated..</span>
+<span class="go">│   ├── nextflow.config</span>
+<span class="go">│   ├── nfcore_custom.config</span>
+<span class="go">│   └── pipeline</span>
+<span class="go">├── singularity-images</span>
+<span class="go">│   ├── depot.galaxyproject.org-singularity-bbmap-38.93--he522d1c_0.img</span>
+<span class="go">│   ├── ..truncated..</span>
+<span class="go">│   └── depot.galaxyproject.org-singularity-umi_tools-1.1.2--py38h4a8c8d9_0.img</span>
+<span class="go">└── workflow</span>
+<span class="go">        ├── CHANGELOG.md</span>
+<span class="go">        ├── ..truncated..</span>
+<span class="go">        ├── main.nf</span>
+<span class="go">        ├── modules</span>
+<span class="go">        └── workflows</span>
+</pre></div>
+</div>
+</section>
+<section id="pipeline-output">
+<h3>Pipeline output<a class="headerlink" href="#pipeline-output" title="Permalink to this heading"></a></h3>
+<p>nf-core pipelines produce a <a class="reference external" href="https://multiqc.info/">MultiQC</a> report which summarises results at the end of the execution
+along with software versions of the different tools used, nf-core pipeline version and Nextflow version itself.</p>
+<p>Each pipeline provides an example of a MultiQC report from a real execution in the nf-core website. For instance you can find
+the report corresponding to the current version of nf-core/rnaseq <a class="reference external" href="https://nf-co.re/rnaseq/results#rnaseq">here</a>.</p>
+</section>
+</section>
+<section id="nf-core-for-developers">
+<h2>nf-core for developers<a class="headerlink" href="#nf-core-for-developers" title="Permalink to this heading"></a></h2>
+<p>nf-core tools provide with a bunch of helper commands targeted to help developers implement pipelines following nf-core guidelines.
+You can use them to contribute to the nf-core repository or use them to implement your own pipelines following nf-core standards.</p>
+<section id="creating-pipelines">
+<h3>Creating pipelines<a class="headerlink" href="#creating-pipelines" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">create</span></code> command generates a pipeline based on the nf-core template. During the process you will need to provide some
+information as the pipeline name, description and author name either using the flags or answering the questions in the interactive prompt.
+With this information, the pipeline will be initialized following the nf-core standards.</p>
+<p>Besides creating the files, the command initializes the folder containing the new pipeline as a git repository and makes and initial
+commit. This first commit is identical to the nf-core template and it is important since it enables to keep your pipeline in sync with
+the nf-core template when it is updated (new tool releases).</p>
+<section id="id4">
+<h4>Exercise<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h4>
+<p>Try to create your own pipeline using <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">create</span></code></p>
+<details>
+<summary><a>Solution</a></summary><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nf-core create -n &quot;toy&quot; -d &quot;My awesome nf-core pipeline&quot; -a &quot;Your name&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As shown in the message returned by the <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">create</span></code> if you plan to contribute your pipeline to nf-core, it is
+highly advisable to drop a message on the nf-core before starting to write any code, read more <a class="reference external" href="https://nf-co.re/developers/adding_pipelines#join-the-community">here</a></p>
+</div>
+</details><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="linting-pipelines">
+<h3>Linting pipelines<a class="headerlink" href="#linting-pipelines" title="Permalink to this heading"></a></h3>
+<p>To make sticking to nf-core guidelines easier, nf-core includes the <code class="docutils literal notranslate"><span class="pre">lint</span></code> command. This command checks that the pipeline
+is following some of the nf-core standards. Interestingly, the command is the same that is used in the automated continuous
+integration tests.</p>
+<p>Let's try to run this command on the pipeline we have just created.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd nf-core-&lt;your_pipeline_name&gt;</span>
+<span class="go">nf-core lint</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can use <kbd class="kbd docutils literal notranslate">ctrl</kbd> + <kbd class="kbd docutils literal notranslate">click</kbd> to navigate the documentation of each of the lint results. Otherwise,
+the complete list of the lint tests can be found <a class="reference external" href="https://nf-co.re/tools-docs/lint_tests/index.html">here</a>.</p>
+</div>
+<p>To run only a specific nf-core lint test you can use the <code class="docutils literal notranslate"><span class="pre">-k</span></code> / <code class="docutils literal notranslate"><span class="pre">--key</span></code> option, this enables to run for example
+only a certain test that has failed, e.g. <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">lint</span> <span class="pre">-k</span> <span class="pre">files_exist</span> <span class="pre">-k</span> <span class="pre">files_unchanged</span></code>.</p>
+</section>
+<section id="nf-core-schema">
+<h3>nf-core schema<a class="headerlink" href="#nf-core-schema" title="Permalink to this heading"></a></h3>
+<p>As we discussed before, nf-core pipelines include a <code class="docutils literal notranslate"><span class="pre">nextflow_schema.json</span></code> that it is used to describe the parameters
+of the pipelines and validate them when provided as input. Since the creation of this file could be very error prompt,
+nf-core tools provide with a command to create <code class="docutils literal notranslate"><span class="pre">build</span></code>, <code class="docutils literal notranslate"><span class="pre">validate</span></code> and <code class="docutils literal notranslate"><span class="pre">lint</span></code> the nextflow_schema.json.</p>
+<p>We will see an example of how to use this command on the final exercise.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can find more documentation about the <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">schema</span></code> on the <a class="reference external" href="https://nf-co.re/tools/#pipeline-schema">nf-core website</a>.</p>
+</div>
+</section>
+</section>
+<section id="nf-core-modules">
+<h2>nf-core modules<a class="headerlink" href="#nf-core-modules" title="Permalink to this heading"></a></h2>
+<p>Since the introduction of <a class="reference external" href="https://www.nextflow.io/blog/2020/dsl2-is-here.html">Nextflow DSL2</a>, nf-core pipelines have,
+and still are, been ported to DSL2 syntax. One of the paramount features of the DSL2 syntax is the possibility of creating
+modules and sub-workflows, as we have already discussed during this course. For this reason, the nf-core community has created
+a centralised repository to host modules and sub-workflows (the latter is still WIP). This enables multiple pipelines to use
+the same process defined as a module improving the developing speed and the robustness of pipelines by using tested modules.</p>
+<div class="topic">
+<p class="topic-title">nf-core DSL2 concepts</p>
+<p><strong>MODULE</strong>: A process that can be used within different pipelines and is as a atomic as possible i.e, cannot be split into
+another module.
+e.g. a module file containing the process definition for a single tool such as FastQC</p>
+<p><strong>SUB-WORKFLOW</strong>: A chain of multiple modules that offer a higher-level functionality within the context of a pipeline.
+e.g. a sub-workflow to sort, index and run some basic stats on a BAM file.</p>
+<p><strong>WORKFLOW</strong>: An end-to-end pipeline created by a combination of Nextflow DSL2 individual modules and sub-workflows.
+e.g. from one or more inputs to a series of final inputs</p>
+</div>
+<p>The nf-core DSL2 modules repository is at <a class="reference external" href="https://github.com/nf-core/modules">https://github.com/nf-core/modules</a> and you
+can navigate the modules available on this section of the nf-core <a class="reference external" href="https://nf-co.re/modules">website</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We have recently reach 500 modules available in the modules repository.</p>
+</div>
+<p>As you can see, modules have become a central resource of the nf-core community and as so nf-core tools provides with
+some dedicated utilities for modules.</p>
+<section id="listing-modules">
+<h3>Listing modules<a class="headerlink" href="#listing-modules" title="Permalink to this heading"></a></h3>
+<p>We can now list all the nf-core available modules getting advantage of the <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">remote</span></code> sub-command.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">    $ </span>nf-core modules list remote
+<span class="go">                                      ,--./,-.</span>
+<span class="go">      ___     __   __   __   ___     /,-._.--~\</span>
+<span class="go">|\ | |__  __ /  ` /  \ |__) |__         }  {</span>
+<span class="go">| \| |       \__, \__/ |  \ |___     \`-._,-`-,</span>
+<span class="go">                                      `._,._,&#39;</span>
+
+<span class="go">nf-core/tools version 2.4.1 - https://nf-co.re</span>
+
+<span class="go">    INFO     Modules available from nf-core/modules (master):                                                                                                                                                                                                            list.py:125</span>
+
+<span class="go">    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓</span>
+<span class="go">    ┃ Module Name                              ┃</span>
+<span class="go">    ┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩</span>
+<span class="go">    │ abacas                                   │</span>
+<span class="go">    │ abricate/run                             │</span>
+<span class="go">    │ abricate/summary                         │</span>
+<span class="go">    │ adapterremoval                           │</span>
+<span class="go">    │ adapterremovalfixprefix                  │</span>
+<span class="go">    │ agrvate                                  │</span>
+<span class="go">    │ allelecounter                            │</span>
+<span class="go">    │ amplify/predict                          │</span>
+<span class="go">    │ amps                                     │</span>
+<span class="go">    │ amrfinderplus/run                        │</span>
+<span class="go">    │ amrfinderplus/update                     │</span>
+<span class="go">    │ antismash/antismashlite                  │</span>
+<span class="go">    │ antismash/antismashlitedownloaddatabases │</span>
+<span class="go">    │ arriba                                   │</span>
+<span class="go">    │ artic/guppyplex                          │</span>
+<span class="go">    │ artic/minion                             │</span>
+<span class="go">    │ ascat                                    │</span>
+<span class="go">    │ assemblyscan                             │</span>
+<span class="go">    │ ataqv/ataqv                              │</span>
+<span class="go">    │ bakta                                    │</span>
+<span class="go">    │ bamaligncleaner                          │</span>
+<span class="go">    │ bamcmp                                   │</span>
+<span class="go">    │ bamtools/convert                         │</span>
+<span class="go">    [..truncated..]</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can add a pattern to the end of the list command to filter the modules by keyword eg: <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">modules</span> <span class="pre">list</span> <span class="pre">remote</span> <span class="pre">samtools</span></code></p>
+</div>
+<p>Likewise, it is also possible to list the modules installed in a pipeline by using the <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">local</span></code> sub-command. By default,
+the command will list the modules installed in the current working directory but you can provide a different directory by using
+the <code class="docutils literal notranslate"><span class="pre">--dir</span> <span class="pre">&lt;pipeline_dir&gt;</span></code> option.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nf-core modules list local</span>
+</pre></div>
+</div>
+</section>
+<section id="showing-information-about-a-module">
+<h3>Showing information about a module<a class="headerlink" href="#showing-information-about-a-module" title="Permalink to this heading"></a></h3>
+<p>You can render the basic information of a module using <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">modules</span> <span class="pre">info</span> <span class="pre">&lt;tool&gt;</span></code>. This command will provide a brief
+summary of the module functionality, the description of the input and output channels, its type (<code class="docutils literal notranslate"><span class="pre">val</span></code>, <code class="docutils literal notranslate"><span class="pre">path</span></code>, etc.)
+and the its installation command.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nf-core modules info fastqc</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you prefer, you can also check the modules documentation in the <a class="reference external" href="https://nf-co.re/modules">nf-core website</a>.</p>
+</div>
+</section>
+<section id="installing-modules-in-a-pipeline">
+<h3>Installing modules in a pipeline<a class="headerlink" href="#installing-modules-in-a-pipeline" title="Permalink to this heading"></a></h3>
+<p>You can use nf-core tools to install a module in any pipeline. The only requirement is that the directory contains a
+<code class="docutils literal notranslate"><span class="pre">main.nf</span></code> a <code class="docutils literal notranslate"><span class="pre">nextflow.config</span></code> and a <code class="docutils literal notranslate"><span class="pre">modules</span></code> directory where the module will be installed.</p>
+<section id="id5">
+<h4>Exercise<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Create a folder with an empty <code class="docutils literal notranslate"><span class="pre">main.nf</span></code>, <code class="docutils literal notranslate"><span class="pre">nextflow.config</span></code> and a <code class="docutils literal notranslate"><span class="pre">modules</span></code> directory and try to install a module,</p></li>
+</ul>
+<p>e.g. samtools/sort.</p>
+<details>
+<summary><a>Solution</a></summary><ul class="simple">
+<li><p>Now, place yourself in the nf-core-toy pipeline we created before and try to install the same module.</p></li>
+</ul>
+<details>
+<summary><a>Solution</a></summary></details><div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nf-core modules install samtools/sort</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="removing-modules-from-a-pipeline">
+<h3>Removing modules from a pipeline<a class="headerlink" href="#removing-modules-from-a-pipeline" title="Permalink to this heading"></a></h3>
+<p>In the same manner, we can delete a module from a pipeline by using:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nf-core modules remove samtools/sort</span>
+</pre></div>
+</div>
+</section>
+<section id="creating-modules">
+<h3>Creating modules<a class="headerlink" href="#creating-modules" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">modules</span> <span class="pre">create</span></code> command for modules is the equivalent to the <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">create</span></code> command for pipelines and
+similarly uses the modules template to generate a module following nf-core guidelines.</p>
+<p>You can use this command both to create local modules for a pipeline or to create modules for the <a class="reference external" href="https://github.com/nf-core/modules">nf-core modules</a>
+repository. The command can detect on which type of repository you are working thanks to the <code class="docutils literal notranslate"><span class="pre">.nf-core.yml</span></code> file that sets the type of repository using the
+<code class="docutils literal notranslate"><span class="pre">repository_type</span></code> tag.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to make available a module in <code class="docutils literal notranslate"><span class="pre">nf-core/modules</span></code> to the whole Nextflow community you can find the reference
+documentation <a class="reference external" href="https://nf-co.re/developers/modules#writing-a-new-module-reference">here</a>  and a step by step tutorial
+on <a class="reference external" href="https://nf-co.re/developers/tutorials/dsl2_modules_tutorial">this</a> link.</p>
+</div>
+<section id="id6">
+<h4>Exercise<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Place yourself in the nf-core-toy pipeline we created before and try to install the same module.</p></li>
+</ul>
+<details>
+<summary><a>Solution</a></summary><div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><p>In which folder does it create the module?</p></li>
+</ul>
+<details>
+<summary><a>Solution</a></summary><ul class="simple">
+<li><p>Clone the nf-core modules repository locally <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/nf-core/modules.git</span></code> and try the same command</p></li>
+</ul>
+<p>you use to create the fastqc module locally there, what happens?</p>
+<details>
+<summary><a>Solution</a></summary></details><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="other-commands-for-developing-nf-core-modules">
+<h3>Other commands for developing nf-core modules<a class="headerlink" href="#other-commands-for-developing-nf-core-modules" title="Permalink to this heading"></a></h3>
+<section id="lint-modules">
+<h4>Lint modules<a class="headerlink" href="#lint-modules" title="Permalink to this heading"></a></h4>
+<p>As for pipelines, nf-core tools provides a command to lint the modules against nf-core guidelines.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nf-core modules lint</span>
+</pre></div>
+</div>
+</section>
+<section id="create-unit-test">
+<h4>Create unit test<a class="headerlink" href="#create-unit-test" title="Permalink to this heading"></a></h4>
+<p>nf-core modules have the requirement of being unit tested using a minimal test data. These tests are run using <a class="reference external" href="https://pytest-workflow.readthedocs.io/en/stable/">pytest</a>
+and can be automatically generated using the command below:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nf-core modules create-test-yml</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can find more info about the <code class="docutils literal notranslate"><span class="pre">create-test-yml</span></code> command <a class="reference external" href="https://nf-co.re/tools/#create-a-module-test-config-file">here</a>.</p>
+</div>
+</section>
+<section id="run-module-test-using-pytest">
+<h4>Run module test using pytest<a class="headerlink" href="#run-module-test-using-pytest" title="Permalink to this heading"></a></h4>
+<p>Also, it is possible to run the unit test of a module using the <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">modules</span> <span class="pre">test</span></code> command using again <a class="reference external" href="https://pytest-workflow.readthedocs.io/en/stable/">pytest</a>.
+To run the test for a given module (e.g. fastqc) you can use:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nf-core modules test fastqc</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To run the modules unit test you need to install <a class="reference external" href="https://pytest-workflow.readthedocs.io/en/stable/#installation">pytest</a> first.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Further documenation <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">modules</span> <span class="pre">test</span></code> can be found on this <a class="reference external" href="https://nf-co.re/tools/#run-the-tests-for-a-module-using-pytest">link</a>.</p>
+</div>
+</section>
+<section id="bump-bioconda-and-containers-versions-of-a-module-tool">
+<h4>Bump bioconda and containers versions of a module tool<a class="headerlink" href="#bump-bioconda-and-containers-versions-of-a-module-tool" title="Permalink to this heading"></a></h4>
+<p>To ease the update of the modules installed in a pipeline, nf-core provides with the <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">modules</span> <span class="pre">bump-versions</span></code>
+command. It is possible to both update a single or all modules in a pipeline. Also, this command can be used when contributing
+to the nf-core modules repository to update the versions of modules upon release in Bioconda. The typical <code class="docutils literal notranslate"><span class="pre">bump-versions</span></code>
+command looks like:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nf-core modules bump-versions</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Find the whole documenation of the <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">modules</span> <span class="pre">bump-versions</span></code> command <a class="reference external" href="https://nf-co.re/tools/#bump-bioconda-and-container-versions-of-modules-in">here</a>.</p>
+</div>
+</section>
+<section id="generate-the-name-of-a-mulled-container">
+<h4>Generate the name of a mulled container<a class="headerlink" href="#generate-the-name-of-a-mulled-container" title="Permalink to this heading"></a></h4>
+<p>Biocontainers offer the possibility of generating what is known as mulled containers and that consist of multi-tool containers
+generated by combinating a given version of single tool and adding them to the <a class="reference external" href="https://github.com/BioContainers/multi-package-containers/blob/master/combinations/hash.tsv">hash.tsv</a>
+of the Biocontainers <code class="docutils literal notranslate"><span class="pre">multi-package-containers</span></code> repository. This command generates the name of a BioContainers mulled image,
+even if it does not exist, using the command below:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">    $ </span>nf-core modules mulled <span class="nv">bowtie2</span><span class="o">==</span><span class="m">2</span>.4.4 <span class="nv">samtools</span><span class="o">==</span><span class="m">1</span>.15.1 <span class="nv">pigz</span><span class="o">==</span><span class="m">2</span>.6
+
+<span class="go">                                      ,--./,-.</span>
+<span class="go">      ___     __   __   __   ___     /,-._.--~\</span>
+<span class="go">|\ | |__  __ /  ` /  \ |__) |__         }  {</span>
+<span class="go">| \| |       \__, \__/ |  \ |___     \`-._,-`-,</span>
+<span class="go">                                      `._,._,&#39;</span>
+
+<span class="go">nf-core/tools version 2.4.1 - https://nf-co.re</span>
+
+
+<span class="go">    INFO     Found docker image on quay.io! ✨                                                                                                                                                                                                                          mulled.py:68</span>
+<span class="go">    INFO     Mulled container hash:                                                                                                                                                                                                                                  __main__.py:717</span>
+<span class="go">    mulled-v2-ac74a7f02cebcfcc07d8e8d1d750af9c83b4d45a:1744f68fe955578c63054b55309e05b41c37a80d-0</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above mulled container is used in the <code class="docutils literal notranslate"><span class="pre">bowtie2/align</span> <span class="pre">module</span></code>, see <a class="reference external" href="https://github.com/nf-core/modules/blob/61f68913fefc20241ceccb671b104230b2d775d7/modules/bowtie2/align/main.nf#L6-L9">here</a></p>
+</div>
+</section>
+<section id="id7">
+<h4>Exercise<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Create or use the previous toy nf-core pipeline</p></li>
+<li><p>Install the <code class="docutils literal notranslate"><span class="pre">adapterremoval</span></code> module</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">adapterremoval</span></code> module in the <code class="docutils literal notranslate"><span class="pre">toy.nf</span></code> script.</p></li>
+<li><p>Add a parameter to make the call of <code class="docutils literal notranslate"><span class="pre">adapterremoval</span></code> optional (<code class="docutils literal notranslate"><span class="pre">skip_adapterremoval</span></code>) in the <code class="docutils literal notranslate"><span class="pre">nextflow.config</span></code> and implement the code to make the call of the process in <code class="docutils literal notranslate"><span class="pre">rna.toy</span></code> controlled by the parameter, see <a class="reference external" href="https://github.com/nf-core/rnaseq/blob/89bf536ce4faa98b4d50a8ec0a0343780bc62e0a/workflows/rnaseq.nf#L182">here</a> for an example.</p></li>
+<li><p>Lint the pipeline.</p></li>
+<li><p>Fix the linting by using the <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">schema</span> <span class="pre">build</span></code> command.</p></li>
+<li><p>Modify the arguments passed to the <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> module (you can just provide it empty) by creating a custom config, see <code class="docutils literal notranslate"><span class="pre">./conf/modules.config</span></code> for inspiration.</p></li>
+</ul>
+<details>
+<summary><a>Solution</a></summary><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</details><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+</section>
+<section id="interesting-links">
+<h2>Interesting links<a class="headerlink" href="#interesting-links" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nf-co.re/">nf-core website</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/nf-core/">nf-core github</a>.</p></li>
+<li><p><a class="reference external" href="https://nf-co.re/join/slack">Join nf-core slack</a>.</p></li>
+<li><p><a class="reference external" href="https://nextflow.io/slack-invite.html">Join Nextflow slack</a>.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/c/nf-core">nf-core YouTube channel</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/nf-core/vscode-extensionpack">nf-core Visual Code extension pack</a>.</p></li>
+</ul>
+</section>
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this heading"></a></h2>
+<p>This nf-core tutorial has been build taking as inspiration the <a class="reference external" href="https://nf-co.re/tools/">nf-core official tools documentation</a>
+and the Carpentries materials <em>&quot;Introduction to Bioinformatics workflows with Nextflow and nf-core&quot;</em> that can be find <a class="reference external" href="https://carpentries-incubator.github.io/workflows-nextflow/">here</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="setup.html" class="btn btn-neutral float-left" title="Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, CRG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

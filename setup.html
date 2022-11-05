@@ -21,6 +21,7 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nf-core" href="nf-core.html" />
     <link rel="prev" title="About the course" href="about.html" /> 
 </head>
 
@@ -45,8 +46,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#steps-to-launch-the-aws-cloud-9-environment">Steps to launch the AWS cloud 9 environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#training-materials-download">Training materials download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nextflow-installation">Nextflow Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nf-core-installation">nf-core Installation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="nf-core.html">nf-core</a></li>
 </ul>
 
         </div>
@@ -104,10 +108,35 @@ on the terminal window that you will find at the botton of the IDE:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/setup ./setup/
 
 <span class="gp">$ </span><span class="nb">source</span> setup/all.sh
+
+<span class="gp">$ </span>aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/data ./data/
+
+<span class="gp">$ </span>aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/config ./config/
+
+<span class="go">.. $ aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/data.tar.gz .</span>
+
+<span class="go">.. $ tar -xvf data.tar.gz</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://eu-west-1.console.aws.amazon.com/cloud9/home">https://eu-west-1.console.aws.amazon.com/cloud9/home</a></p>
-<p>s3 bucket atacseq-training-bovreg</p>
+</section>
+<section id="nextflow-installation">
+<h2>Nextflow Installation<a class="headerlink" href="#nextflow-installation" title="Permalink to this heading"></a></h2>
+<p>Install the latest version of Nextflow copy &amp; pasting the following snippet in a terminal window:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">curl https://get.nextflow.io | bash</span>
+<span class="go">mv nextflow ~/bin</span>
+</pre></div>
+</div>
+<p>Check the correct installation running the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nextflow info</span>
+</pre></div>
+</div>
+</section>
+<section id="nf-core-installation">
+<h2>nf-core Installation<a class="headerlink" href="#nf-core-installation" title="Permalink to this heading"></a></h2>
+<p>Install nf-core, a python package with helper tools provided by the nf-core community, using the command below:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install nf-core</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -116,6 +145,7 @@ on the terminal window that you will find at the botton of the IDE:</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="about.html" class="btn btn-neutral float-left" title="About the course" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nf-core.html" class="btn btn-neutral float-right" title="nf-core" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
