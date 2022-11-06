@@ -195,7 +195,7 @@ and **rna-seq** keywords:
 
 .. code-block:: console
 	
-	$ nf-core list rna rna-seq
+	$ nf-core list atac
 
                                           ,--./,-.
           ___     __   __   __   ___     /,-._.--~\
@@ -205,18 +205,17 @@ and **rna-seq** keywords:
 
     nf-core/tools version 2.6 - https://nf-co.re
 
-	┏━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━┓
-	┃ Pipeline Name          ┃ Stars ┃ Latest Release ┃    Released ┃  Last Pulled ┃ Have latest release? ┃
-	┡━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━┩
-	│ smrnaseq               │    39 │          2.0.0 │  5 days ago │ 7 months ago │ No (v1.1.0)          │
-	│ rnaseq                 │   465 │          3.8.1 │ 1 weeks ago │   6 days ago │ Yes (v3.8.1)         │
-	│ rnafusion              │    71 │          2.0.0 │ 3 weeks ago │            - │ -                    │
-	│ dualrnaseq             │     7 │          1.0.0 │ 1 years ago │            - │ -                    │
-	│ circrna                │    18 │            dev │           - │            - │ -                    │
-	│ lncpipe                │    23 │            dev │           - │            - │ -                    │
-	│ scflow                 │    12 │            dev │           - │            - │ -                    │
-	│ spatialtranscriptomics │     3 │            dev │           - │            - │ -                    │
-	└────────────────────────┴───────┴────────────────┴─────────────┴──────────────┴──────────────────────┘
+    ┏━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━┓
+    ┃ Pipeline Name ┃ Stars ┃ Latest Release ┃     Released ┃  Last Pulled ┃ Have latest release? ┃
+    ┡━━━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━┩
+    │ atacseq       │   119 │          1.2.2 │ 6 months ago │ 17 hours ago │ No (dev - 88d4e6d)   │
+    │ hicar         │     2 │          1.0.0 │ 6 months ago │            - │ -                    │
+    └───────────────┴───────┴────────────────┴──────────────┴──────────────┴──────────────────────┘
+
+.. note::
+	The pipelines can be sorted by latest release (``nf-core list -s release``, default), by the last time 
+    you pulled a local copy (``nf-core list -s pulled``), alphabetically (``nf-core list -s name``) or by the 
+    number of GitHub stars (``nf-core list -s stars``).
 
 .. Pulling pipelines
 .. -----------------
@@ -243,42 +242,17 @@ We can now launch an nf-core pipeline:
 
 	nf-core launch
 
-.. note::
-	The pipelines can be sorted by latest release (``-s release``, default), by the last time you pulled a local copy 
-	(``-s pulled``), alphabetically (``-s name``) or by the number of GitHub stars (``-s stars``).
-
 To render the description of the parameters, its grouping and defaults, the tool uses the ``nextflow_schema.json``. This
-JSON file is bundled with the pipeline and includes all the information mentioned above, see an example `here <https://github.com/nf-core/rnaseq/blob/03d17893618c44075e4c91d83dc0e72b58f6f0f7/nextflow_schema.json>`__.
+JSON file is bundled with the pipeline and includes all the information mentioned above, see an example `here <https://github.com/nf-core/atacseq/blob/master/nextflow_schema.json>`__.
 
 The chosen not default parameters are dumped into a JSON file called ``nf-params.json``. This file can be provided to new 
-executions using the ``-params-file`` flag. See below an example:
+executions using the ``-params-file`` flag. See below an example of a params JSON file:
 
 .. literalinclude:: ../nf-core/examples/nf-params.json
 	:language: json
 
 It is a good practice in terms of reproducibility to explicitly indicate the version (revision) of the pipeline that 
-you want to use, this can be indicated using the ``-r`` flag e.g. ``nf-core launch rnaseq -r 3.8.1``.
-
-Exercise
-********
-
-Pull version ``3.8.1`` of the nf-core/rnaseq pipeline, run it using the ``nf-core launch`` command and produce the ``nf-params.json``.
-
-.. raw:: html
-
-	<details>
-	<summary><a>Solution</a></summary>
-
-.. code-block:: console
-
-	nextflow pull nf-core/rnaseq -r 3.8.1
-	nf-core launch rnaseq -r 3.8.1
-
-.. raw:: html
-
-	</details>
-|
-
+you want to use, this can be indicated using the ``-r`` flag e.g. ``nf-core launch atacseq -params-file nf-params.json -r 1.2.2``.
 
 nf-core configs and profiles
 ----------------------------
@@ -288,7 +262,8 @@ nf-core configs
 
 We have already introduced Nextflow configuration files and profiles during the course. Config files are used by 
 nf-core pipelines to specify the computational requirements of the pipeline, define custom parameters and set which 
-software management system to be used (Docker, Singularity or Conda). As an example take a look to the `base.config <https://github.com/nf-core/smrnaseq/blob/master/conf/base.config>`__
+software management system to be used (Docker, Singularity or Conda). As an example take a look to the 
+`base.config <https://github.com/nf-core/atacseq/blob/88d4e6d84612ca0ab8161ebbe9b29408c0c90144/conf/base.config#L2-L63>`__
 that is used to set sensible defaults for the computational resources needed by the pipeline. 
 
 nf-core core profiles
@@ -372,14 +347,14 @@ Running pipelines with test data
 
 All nf-core pipelines include a special configuration named ``test``. This configuration defines all the files and parameters to test
 all pipeline functionality with a minimal dataset. Thus, although the functionality of the pipeline is maintained often the results
-are not meaningful. As an example, find on the snippet below the test configuration of the `nf-core/rnaseq <https://github.com/nf-core/rnaseq/>`__.
+are not meaningful. As an example, find on the snippet below the test configuration of the `nf-core/atacseq <https://github.com/nf-core/atacseq/>`__.
 pipeline.
 
 .. literalinclude:: ../nf-core/examples/test.config
 	:language: groovy
 
 .. tip::
-	You can find the current version of the above config above `here <https://github.com/nf-core/rnaseq/blob/master/conf/test.config>`__
+	You can find the current version of the nf-core/atacseq ``test.config config`` `here <https://github.com/nf-core/rnaseq/blob/master/conf/test.config>`__
 
 Downloading pipelines
 ---------------------
@@ -400,13 +375,13 @@ We can now try to download the rnaseq pipeline using the command below:
 
 .. code-block:: console
 
-	nf-core download rnaseq
+	nf-core download atacseq -r dev
 
 Now we can inspect the structure of the downloaded directory:
 
 .. code-block:: console
 
-	$ tree -L 2 nf-core-rnaseq-3.8.1/
+	$ tree -L 2 nf-core-atacseq-dev/
 
 	nf-core-rnaseq-3.8.1/
 	├── configs
@@ -415,9 +390,9 @@ Now we can inspect the structure of the downloaded directory:
 	│   ├── nfcore_custom.config
 	│   └── pipeline
 	├── singularity-images
-	│   ├── depot.galaxyproject.org-singularity-bbmap-38.93--he522d1c_0.img
+	│   ├── depot.galaxyproject.org-singularity-ataqv-1.3.0--py39hccc85d7_2.img
 	│   ├── ..truncated..
-	│   └── depot.galaxyproject.org-singularity-umi_tools-1.1.2--py38h4a8c8d9_0.img
+	│   └── depot.galaxyproject.org-singularity-ucsc-bedgraphtobigwig-377--h446ed27_1.img
 	└── workflow
 		├── CHANGELOG.md
 		├── ..truncated..
@@ -432,7 +407,7 @@ nf-core pipelines produce a `MultiQC <https://multiqc.info/>`__ report which sum
 along with software versions of the different tools used, nf-core pipeline version and Nextflow version itself.
 
 Each pipeline provides an example of a MultiQC report from a real execution in the nf-core website. For instance you can find
-the report corresponding to the current version of nf-core/rnaseq `here <https://nf-co.re/rnaseq/results#rnaseq>`__.
+the report corresponding to the current version of nf-core/atacseq `here <https://nf-co.re/atacseq/results#atacseq/>`__.
 
 .. nf-core for developers
 .. ======================
