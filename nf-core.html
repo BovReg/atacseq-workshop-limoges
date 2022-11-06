@@ -55,10 +55,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#commands-for-users">Commands for users</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#listing-pipelines">Listing pipelines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#filtering-available-nf-core-pipelines">Filtering available nf-core pipelines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#launching-pipelines">Launching pipelines</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#exercise">Exercise</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#launching-pipelines">Launching pipelines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nf-core-configs-and-profiles">nf-core configs and profiles</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#nf-core-configs">nf-core configs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#nf-core-core-profiles">nf-core core profiles</a></li>
@@ -266,7 +263,7 @@ and when you last pulled the pipeline to your local system.</p>
 <p>It is also possible to use keywords after the <code class="docutils literal notranslate"><span class="pre">list</span></code> command so that the list of pipelines is shortened to those
 matching the keywords or including them in the description. We can use the command below to filter on the <strong>rna</strong>
 and <strong>rna-seq</strong> keywords:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">    $ </span>nf-core list rna rna-seq
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">    $ </span>nf-core list atac
 
 <span class="go">                                      ,--./,-.</span>
 <span class="go">      ___     __   __   __   ___     /,-._.--~\</span>
@@ -276,19 +273,21 @@ and <strong>rna-seq</strong> keywords:</p>
 
 <span class="go">nf-core/tools version 2.6 - https://nf-co.re</span>
 
-<span class="go">    ┏━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━┓</span>
-<span class="go">    ┃ Pipeline Name          ┃ Stars ┃ Latest Release ┃    Released ┃  Last Pulled ┃ Have latest release? ┃</span>
-<span class="go">    ┡━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━┩</span>
-<span class="go">    │ smrnaseq               │    39 │          2.0.0 │  5 days ago │ 7 months ago │ No (v1.1.0)          │</span>
-<span class="go">    │ rnaseq                 │   465 │          3.8.1 │ 1 weeks ago │   6 days ago │ Yes (v3.8.1)         │</span>
-<span class="go">    │ rnafusion              │    71 │          2.0.0 │ 3 weeks ago │            - │ -                    │</span>
-<span class="go">    │ dualrnaseq             │     7 │          1.0.0 │ 1 years ago │            - │ -                    │</span>
-<span class="go">    │ circrna                │    18 │            dev │           - │            - │ -                    │</span>
-<span class="go">    │ lncpipe                │    23 │            dev │           - │            - │ -                    │</span>
-<span class="go">    │ scflow                 │    12 │            dev │           - │            - │ -                    │</span>
-<span class="go">    │ spatialtranscriptomics │     3 │            dev │           - │            - │ -                    │</span>
-<span class="go">    └────────────────────────┴───────┴────────────────┴─────────────┴──────────────┴──────────────────────┘</span>
+<span class="go">┏━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━┓</span>
+<span class="go">┃ Pipeline Name ┃ Stars ┃ Latest Release ┃     Released ┃  Last Pulled ┃ Have latest release? ┃</span>
+<span class="go">┡━━━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━┩</span>
+<span class="go">│ atacseq       │   119 │          1.2.2 │ 6 months ago │ 17 hours ago │ No (dev - 88d4e6d)   │</span>
+<span class="go">│ hicar         │     2 │          1.0.0 │ 6 months ago │            - │ -                    │</span>
+<span class="go">└───────────────┴───────┴────────────────┴──────────────┴──────────────┴──────────────────────┘</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<blockquote>
+<div><p>The pipelines can be sorted by latest release (<code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">list</span> <span class="pre">-s</span> <span class="pre">release</span></code>, default), by the last time</p>
+</div></blockquote>
+<p>you pulled a local copy (<code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">list</span> <span class="pre">-s</span> <span class="pre">pulled</span></code>), alphabetically (<code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">list</span> <span class="pre">-s</span> <span class="pre">name</span></code>) or by the
+number of GitHub stars (<code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">list</span> <span class="pre">-s</span> <span class="pre">stars</span></code>).</p>
 </div>
 </section>
 <section id="launching-pipelines">
@@ -300,29 +299,18 @@ since it displays the documentation alongside each of the parameters and validat
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nf-core launch</span>
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The pipelines can be sorted by latest release (<code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">release</span></code>, default), by the last time you pulled a local copy
-(<code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">pulled</span></code>), alphabetically (<code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">name</span></code>) or by the number of GitHub stars (<code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">stars</span></code>).</p>
-</div>
 <p>To render the description of the parameters, its grouping and defaults, the tool uses the <code class="docutils literal notranslate"><span class="pre">nextflow_schema.json</span></code>. This
-JSON file is bundled with the pipeline and includes all the information mentioned above, see an example <a class="reference external" href="https://github.com/nf-core/rnaseq/blob/03d17893618c44075e4c91d83dc0e72b58f6f0f7/nextflow_schema.json">here</a>.</p>
+JSON file is bundled with the pipeline and includes all the information mentioned above, see an example <a class="reference external" href="https://github.com/nf-core/atacseq/blob/master/nextflow_schema.json">here</a>.</p>
 <p>The chosen not default parameters are dumped into a JSON file called <code class="docutils literal notranslate"><span class="pre">nf-params.json</span></code>. This file can be provided to new
-executions using the <code class="docutils literal notranslate"><span class="pre">-params-file</span></code> flag. See below an example:</p>
-<p>It is a good practice in terms of reproducibility to explicitly indicate the version (revision) of the pipeline that
-you want to use, this can be indicated using the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag e.g. <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">launch</span> <span class="pre">rnaseq</span> <span class="pre">-r</span> <span class="pre">3.8.1</span></code>.</p>
-<section id="exercise">
-<h4>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading"></a></h4>
-<p>Pull version <code class="docutils literal notranslate"><span class="pre">3.8.1</span></code> of the nf-core/rnaseq pipeline, run it using the <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">launch</span></code> command and produce the <code class="docutils literal notranslate"><span class="pre">nf-params.json</span></code>.</p>
-<details>
-<summary><a>Solution</a></summary><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nextflow pull nf-core/rnaseq -r 3.8.1</span>
-<span class="go">nf-core launch rnaseq -r 3.8.1</span>
+executions using the <code class="docutils literal notranslate"><span class="pre">-params-file</span></code> flag. See below an example of a params JSON file:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;outdir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;results&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/samplesheet/v2.0/samplesheet_test.csv&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</details><div class="line-block">
-<div class="line"><br /></div>
-</div>
-</section>
+<p>It is a good practice in terms of reproducibility to explicitly indicate the version (revision) of the pipeline that
+you want to use, this can be indicated using the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag e.g. <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">launch</span> <span class="pre">atacseq</span> <span class="pre">-params-file</span> <span class="pre">nf-params.json</span> <span class="pre">-r</span> <span class="pre">1.2.2</span></code>.</p>
 </section>
 <section id="nf-core-configs-and-profiles">
 <h3>nf-core configs and profiles<a class="headerlink" href="#nf-core-configs-and-profiles" title="Permalink to this heading"></a></h3>
@@ -330,7 +318,8 @@ you want to use, this can be indicated using the <code class="docutils literal n
 <h4>nf-core configs<a class="headerlink" href="#nf-core-configs" title="Permalink to this heading"></a></h4>
 <p>We have already introduced Nextflow configuration files and profiles during the course. Config files are used by
 nf-core pipelines to specify the computational requirements of the pipeline, define custom parameters and set which
-software management system to be used (Docker, Singularity or Conda). As an example take a look to the <a class="reference external" href="https://github.com/nf-core/smrnaseq/blob/master/conf/base.config">base.config</a>
+software management system to be used (Docker, Singularity or Conda). As an example take a look to the
+<a class="reference external" href="https://github.com/nf-core/atacseq/blob/88d4e6d84612ca0ab8161ebbe9b29408c0c90144/conf/base.config#L2-L63">base.config</a>
 that is used to set sensible defaults for the computational resources needed by the pipeline.</p>
 </section>
 <section id="nf-core-core-profiles">
@@ -372,11 +361,47 @@ config file and add it to your command with the <code class="docutils literal no
 <h3>Running pipelines with test data<a class="headerlink" href="#running-pipelines-with-test-data" title="Permalink to this heading"></a></h3>
 <p>All nf-core pipelines include a special configuration named <code class="docutils literal notranslate"><span class="pre">test</span></code>. This configuration defines all the files and parameters to test
 all pipeline functionality with a minimal dataset. Thus, although the functionality of the pipeline is maintained often the results
-are not meaningful. As an example, find on the snippet below the test configuration of the <a class="reference external" href="https://github.com/nf-core/rnaseq/">nf-core/rnaseq</a>.
+are not meaningful. As an example, find on the snippet below the test configuration of the <a class="reference external" href="https://github.com/nf-core/atacseq/">nf-core/atacseq</a>.
 pipeline.</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="cm">    Nextflow config file for running minimal tests</span>
+<span class="cm">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="cm">    Defines input files and everything required to run a fast and simple pipeline test.</span>
+<span class="cm">    Use as follows:</span>
+<span class="cm">        nextflow run nf-core/atacseq -profile test,&lt;docker/singularity&gt; --outdir &lt;OUTDIR&gt;</span>
+<span class="cm">----------------------------------------------------------------------------------------</span>
+<span class="cm">*/</span><span class="w"></span>
+
+<span class="n">params</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">config_profile_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Test profile&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">config_profile_description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Minimal test dataset to check pipeline function&#39;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Limit resources so that this can run on GitHub Actions</span><span class="w"></span>
+<span class="w">    </span><span class="n">max_cpus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">    </span><span class="n">max_memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="o">.</span><span class="na">GB</span><span class="w"></span>
+<span class="w">    </span><span class="n">max_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="o">.</span><span class="na">h</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Input data</span><span class="w"></span>
+<span class="w">    </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/samplesheet/v2.0/samplesheet_test.csv&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">read_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Genome references</span><span class="w"></span>
+<span class="w">    </span><span class="n">mito_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MT&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">fasta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/reference/genome.fa&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">gtf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/reference/genes.gtf&#39;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// For speed to avoid CI time-out</span><span class="w"></span>
+<span class="w">    </span><span class="n">fingerprint_bins</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Avoid preseq errors with test data</span><span class="w"></span>
+<span class="w">    </span><span class="n">skip_preseq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="o">}</span><span class="w"></span>
+</pre></div>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>You can find the current version of the above config above <a class="reference external" href="https://github.com/nf-core/rnaseq/blob/master/conf/test.config">here</a></p>
+<p>You can find the current version of the nf-core/atacseq <code class="docutils literal notranslate"><span class="pre">test.config</span> <span class="pre">config</span></code> <a class="reference external" href="https://github.com/nf-core/rnaseq/blob/master/conf/test.config">here</a></p>
 </div>
 </section>
 <section id="downloading-pipelines">
@@ -392,11 +417,11 @@ files. Again, the <code class="docutils literal notranslate"><span class="pre">-
 <p>If you don't provide any option to <code class="docutils literal notranslate"><span class="pre">`nf-core</span> <span class="pre">download</span></code> an interactive prompt will ask you for the required options.</p>
 </div>
 <p>We can now try to download the rnaseq pipeline using the command below:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nf-core download rnaseq</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nf-core download atacseq -r dev</span>
 </pre></div>
 </div>
 <p>Now we can inspect the structure of the downloaded directory:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tree -L <span class="m">2</span> nf-core-rnaseq-3.8.1/
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tree -L <span class="m">2</span> nf-core-atacseq-dev/
 
 <span class="go">nf-core-rnaseq-3.8.1/</span>
 <span class="go">├── configs</span>
@@ -405,9 +430,9 @@ files. Again, the <code class="docutils literal notranslate"><span class="pre">-
 <span class="go">│   ├── nfcore_custom.config</span>
 <span class="go">│   └── pipeline</span>
 <span class="go">├── singularity-images</span>
-<span class="go">│   ├── depot.galaxyproject.org-singularity-bbmap-38.93--he522d1c_0.img</span>
+<span class="go">│   ├── depot.galaxyproject.org-singularity-ataqv-1.3.0--py39hccc85d7_2.img</span>
 <span class="go">│   ├── ..truncated..</span>
-<span class="go">│   └── depot.galaxyproject.org-singularity-umi_tools-1.1.2--py38h4a8c8d9_0.img</span>
+<span class="go">│   └── depot.galaxyproject.org-singularity-ucsc-bedgraphtobigwig-377--h446ed27_1.img</span>
 <span class="go">└── workflow</span>
 <span class="go">        ├── CHANGELOG.md</span>
 <span class="go">        ├── ..truncated..</span>
@@ -422,7 +447,7 @@ files. Again, the <code class="docutils literal notranslate"><span class="pre">-
 <p>nf-core pipelines produce a <a class="reference external" href="https://multiqc.info/">MultiQC</a> report which summarises results at the end of the execution
 along with software versions of the different tools used, nf-core pipeline version and Nextflow version itself.</p>
 <p>Each pipeline provides an example of a MultiQC report from a real execution in the nf-core website. For instance you can find
-the report corresponding to the current version of nf-core/rnaseq <a class="reference external" href="https://nf-co.re/rnaseq/results#rnaseq">here</a>.</p>
+the report corresponding to the current version of nf-core/atacseq <a class="reference external" href="https://nf-co.re/atacseq/results#atacseq/">here</a>.</p>
 </section>
 </section>
 <section id="interesting-links">
