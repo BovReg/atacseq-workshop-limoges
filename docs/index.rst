@@ -15,4 +15,4 @@ Contents:
    about
    setup
    nf-core
-   ATAC-seq pipeline
+   ATAC-seq_pipeline
