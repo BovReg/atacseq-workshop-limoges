@@ -79,18 +79,7 @@ it much easier to maintain and update software dependencies. Where possible, the
 <a class="reference external" href="https://github.com/nf-core/modules">nf-core/modules</a> in order to make them available to all nf-core pipelines, and
 to everyone within the Nextflow community.</p>
 <p>The</p>
-<section id="exercise">
-<h3>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading"></a></h3>
-<p>Pull version <code class="docutils literal notranslate"><span class="pre">3.8.1</span></code> of the nf-core/atacseq pipeline, run it using the <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">launch</span></code> command and produce the <code class="docutils literal notranslate"><span class="pre">nf-params.json</span></code>.</p>
-<details>
-<summary><a>Solution</a></summary><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nextflow pull nf-core/rnaseq -r 3.8.1</span>
-<span class="go">nf-core launch rnaseq -r 3.8.1</span>
-</pre></div>
-</div>
-</details><div class="line-block">
-<div class="line"><br /></div>
-</div>
-</section>
+<p>nextflow run nf-core/atacseq -r dev -params-file ./config/nf-atacseq-params.json -profile docker -c ./config/nextflow.config -resume</p>
 </section>
 </section>
 
