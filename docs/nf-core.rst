@@ -243,7 +243,8 @@ We can now launch an nf-core pipeline:
 	nf-core launch
 
 To render the description of the parameters, its grouping and defaults, the tool uses the ``nextflow_schema.json``. This
-JSON file is bundled with the pipeline and includes all the information mentioned above, see an example `here <https://github.com/nf-core/atacseq/blob/master/nextflow_schema.json>`__.
+JSON file is bundled with the pipeline and includes all the information mentioned above, see an example
+`here <https://github.com/nf-core/atacseq/blob/master/nextflow_schema.json>`__.
 
 The chosen not default parameters are dumped into a JSON file called ``nf-params.json``. This file can be provided to new 
 executions using the ``-params-file`` flag. See below an example of a params JSON file:
