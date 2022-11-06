@@ -45,7 +45,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Setup</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#steps-to-launch-the-aws-cloud-9-environment">Steps to launch the AWS cloud 9 environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#training-materials-download">Training materials download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#training-materials-download-and-environment-setup">Training materials download and environment setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nextflow-installation">Nextflow Installation</a></li>
 </ul>
 </li>
@@ -96,21 +96,26 @@ It requires Bash and <a class="reference external" href="https://www.oracle.com/
 <p>To launch the environment, you just need to sign in the AWS console with the
 <a class="reference external" href="https://www.crg.eu/en/cedric_notredame&quot;">CBCRG</a> account and specify
 your (first) name as the IAM user. Below we included the list with all the users name created:</p>
-<p>1. Open this address on your browser:  <a class="reference external" href="https://eu-west-1.console.aws.amazon.com/cloud9/home">https://eu-west-1.console.aws.amazon.com/cloud9/home</a>
-|</p>
-<ol class="arabic simple" start="2">
-<li><p>Once you are in the AWS login page, select <strong>IAM USER</strong> and please fill the credentials below:</p></li>
+<ol class="arabic">
+<li><p>Open this address on your browser:  <a class="reference external" href="https://eu-west-1.console.aws.amazon.com/cloud9/home">https://eu-west-1.console.aws.amazon.com/cloud9/home</a></p></li>
+<li><p>Once you are in the AWS login page, select <strong>IAM USER</strong> and please fill the credentials below:</p>
+<blockquote>
+<div><p>Account ID: To be provided</p>
+<p>IAM user name: (your username as listed above)</p>
+<p>Password: provided by the organization</p>
+</div></blockquote>
+</li>
 </ol>
+<p>3. When you access the AWS Cloud main page you will find your environment listed in the home page, just click on the &lt;strong&gt;Open IDE&lt;/strong&gt; button and
+your environment will be launched.</p>
 </section>
-<section id="training-materials-download">
-<h2>Training materials download<a class="headerlink" href="#training-materials-download" title="Permalink to this heading"></a></h2>
-<p>Once you <a class="reference internal" href="#steps-to-launch-the-aws-cloud-9-environment"><span class="std std-ref">launched the environment</span></a>, download the training materials running the command below
-on the terminal window that you will find at the botton of the IDE:</p>
+<section id="training-materials-download-and-environment-setup">
+<h2>Training materials download and environment setup<a class="headerlink" href="#training-materials-download-and-environment-setup" title="Permalink to this heading"></a></h2>
+<p>Once you <a class="reference internal" href="#steps-to-launch-the-aws-cloud-9-environment"><span class="std std-ref">launched the environment</span></a>, download the training materials
+running the command below on the terminal window that you will find at the button of the IDE:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/setup ./setup/
 
 <span class="gp">$ </span><span class="nb">source</span> setup/all.sh
-
-<span class="gp">$ </span>aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/data ./data/
 
 <span class="gp">$ </span>aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/config ./config/
 </pre></div>
