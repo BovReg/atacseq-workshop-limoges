@@ -27,7 +27,7 @@ To launch the environment, you just need to sign in the AWS console with the
 your (first) name as the IAM user. Below we included the list with all the users name created:
 
 1. Open this address on your browser:  https://eu-west-1.console.aws.amazon.com/cloud9/home
-
+|
 2. Once you are in the AWS login page, select **IAM USER** and please fill the credentials below:
 
 ..    Account ID: **885800555707**
@@ -52,9 +52,9 @@ on the terminal window that you will find at the botton of the IDE:
 
         $ aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/config ./config/
 
-        .. $ aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/data.tar.gz .
+.. $ aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/data.tar.gz .
 
-        .. $ tar -xvf data.tar.gz
+.. $ tar -xvf data.tar.gz
 
 Nextflow Installation
 =====================
@@ -72,14 +72,15 @@ Check the correct installation running the following command:
     
     nextflow info
 
-nf-core Installation
-=====================
+.. nf-core Installation
+.. =====================
 
-Install nf-core, a python package with helper tools provided by the nf-core community, using the command below:
+.. Install nf-core, a python package with helper tools provided by the nf-core community, using the command below:
 
-.. code-block:: console
+.. .. code-block:: console
 
-    pip install nf-core
+..     conda create -n py38_test python=3.8 nf-core -c bioconda -c conda-forge -y
+
 
 
 .. -[nf-core/atacseq] Pipeline completed successfully-

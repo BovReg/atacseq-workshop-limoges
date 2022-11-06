@@ -69,7 +69,7 @@ and then, we activate it.
 
 .. code-block:: console
 
-	conda create --name nf-core nf-core=2. -c bioconda -c conda-forge -y 
+	conda create -n py38_test python=3.8 nf-core -c bioconda -c conda-forge -y
 	conda activate nf-core
 
 .. tip::
@@ -129,8 +129,8 @@ for developers. Here, we will discuss how nf-core can be used from a user point 
     `this https://nf-co.re/developers/tutorials/nf_core_contributing_overview>`__
     tutorial.
 
-nf-core for users
-=================
+Commands for users
+==================
 
 Listing pipelines
 -----------------
