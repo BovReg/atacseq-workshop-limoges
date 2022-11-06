@@ -18,22 +18,25 @@ to everyone within the Nextflow community.
 The 
 
 
-Exercise
-********
+nextflow run nf-core/atacseq -r dev -params-file ./config/nf-atacseq-params.json -profile docker -c ./config/nextflow.config -resume
 
-Pull version ``3.8.1`` of the nf-core/atacseq pipeline, run it using the ``nf-core launch`` command and produce the ``nf-params.json``.
 
-.. raw:: html
+.. Exercise
+.. ********
 
-	<details>
-	<summary><a>Solution</a></summary>
+.. Pull version ``3.8.1`` of the nf-core/atacseq pipeline, run it using the ``nf-core launch`` command and produce the ``nf-params.json``.
 
-.. code-block:: console
+.. .. raw:: html
 
-	nextflow pull nf-core/rnaseq -r 3.8.1
-	nf-core launch rnaseq -r 3.8.1
+.. 	<details>
+.. 	<summary><a>Solution</a></summary>
 
-.. raw:: html
+.. .. code-block:: console
 
-	</details>
-|
+.. 	nextflow pull nf-core/rnaseq -r 3.8.1
+.. 	nf-core launch rnaseq -r 3.8.1
+
+.. .. raw:: html
+
+.. 	</details>
+.. |
