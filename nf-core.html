@@ -52,7 +52,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#nf-core-for-users">nf-core for users</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#commands-for-users">Commands for users</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#listing-pipelines">Listing pipelines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#filtering-available-nf-core-pipelines">Filtering available nf-core pipelines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#launching-pipelines">Launching pipelines</a><ul>
@@ -145,7 +145,7 @@ describes the community and the nf-core framework.</p>
 <h3>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h3>
 <p>You can use Conda to install nf-core tools. In the command below we create a new named environment that includes nf-core
 and then, we activate it.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda create --name nf-core nf-core=2. -c bioconda -c conda-forge -y</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda create -n py38_test python=3.8 nf-core -c bioconda -c conda-forge -y</span>
 <span class="go">conda activate nf-core</span>
 </pre></div>
 </div>
@@ -207,8 +207,8 @@ tutorial.</p>
 </div>
 </section>
 </section>
-<section id="nf-core-for-users">
-<h2>nf-core for users<a class="headerlink" href="#nf-core-for-users" title="Permalink to this heading"></a></h2>
+<section id="commands-for-users">
+<h2>Commands for users<a class="headerlink" href="#commands-for-users" title="Permalink to this heading"></a></h2>
 <section id="listing-pipelines">
 <h3>Listing pipelines<a class="headerlink" href="#listing-pipelines" title="Permalink to this heading"></a></h3>
 <p>To show all the nf-core available pipelines, we can use the nf-core list command. This command also

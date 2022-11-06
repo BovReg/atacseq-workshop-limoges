@@ -47,7 +47,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#steps-to-launch-the-aws-cloud-9-environment">Steps to launch the AWS cloud 9 environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#training-materials-download">Training materials download</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nextflow-installation">Nextflow Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#nf-core-installation">nf-core Installation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nf-core.html">nf-core</a></li>
@@ -96,10 +95,9 @@ It requires Bash and <a class="reference external" href="https://www.oracle.com/
 <p>To launch the environment, you just need to sign in the AWS console with the
 <a class="reference external" href="https://www.crg.eu/en/cedric_notredame&quot;">CBCRG</a> account and specify
 your (first) name as the IAM user. Below we included the list with all the users name created:</p>
-<ol class="arabic simple">
-<li><p>Open this address on your browser:  <a class="reference external" href="https://eu-west-1.console.aws.amazon.com/cloud9/home">https://eu-west-1.console.aws.amazon.com/cloud9/home</a></p></li>
-<li><p>Once you are in the AWS login page, select <strong>IAM USER</strong> and please fill the credentials below:</p></li>
-</ol>
+<p>1. Open this address on your browser:  <a class="reference external" href="https://eu-west-1.console.aws.amazon.com/cloud9/home">https://eu-west-1.console.aws.amazon.com/cloud9/home</a>
+|
+2. Once you are in the AWS login page, select <strong>IAM USER</strong> and please fill the credentials below:</p>
 </section>
 <section id="training-materials-download">
 <h2>Training materials download<a class="headerlink" href="#training-materials-download" title="Permalink to this heading"></a></h2>
@@ -112,10 +110,6 @@ on the terminal window that you will find at the botton of the IDE:</p>
 <span class="gp">$ </span>aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/data ./data/
 
 <span class="gp">$ </span>aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/config ./config/
-
-<span class="go">.. $ aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/data.tar.gz .</span>
-
-<span class="go">.. $ tar -xvf data.tar.gz</span>
 </pre></div>
 </div>
 </section>
@@ -128,13 +122,6 @@ on the terminal window that you will find at the botton of the IDE:</p>
 </div>
 <p>Check the correct installation running the following command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nextflow info</span>
-</pre></div>
-</div>
-</section>
-<section id="nf-core-installation">
-<h2>nf-core Installation<a class="headerlink" href="#nf-core-installation" title="Permalink to this heading"></a></h2>
-<p>Install nf-core, a python package with helper tools provided by the nf-core community, using the command below:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install nf-core</span>
 </pre></div>
 </div>
 </section>
