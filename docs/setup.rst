@@ -28,6 +28,7 @@ your (first) name as the IAM user. Below we included the list with all the users
 
 1. Open this address on your browser:  https://eu-west-1.console.aws.amazon.com/cloud9/home
 |
+
 2. Once you are in the AWS login page, select **IAM USER** and please fill the credentials below:
 
 ..    Account ID: **885800555707**
