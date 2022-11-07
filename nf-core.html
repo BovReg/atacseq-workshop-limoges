@@ -144,7 +144,7 @@ describes the community and the nf-core framework.</p>
 <h3>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h3>
 <p>You can use Conda to install nf-core tools. In the command below we create a new named environment that includes nf-core
 and then, we activate it.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda create -n py38_test python=3.8 nf-core -c bioconda -c conda-forge -y</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda create -n nf-core python=3.8 nf-core -c bioconda -c conda-forge -y</span>
 <span class="go">conda activate nf-core</span>
 </pre></div>
 </div>
@@ -195,14 +195,13 @@ and then, we activate it.</p>
 <span class="go">╰──────────────────────────────────────────────────────────────────────────────────────────────────╯</span>
 </pre></div>
 </div>
-<p>As shown in the screenshot, nf-core tools provides with some commands meant for users and with some commands meant
+<p>As shown in the screenshot, nf-core tools provides you with some commands meant for users and with some commands meant
 for developers. Here, we will discuss how nf-core can be used from a user point of view.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If you are interested in learn how nf-core could help you developing your pipelines please refer to
-the tools <a href="#id3"><span class="problematic" id="id4">`page &lt;https://nf-co.re/tools/&gt;`__in the nf-core site or follow
-`this https://nf-co.re/developers/tutorials/nf_core_contributing_overview&gt;`__</span></a>
-tutorial.</p>
+the <a class="reference external" href="https://nf-co.re/tools/">tool page</a> in the nf-core site or follow
+<a class="reference external" href="https://nf-co.re/developers/tutorials/nf_core_contributing_overview">this tutorial</a>.</p>
 </div>
 </section>
 </section>
@@ -210,7 +209,7 @@ tutorial.</p>
 <h2>Commands for users<a class="headerlink" href="#commands-for-users" title="Permalink to this heading"></a></h2>
 <section id="listing-pipelines">
 <h3>Listing pipelines<a class="headerlink" href="#listing-pipelines" title="Permalink to this heading"></a></h3>
-<p>To show all the nf-core available pipelines, we can use the nf-core list command. This command also
+<p>To show all the available nf-core pipelines, we can use the <cite>nf-core list</cite> command. This command also
 provides some other information as the last version of each of the nf-core pipelines, its publication and
 and when you last pulled the pipeline to your local system.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">    $ </span>nf-core list
@@ -263,8 +262,8 @@ and when you last pulled the pipeline to your local system.</p>
 <section id="filtering-available-nf-core-pipelines">
 <h3>Filtering available nf-core pipelines<a class="headerlink" href="#filtering-available-nf-core-pipelines" title="Permalink to this heading"></a></h3>
 <p>It is also possible to use keywords after the <code class="docutils literal notranslate"><span class="pre">list</span></code> command so that the list of pipelines is shortened to those
-matching the keywords or including them in the description. We can use the command below to filter on the <strong>rna</strong>
-and <strong>rna-seq</strong> keywords:</p>
+matching the keywords or including them in the description. We can use the command below to filter on the <strong>atac</strong>
+and <strong>atac-seq</strong> keywords:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">    $ </span>nf-core list atac
 
 <span class="go">                                      ,--./,-.</span>
@@ -283,14 +282,6 @@ and <strong>rna-seq</strong> keywords:</p>
 <span class="go">└───────────────┴───────┴────────────────┴──────────────┴──────────────┴──────────────────────┘</span>
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<blockquote>
-<div><p>The pipelines can be sorted by latest release (<code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">list</span> <span class="pre">-s</span> <span class="pre">release</span></code>, default), by the last time</p>
-</div></blockquote>
-<p>you pulled a local copy (<code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">list</span> <span class="pre">-s</span> <span class="pre">pulled</span></code>), alphabetically (<code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">list</span> <span class="pre">-s</span> <span class="pre">name</span></code>) or by the
-number of GitHub stars (<code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">list</span> <span class="pre">-s</span> <span class="pre">stars</span></code>).</p>
-</div>
 </section>
 <section id="launching-pipelines">
 <h3>Launching pipelines<a class="headerlink" href="#launching-pipelines" title="Permalink to this heading"></a></h3>
@@ -304,7 +295,7 @@ since it displays the documentation alongside each of the parameters and validat
 <p>To render the description of the parameters, its grouping and defaults, the tool uses the <code class="docutils literal notranslate"><span class="pre">nextflow_schema.json</span></code>. This
 JSON file is bundled with the pipeline and includes all the information mentioned above, see an example
 <a class="reference external" href="https://github.com/nf-core/atacseq/blob/master/nextflow_schema.json">here</a>.</p>
-<p>The chosen not default parameters are dumped into a JSON file called <code class="docutils literal notranslate"><span class="pre">nf-params.json</span></code>. This file can be provided to new
+<p>The chosen non-default parameters are dumped into a JSON file called <code class="docutils literal notranslate"><span class="pre">nf-params.json</span></code>. This file can be provided to new
 executions using the <code class="docutils literal notranslate"><span class="pre">-params-file</span></code> flag. See below an example of a params JSON file:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;outdir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;results&quot;</span><span class="p">,</span><span class="w"></span>
@@ -313,7 +304,7 @@ executions using the <code class="docutils literal notranslate"><span class="pre
 </pre></div>
 </div>
 <p>It is a good practice in terms of reproducibility to explicitly indicate the version (revision) of the pipeline that
-you want to use, this can be indicated using the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag e.g. <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">launch</span> <span class="pre">atacseq</span> <span class="pre">-params-file</span> <span class="pre">nf-params.json</span> <span class="pre">-r</span> <span class="pre">1.2.2</span></code>.</p>
+you want to use. This is done using the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag e.g. <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">launch</span> <span class="pre">atacseq</span> <span class="pre">-params-file</span> <span class="pre">nf-params.json</span> <span class="pre">-r</span> <span class="pre">1.2.2</span></code>.</p>
 </section>
 <section id="nf-core-configs-and-profiles">
 <h3>nf-core configs and profiles<a class="headerlink" href="#nf-core-configs-and-profiles" title="Permalink to this heading"></a></h3>
@@ -364,7 +355,7 @@ config file and add it to your command with the <code class="docutils literal no
 <h3>Running pipelines with test data<a class="headerlink" href="#running-pipelines-with-test-data" title="Permalink to this heading"></a></h3>
 <p>All nf-core pipelines include a special configuration named <code class="docutils literal notranslate"><span class="pre">test</span></code>. This configuration defines all the files and parameters to test
 all pipeline functionality with a minimal dataset. Thus, although the functionality of the pipeline is maintained often the results
-are not meaningful. As an example, find on the snippet below the test configuration of the <a class="reference external" href="https://github.com/nf-core/atacseq/">nf-core/atacseq</a>.
+are not meaningful. As an example, find on the snippet below the test configuration of the <a class="reference external" href="https://github.com/nf-core/atacseq/tree/dev">nf-core/atacseq</a>.
 pipeline.</p>
 <div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
 <span class="cm">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
@@ -404,7 +395,7 @@ pipeline.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>You can find the current version of the nf-core/atacseq <code class="docutils literal notranslate"><span class="pre">test.config</span> <span class="pre">config</span></code> <a class="reference external" href="https://github.com/nf-core/rnaseq/blob/master/conf/test.config">here</a></p>
+<p>You can find the current version of the nf-core/atacseq <code class="docutils literal notranslate"><span class="pre">test.config</span> <span class="pre">config</span></code> <a class="reference external" href="https://github.com/nf-core/atacseq/blob/master/conf/test.config">here</a></p>
 </div>
 </section>
 <section id="downloading-pipelines">
@@ -419,28 +410,31 @@ files. Again, the <code class="docutils literal notranslate"><span class="pre">-
 <p class="admonition-title">Tip</p>
 <p>If you don't provide any option to <code class="docutils literal notranslate"><span class="pre">`nf-core</span> <span class="pre">download</span></code> an interactive prompt will ask you for the required options.</p>
 </div>
-<p>We can now try to download the rnaseq pipeline using the command below:</p>
+<p>We can now try to download the atacseq pipeline using the command below:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nf-core download atacseq -r dev</span>
 </pre></div>
 </div>
 <p>Now we can inspect the structure of the downloaded directory:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tree -L <span class="m">2</span> nf-core-atacseq-dev/
 
-<span class="go">nf-core-rnaseq-3.8.1/</span>
+<span class="go">nf-core-atacseq-dev/</span>
 <span class="go">├── configs</span>
 <span class="go">│   ├── ..truncated..</span>
 <span class="go">│   ├── nextflow.config</span>
 <span class="go">│   ├── nfcore_custom.config</span>
-<span class="go">│   └── pipeline</span>
+<span class="go">│   ├── pipeline</span>
+<span class="go">│   └── README.md</span>
 <span class="go">├── singularity-images</span>
 <span class="go">│   ├── depot.galaxyproject.org-singularity-ataqv-1.3.0--py39hccc85d7_2.img</span>
 <span class="go">│   ├── ..truncated..</span>
 <span class="go">│   └── depot.galaxyproject.org-singularity-ucsc-bedgraphtobigwig-377--h446ed27_1.img</span>
 <span class="go">└── workflow</span>
-<span class="go">        ├── CHANGELOG.md</span>
+<span class="go">        ├── assets</span>
+<span class="go">        ├── bin</span>
 <span class="go">        ├── ..truncated..</span>
 <span class="go">        ├── main.nf</span>
 <span class="go">        ├── modules</span>
+<span class="go">        ├── ..truncated..</span>
 <span class="go">        └── workflows</span>
 </pre></div>
 </div>
