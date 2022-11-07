@@ -22,9 +22,7 @@ Steps to launch the AWS cloud 9 environment
 
 For this tutorial, we will use the `AWS Cloud 9 virtual environment <https://aws.amazon.com/en/cloud9/>`_.
 
-To launch the environment, you just need to sign in the AWS console with the 
-`CBCRG <https://www.crg.eu/en/cedric_notredame">`_ account and specify
-your (first) name as the IAM user. Below we included the list with all the users name created:
+Below we included the list with all the users name created that you need together with the `CBCRG <https://www.crg.eu/en/cedric_notredame">`_ account ID to sign in the AWS console and launch the enviroment.
 
 1. Open this address on your browser:  https://eu-west-1.console.aws.amazon.com/cloud9/home
 2. Once you are in the AWS login page, select **IAM USER** and please fill the credentials below:
@@ -37,8 +35,7 @@ your (first) name as the IAM user. Below we included the list with all the users
 
     Password: provided by the organization
 
-3. When you access the AWS Cloud main page you will find your environment listed in the home page, just click on the <strong>Open IDE</strong> button and
-your environment will be launched.
+3. When you access the AWS Cloud main page you will find your environment listed in the home page, just click on the **Open IDE** button and your environment will be launched.
 
 Training materials download and environment setup
 =================================================
@@ -48,11 +45,11 @@ running the command below on the terminal window that you will find at the butto
 
 .. code-block:: console
     
-        $ aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/setup ./setup/
+        aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/setup ./setup/
 
-        $ source setup/all.sh
+        source setup/all.sh
 
-        $ aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/config ./config/
+        aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/config ./config/
 
 
 .. $ aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/data ./data/
