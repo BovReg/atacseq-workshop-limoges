@@ -47,6 +47,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pipeline-summary">Pipeline summary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#run-nf-core-atacseq-with-test-data">Run nf-core/atacseq with test data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#samplesheet-input">Samplesheet input</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-runs-of-the-same-sample">Multiple runs of the same sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#full-samplesheet">Full samplesheet</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a></li>
 </ul>
 </li>
@@ -95,7 +100,14 @@ to everyone within the Nextflow community.</p>
 <div><ol class="arabic simple">
 <li><p>Raw read QC (FastQC)</p></li>
 <li><p>Adapter trimming (Trim Galore!)</p></li>
-<li><p>Alignment (BWA)</p></li>
+<li><dl class="simple">
+<dt>Choice of multiple aligners</dt><dd><p>1.(BWA)
+2.(Chromap) For paired-end reads only working until mapping step since the <a class="reference external" href="https://github.com/nf-core/chipseq/issues/291">resulting BAMs are faulty</a>
+3.(Bowtie2)
+4.(STAR)</p>
+</dd>
+</dl>
+</li>
 <li><p>Mark duplicates (picard)</p></li>
 <li><dl class="simple">
 <dt>Merge alignments from multiple libraries of the same sample (picard)</dt><dd><ol class="arabic simple">
@@ -234,8 +246,49 @@ pipeline with the test data set. Below, you will find several snippets to guide 
 </li>
 </ul>
 </section>
+<section id="samplesheet-input">
+<h2>Samplesheet input<a class="headerlink" href="#samplesheet-input" title="Permalink to this heading"></a></h2>
+<p>To provide the samples to the pipeline, you will need to create a samplesheet with with information about
+the samples you would like to analyse as the ones shown below.</p>
+<p>The file above, is a comma-separated values (CSV) file with three columns. It can be provided to the pipeline using
+the <code class="docutils literal notranslate"><span class="pre">input</span></code> parameter.</p>
+<section id="multiple-runs-of-the-same-sample">
+<h3>Multiple runs of the same sample<a class="headerlink" href="#multiple-runs-of-the-same-sample" title="Permalink to this heading"></a></h3>
+<p>If you have re-sequenced the same sample several times to increase its sequencing depth, you can input this information
+to the pipeline by using the same sample identifier. The pipeline will concatenate the raw reads before performing any
+downstream analysis. Below is an example for the same sample sequenced across 3 lanes:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sample,fastq_1,fastq_2</span>
+<span class="go">CONTROL_REP1,AEG588A1_S1_L002_R1_001.fastq.gz,AEG588A1_S1_L002_R2_001.fastq.gz</span>
+<span class="go">CONTROL_REP1,AEG588A1_S1_L003_R1_001.fastq.gz,AEG588A1_S1_L003_R2_001.fastq.gz</span>
+<span class="go">CONTROL_REP1,AEG588A1_S1_L004_R1_001.fastq.gz,AEG588A1_S1_L004_R2_001.fastq.gz</span>
+</pre></div>
+</div>
+</section>
+<section id="full-samplesheet">
+<h3>Full samplesheet<a class="headerlink" href="#full-samplesheet" title="Permalink to this heading"></a></h3>
+<p>The samplesheet also can encode the information or whether a sample is single- or paired-end. Single-end samples
+can be provided by just letting empty the field corresponding to the <code class="docutils literal notranslate"><span class="pre">fastq_2</span></code> column.
+The samplesheet can have as many columns as you desire, however, there is a strict requirement for the first 3 columns to
+match those defined in the table below.</p>
+<p>A final samplesheet file consisting of both single- and paired-end data may look something like the one below.
+This is for 6 samples, where TREATMENT_REP3 has been sequenced twice:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sample,fastq_1,fastq_2</span>
+<span class="go">CONTROL_REP1,AEG588A1_S1_L002_R1_001.fastq.gz,AEG588A1_S1_L002_R2_001.fastq.gz</span>
+<span class="go">CONTROL_REP2,AEG588A2_S2_L002_R1_001.fastq.gz,AEG588A2_S2_L002_R2_001.fastq.gz</span>
+<span class="go">CONTROL_REP3,AEG588A3_S3_L002_R1_001.fastq.gz,AEG588A3_S3_L002_R2_001.fastq.gz</span>
+<span class="go">TREATMENT_REP1,AEG588A4_S4_L003_R1_001.fastq.gz,</span>
+<span class="go">TREATMENT_REP2,AEG588A5_S5_L003_R1_001.fastq.gz,</span>
+<span class="go">TREATMENT_REP3,AEG588A6_S6_L003_R1_001.fastq.gz,</span>
+<span class="go">TREATMENT_REP3,AEG588A6_S6_L004_R1_001.fastq.gz,</span>
+</pre></div>
+</div>
+</section>
+</section>
 <section id="parameters">
 <h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h2>
+<p>You can find the full list of parameters <a class="reference external" href="https://nf-co.re/atacseq/dev/parameters">here</a></p>
+<p>different types of parameters</p>
+<p>skip parameters etc</p>
 </section>
 </section>
 
