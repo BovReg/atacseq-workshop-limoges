@@ -69,7 +69,7 @@ and then, we activate it.
 
 .. code-block:: console
 
-	conda create -n py38_test python=3.8 nf-core -c bioconda -c conda-forge -y
+	conda create -n nf-core python=3.8 nf-core -c bioconda -c conda-forge -y
 	conda activate nf-core
 
 .. tip::
@@ -120,14 +120,13 @@ We can now check the nf-core available commands:
     │ subworkflows      Commands to manage Nextflow DSL2 subworkflows (tool wrappers).                 │
     ╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
 
-As shown in the screenshot, nf-core tools provides with some commands meant for users and with some commands meant
+As shown in the screenshot, nf-core tools provides you with some commands meant for users and with some commands meant
 for developers. Here, we will discuss how nf-core can be used from a user point of view. 
 
 .. tip:: 
     If you are interested in learn how nf-core could help you developing your pipelines please refer to
-    the tools `page <https://nf-co.re/tools/>`__in the nf-core site or follow 
-    `this https://nf-co.re/developers/tutorials/nf_core_contributing_overview>`__
-    tutorial.
+    the `tool page <https://nf-co.re/tools/>`__ in the nf-core site or follow 
+    `this tutorial <https://nf-co.re/developers/tutorials/nf_core_contributing_overview>`__.
 
 Commands for users
 ==================
@@ -135,7 +134,7 @@ Commands for users
 Listing pipelines
 -----------------
 
-To show all the nf-core available pipelines, we can use the nf-core list command. This command also
+To show all the available nf-core pipelines, we can use the `nf-core list` command. This command also
 provides some other information as the last version of each of the nf-core pipelines, its publication and
 and when you last pulled the pipeline to your local system.
 
@@ -190,8 +189,8 @@ Filtering available nf-core pipelines
 -------------------------------------
 
 It is also possible to use keywords after the ``list`` command so that the list of pipelines is shortened to those
-matching the keywords or including them in the description. We can use the command below to filter on the **rna**
-and **rna-seq** keywords:
+matching the keywords or including them in the description. We can use the command below to filter on the **atac**
+and **atac-seq** keywords:
 
 .. code-block:: console
 	
@@ -211,11 +210,6 @@ and **rna-seq** keywords:
     │ atacseq       │   119 │          1.2.2 │ 6 months ago │ 17 hours ago │ No (dev - 88d4e6d)   │
     │ hicar         │     2 │          1.0.0 │ 6 months ago │            - │ -                    │
     └───────────────┴───────┴────────────────┴──────────────┴──────────────┴──────────────────────┘
-
-.. note::
-	The pipelines can be sorted by latest release (``nf-core list -s release``, default), by the last time 
-    you pulled a local copy (``nf-core list -s pulled``), alphabetically (``nf-core list -s name``) or by the 
-    number of GitHub stars (``nf-core list -s stars``).
 
 .. Pulling pipelines
 .. -----------------
@@ -246,14 +240,14 @@ To render the description of the parameters, its grouping and defaults, the tool
 JSON file is bundled with the pipeline and includes all the information mentioned above, see an example
 `here <https://github.com/nf-core/atacseq/blob/master/nextflow_schema.json>`__.
 
-The chosen not default parameters are dumped into a JSON file called ``nf-params.json``. This file can be provided to new 
+The chosen non-default parameters are dumped into a JSON file called ``nf-params.json``. This file can be provided to new 
 executions using the ``-params-file`` flag. See below an example of a params JSON file:
 
 .. literalinclude:: ../nf-core/examples/nf-params.json
 	:language: json
 
 It is a good practice in terms of reproducibility to explicitly indicate the version (revision) of the pipeline that 
-you want to use, this can be indicated using the ``-r`` flag e.g. ``nf-core launch atacseq -params-file nf-params.json -r 1.2.2``.
+you want to use. This is done using the ``-r`` flag e.g. ``nf-core launch atacseq -params-file nf-params.json -r 1.2.2``.
 
 nf-core configs and profiles
 ----------------------------
@@ -348,14 +342,14 @@ Running pipelines with test data
 
 All nf-core pipelines include a special configuration named ``test``. This configuration defines all the files and parameters to test
 all pipeline functionality with a minimal dataset. Thus, although the functionality of the pipeline is maintained often the results
-are not meaningful. As an example, find on the snippet below the test configuration of the `nf-core/atacseq <https://github.com/nf-core/atacseq/>`__.
+are not meaningful. As an example, find on the snippet below the test configuration of the `nf-core/atacseq <https://github.com/nf-core/atacseq/tree/dev>`__.
 pipeline.
 
 .. literalinclude:: ../nf-core/examples/test.config
 	:language: groovy
 
 .. tip::
-	You can find the current version of the nf-core/atacseq ``test.config config`` `here <https://github.com/nf-core/rnaseq/blob/master/conf/test.config>`__
+	You can find the current version of the nf-core/atacseq ``test.config config`` `here <https://github.com/nf-core/atacseq/blob/master/conf/test.config>`__
 
 Downloading pipelines
 ---------------------
@@ -372,7 +366,7 @@ Finally, you can also download any singularity image files required by the pipel
 .. tip::
 	If you don't provide any option to ```nf-core download`` an interactive prompt will ask you for the required options.
 
-We can now try to download the rnaseq pipeline using the command below:
+We can now try to download the atacseq pipeline using the command below:
 
 .. code-block:: console
 
@@ -384,21 +378,24 @@ Now we can inspect the structure of the downloaded directory:
 
 	$ tree -L 2 nf-core-atacseq-dev/
 
-	nf-core-rnaseq-3.8.1/
+	nf-core-atacseq-dev/
 	├── configs
 	│   ├── ..truncated..
 	│   ├── nextflow.config
 	│   ├── nfcore_custom.config
-	│   └── pipeline
+	│   ├── pipeline
+	│   └── README.md
 	├── singularity-images
 	│   ├── depot.galaxyproject.org-singularity-ataqv-1.3.0--py39hccc85d7_2.img
 	│   ├── ..truncated..
 	│   └── depot.galaxyproject.org-singularity-ucsc-bedgraphtobigwig-377--h446ed27_1.img
 	└── workflow
-		├── CHANGELOG.md
+		├── assets
+		├── bin
 		├── ..truncated..
 		├── main.nf
 		├── modules
+		├── ..truncated..
 		└── workflows
 
 Pipeline output
