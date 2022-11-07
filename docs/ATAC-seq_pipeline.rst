@@ -25,7 +25,11 @@ The main functionality of the nf-core/atacseq is summarised in the figure above 
 
     1. Raw read QC (FastQC)
     2. Adapter trimming (Trim Galore!)
-    3. Alignment (BWA)
+    3. Choice of multiple aligners 
+        1.(BWA) 
+        2.(Chromap) For paired-end reads only working until mapping step since the `resulting BAMs are faulty <https://github.com/nf-core/chipseq/issues/291>`__ 
+        3.(Bowtie2) 
+        4.(STAR)
     4. Mark duplicates (picard)
     5. Merge alignments from multiple libraries of the same sample (picard)
         1. Re-mark duplicates (picard)
@@ -143,10 +147,59 @@ pipeline with the test data set. Below, you will find several snippets to guide 
                                                                                                                                                                     
         Do you want to run this command now?  [y/n] (y): 
 
+Samplesheet input
+=================
+
+To provide the samples to the pipeline, you will need to create a samplesheet with with information about
+the samples you would like to analyse as the ones shown below.
+
+The file above, is a comma-separated values (CSV) file with three columns. It can be provided to the pipeline using 
+the ``input`` parameter.
+
+Multiple runs of the same sample
+--------------------------------
+
+If you have re-sequenced the same sample several times to increase its sequencing depth, you can input this information
+to the pipeline by using the same sample identifier. The pipeline will concatenate the raw reads before performing any 
+downstream analysis. Below is an example for the same sample sequenced across 3 lanes:
+
+.. code-block:: console
+
+    sample,fastq_1,fastq_2
+    CONTROL_REP1,AEG588A1_S1_L002_R1_001.fastq.gz,AEG588A1_S1_L002_R2_001.fastq.gz
+    CONTROL_REP1,AEG588A1_S1_L003_R1_001.fastq.gz,AEG588A1_S1_L003_R2_001.fastq.gz
+    CONTROL_REP1,AEG588A1_S1_L004_R1_001.fastq.gz,AEG588A1_S1_L004_R2_001.fastq.gz
+
+Full samplesheet
+----------------
+
+The samplesheet also can encode the information or whether a sample is single- or paired-end. Single-end samples 
+can be provided by just letting empty the field corresponding to the ``fastq_2`` column.
+The samplesheet can have as many columns as you desire, however, there is a strict requirement for the first 3 columns to 
+match those defined in the table below.
+
+A final samplesheet file consisting of both single- and paired-end data may look something like the one below. 
+This is for 6 samples, where TREATMENT_REP3 has been sequenced twice:
+
+.. code-block:: console
+
+    sample,fastq_1,fastq_2
+    CONTROL_REP1,AEG588A1_S1_L002_R1_001.fastq.gz,AEG588A1_S1_L002_R2_001.fastq.gz
+    CONTROL_REP2,AEG588A2_S2_L002_R1_001.fastq.gz,AEG588A2_S2_L002_R2_001.fastq.gz
+    CONTROL_REP3,AEG588A3_S3_L002_R1_001.fastq.gz,AEG588A3_S3_L002_R2_001.fastq.gz
+    TREATMENT_REP1,AEG588A4_S4_L003_R1_001.fastq.gz,
+    TREATMENT_REP2,AEG588A5_S5_L003_R1_001.fastq.gz,
+    TREATMENT_REP3,AEG588A6_S6_L003_R1_001.fastq.gz,
+    TREATMENT_REP3,AEG588A6_S6_L004_R1_001.fastq.gz,
 
 Parameters
 ==========
 
+You can find the full list of parameters `here <https://nf-co.re/atacseq/dev/parameters>`__
+
+different types of parameters
+
+skip parameters etc
 
 
 
