@@ -116,6 +116,7 @@ pipeline with the test data set. Below, you will find several snippets to guide 
 * Finally, provide the ``required`` parameters, the ``input`` for the input samplesheet and the ``outdir`` to dump the pipeline results.
 
     .. code-block:: console
+        
         ?  Input/output options 
         Define where the pipeline should find input data and save output data.                                                                                         
         (Use arrow keys)
