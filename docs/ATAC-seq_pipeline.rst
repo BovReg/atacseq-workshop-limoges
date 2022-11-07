@@ -61,8 +61,94 @@ The main functionality of the nf-core/atacseq is summarised in the figure above 
             6. Create consensus peakset across all samples and create tabular file to aid in the filtering of the data (BEDTools)
             7. Count reads in consensus peaks relative to merged library-level alignments (featureCounts)
             8. Differential accessibility analysis, PCA and clustering (R, DESeq2)
-    7. Create IGV session file containing bigWig tracks, peaks and differential sites for data visualisation (IGV).
+    7. Create IGV session file containing bigWig tracks, peaks and differential sites for data visualisation (IGV)
     8. Present QC for raw read, alignment, peak-calling and differential accessibility results (ataqv, MultiQC, R)
+
+
+Run nf-core/atacseq with test data
+==================================
+
+As discussed previously `here <https://bovreg.github.io/atacseq-workshop-limoges/nf-core.html#running-pipelines-with-test-data>`__ 
+nf-core pipelines include a special configuration named ``test`` that enables to run the whole pipeline with a small subsampled 
+dataset. Since the AWS environment provided has not enough computational resources, we will use this test profile to showcase 
+the pipeline functionality during this tutorial.
+
+We will first launch the pipeline using the nf-core ``launch`` command and the minimal set of parameters to run the nf-core/atacseq 
+pipeline with the test data set. Below, you will find several snippets to guide to chose the correct parametrization during this process:
+
+* Call the nf-core tools launch command:
+
+    .. code-block:: console
+            
+            nf-core launch
+
+* Make sure you chose the development version of the pipeline:
+
+    .. code-block:: console
+        
+        Select release / branch: (Use arrow keys)
+            1.2.2  [release]
+            1.2.1  [release]
+            1.2.0  [release]
+            1.1.0  [release]
+            1.0.0  [release]
+            » dev  [branch]
+            master  [branch]
+            multiqc_fail  [branch]
+            schema  [branch]
+
+* Then, make sure that you set the ``test`` and the ``docker`` profiles. The former will load the settings for the test dataset run and the latter
+will set the settings for launching the pipeline using `Docker <https://www.docker.com/>`__.
+
+    .. code-block:: console
+
+        ?  Nextflow command-line flags 
+        General Nextflow flags to control how the pipeline runs.                                                                                                       
+        These are not specific to the pipeline and will not be saved in any parameter file. They are just used when building the nextflow run launch command.          
+        (Use arrow keys)
+
+        » Continue >>
+        ---------------
+        -name
+        -profile  [test,docker]
+        -work-dir  [./work]
+        -resume  [False]
+
+* Finally, provide the ``required`` parameters, the ``input`` for the input samplesheet and the ``outdir`` to dump the pipeline results.
+
+?  Input/output options 
+Define where the pipeline should find input data and save output data.                                                                                         
+(Use arrow keys)
+
+    .. code-block:: console
+        » Continue >>
+          ---------------
+          input  [https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/samplesheet/v2.0/samplesheet_test.csv]
+          fragment_size  [200]
+          seq_center
+          read_length
+          outdir  [results_test]
+          email
+          multiqc_title
+
+* Now will just left all the rest of parameters set as default until reaching the final prompt:
+
+    .. code-block:: console
+
+        (Use arrow keys)
+          Continue >>
+        INFO     [✓] Input parameters look valid                                                                                                          schema.py:213
+        INFO     Nextflow command:                                                                                                                        launch.py:724
+                nextflow run nf-core/atacseq -r dev -profile "test,docker" -params-file "nf-params.json"                                                              
+                                                                                                                                                                    
+                                                                                                                                                                    
+        Do you want to run this command now?  [y/n] (y): 
+
+
+Parameters
+==========
+
+
 
 
 .. nextflow run nf-core/atacseq -r dev -params-file ./config/nf-atacseq-params.json -profile docker -c ./config/nextflow.config -resume
