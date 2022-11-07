@@ -97,8 +97,7 @@ pipeline with the test data set. Below, you will find several snippets to guide 
             multiqc_fail  [branch]
             schema  [branch]
 
-* Then, make sure that you set the ``test`` and the ``docker`` profiles. The former will load the settings for the test dataset run and the latter
-will set the settings for launching the pipeline using `Docker <https://www.docker.com/>`__.
+* Then, make sure that you set the ``test`` and the ``docker`` profiles. The former will load the settings for the test dataset run and the latter will set the settings for launching the pipeline using `Docker <https://www.docker.com/>`__.
 
     .. code-block:: console
 
@@ -116,20 +115,19 @@ will set the settings for launching the pipeline using `Docker <https://www.dock
 
 * Finally, provide the ``required`` parameters, the ``input`` for the input samplesheet and the ``outdir`` to dump the pipeline results.
 
-?  Input/output options 
-Define where the pipeline should find input data and save output data.                                                                                         
-(Use arrow keys)
-
     .. code-block:: console
-        » Continue >>
-          ---------------
-          input  [https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/samplesheet/v2.0/samplesheet_test.csv]
-          fragment_size  [200]
-          seq_center
-          read_length
-          outdir  [results_test]
-          email
-          multiqc_title
+        ?  Input/output options 
+        Define where the pipeline should find input data and save output data.                                                                                         
+        (Use arrow keys)
+         » Continue >>
+            ---------------
+            input  [https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/samplesheet/v2.0/samplesheet_test.csv]
+            fragment_size  [200]
+            seq_center
+            read_length
+            outdir  [results_test]
+            email
+            multiqc_title
 
 * Now will just left all the rest of parameters set as default until reaching the final prompt:
 
