@@ -46,6 +46,8 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">nf-core/atacseq</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pipeline-summary">Pipeline summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-nf-core-atacseq-with-test-data">Run nf-core/atacseq with test data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a></li>
 </ul>
 </li>
 </ul>
@@ -144,10 +146,88 @@ to everyone within the Nextflow community.</p>
 </dd>
 </dl>
 </li>
-<li><p>Create IGV session file containing bigWig tracks, peaks and differential sites for data visualisation (IGV).</p></li>
+<li><p>Create IGV session file containing bigWig tracks, peaks and differential sites for data visualisation (IGV)</p></li>
 <li><p>Present QC for raw read, alignment, peak-calling and differential accessibility results (ataqv, MultiQC, R)</p></li>
 </ol>
 </div></blockquote>
+</section>
+<section id="run-nf-core-atacseq-with-test-data">
+<h2>Run nf-core/atacseq with test data<a class="headerlink" href="#run-nf-core-atacseq-with-test-data" title="Permalink to this heading"></a></h2>
+<p>As discussed previously <a class="reference external" href="https://bovreg.github.io/atacseq-workshop-limoges/nf-core.html#running-pipelines-with-test-data">here</a>
+nf-core pipelines include a special configuration named <code class="docutils literal notranslate"><span class="pre">test</span></code> that enables to run the whole pipeline with a small subsampled
+dataset. Since the AWS environment provided has not enough computational resources, we will use this test profile to showcase
+the pipeline functionality during this tutorial.</p>
+<p>We will first launch the pipeline using the nf-core <code class="docutils literal notranslate"><span class="pre">launch</span></code> command and the minimal set of parameters to run the nf-core/atacseq
+pipeline with the test data set. Below, you will find several snippets to guide to chose the correct parametrization during this process:</p>
+<ul>
+<li><p>Call the nf-core tools launch command:</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nf-core launch</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Make sure you chose the development version of the pipeline:</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Select release / branch: (Use arrow keys)</span>
+<span class="go">    1.2.2  [release]</span>
+<span class="go">    1.2.1  [release]</span>
+<span class="go">    1.2.0  [release]</span>
+<span class="go">    1.1.0  [release]</span>
+<span class="go">    1.0.0  [release]</span>
+<span class="go">    » dev  [branch]</span>
+<span class="go">    master  [branch]</span>
+<span class="go">    multiqc_fail  [branch]</span>
+<span class="go">    schema  [branch]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Then, make sure that you set the <code class="docutils literal notranslate"><span class="pre">test</span></code> and the <code class="docutils literal notranslate"><span class="pre">docker</span></code> profiles. The former will load the settings for the test dataset run and the latter</p></li>
+</ul>
+<p>will set the settings for launching the pipeline using <a class="reference external" href="https://www.docker.com/">Docker</a>.</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">?  Nextflow command-line flags</span>
+<span class="go">General Nextflow flags to control how the pipeline runs.</span>
+<span class="go">These are not specific to the pipeline and will not be saved in any parameter file. They are just used when building the nextflow run launch command.</span>
+<span class="gp gp-VirtualEnv">(Use arrow keys)</span>
+
+<span class="go">» Continue &gt;&gt;</span>
+<span class="go">---------------</span>
+<span class="go">-name</span>
+<span class="go">-profile  [test,docker]</span>
+<span class="go">-work-dir  [./work]</span>
+<span class="go">-resume  [False]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p>Finally, provide the <code class="docutils literal notranslate"><span class="pre">required</span></code> parameters, the <code class="docutils literal notranslate"><span class="pre">input</span></code> for the input samplesheet and the <code class="docutils literal notranslate"><span class="pre">outdir</span></code> to dump the pipeline results.</p></li>
+</ul>
+<p>?  Input/output options
+Define where the pipeline should find input data and save output data.
+(Use arrow keys)</p>
+<blockquote>
+<div></div></blockquote>
+<ul>
+<li><p>Now will just left all the rest of parameters set as default until reaching the final prompt:</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(Use arrow keys)</span>
+<span class="go">  Continue &gt;&gt;</span>
+<span class="go">INFO     [✓] Input parameters look valid                                                                                                          schema.py:213</span>
+<span class="go">INFO     Nextflow command:                                                                                                                        launch.py:724</span>
+<span class="go">        nextflow run nf-core/atacseq -r dev -profile &quot;test,docker&quot; -params-file &quot;nf-params.json&quot;</span>
+
+
+<span class="go">Do you want to run this command now?  [y/n] (y):</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 
