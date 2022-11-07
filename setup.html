@@ -93,9 +93,7 @@ It requires Bash and <a class="reference external" href="https://www.oracle.com/
 <section id="steps-to-launch-the-aws-cloud-9-environment">
 <h2>Steps to launch the AWS cloud 9 environment<a class="headerlink" href="#steps-to-launch-the-aws-cloud-9-environment" title="Permalink to this heading"></a></h2>
 <p>For this tutorial, we will use the <a class="reference external" href="https://aws.amazon.com/en/cloud9/">AWS Cloud 9 virtual environment</a>.</p>
-<p>To launch the environment, you just need to sign in the AWS console with the
-<a class="reference external" href="https://www.crg.eu/en/cedric_notredame&quot;">CBCRG</a> account and specify
-your (first) name as the IAM user. Below we included the list with all the users name created:</p>
+<p>Below we included the list with all the users name created that you need together with the <a class="reference external" href="https://www.crg.eu/en/cedric_notredame&quot;">CBCRG</a> account ID to sign in the AWS console and launch the enviroment.</p>
 <ol class="arabic">
 <li><p>Open this address on your browser:  <a class="reference external" href="https://eu-west-1.console.aws.amazon.com/cloud9/home">https://eu-west-1.console.aws.amazon.com/cloud9/home</a></p></li>
 <li><p>Once you are in the AWS login page, select <strong>IAM USER</strong> and please fill the credentials below:</p>
@@ -105,19 +103,18 @@ your (first) name as the IAM user. Below we included the list with all the users
 <p>Password: provided by the organization</p>
 </div></blockquote>
 </li>
+<li><p>When you access the AWS Cloud main page you will find your environment listed in the home page, just click on the <strong>Open IDE</strong> button and your environment will be launched.</p></li>
 </ol>
-<p>3. When you access the AWS Cloud main page you will find your environment listed in the home page, just click on the &lt;strong&gt;Open IDE&lt;/strong&gt; button and
-your environment will be launched.</p>
 </section>
 <section id="training-materials-download-and-environment-setup">
 <h2>Training materials download and environment setup<a class="headerlink" href="#training-materials-download-and-environment-setup" title="Permalink to this heading"></a></h2>
 <p>Once you <a class="reference internal" href="#steps-to-launch-the-aws-cloud-9-environment"><span class="std std-ref">launched the environment</span></a>, download the training materials
 running the command below on the terminal window that you will find at the button of the IDE:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/setup ./setup/
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/setup ./setup/</span>
 
-<span class="gp">$ </span><span class="nb">source</span> setup/all.sh
+<span class="go">source setup/all.sh</span>
 
-<span class="gp">$ </span>aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/config ./config/
+<span class="go">aws s3 sync s3://cbcrg-eu/atacseq-training-bovreg/config ./config/</span>
 </pre></div>
 </div>
 </section>
