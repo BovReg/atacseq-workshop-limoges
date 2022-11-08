@@ -234,7 +234,7 @@ pipeline with the test data set. Below, you will find several snippets to guide 
 </div>
 </div></blockquote>
 </li>
-<li><p>Finally, we will just left all the rest of parameters set as default until reaching the final prompt:</p>
+<li><p>Finally, we will just leave the rest of the parameters set as default until reaching the final prompt:</p>
 <blockquote>
 <div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(Use arrow keys)</span>
 <span class="go">  Continue &gt;&gt;</span>
@@ -252,8 +252,15 @@ pipeline with the test data set. Below, you will find several snippets to guide 
 </section>
 <section id="samplesheet-input">
 <h2>Samplesheet input<a class="headerlink" href="#samplesheet-input" title="Permalink to this heading"></a></h2>
-<p>To provide the samples to the pipeline, you will need to create a samplesheet with with information about
-the samples you would like to analyse as the ones shown below.</p>
+<p>To provide the samples to the pipeline, you will need to create a samplesheet with information about
+the samples you would like to analyse, similar to the one shown below.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sample,fastq_1,fastq_2</span>
+<span class="go">OSMOTIC_STRESS_T0_REP1,https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/testdata/SRR1822153_1.fastq.gz,https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/testdata/SRR1822153_2.fastq.gz</span>
+<span class="go">OSMOTIC_STRESS_T0_REP2,https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/testdata/SRR1822154_1.fastq.gz,https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/testdata/SRR1822154_2.fastq.gz</span>
+<span class="go">OSMOTIC_STRESS_T15_REP1,https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/testdata/SRR1822157_1.fastq.gz,https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/testdata/SRR1822157_2.fastq.gz</span>
+<span class="go">OSMOTIC_STRESS_T15_REP2,https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/testdata/SRR1822158_1.fastq.gz,https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/testdata/SRR1822158_2.fastq.gz</span>
+</pre></div>
+</div>
 <p>The file above, is a comma-separated values (CSV) file with three columns. It can be provided to the pipeline using
 the <code class="docutils literal notranslate"><span class="pre">input</span></code> parameter.</p>
 <section id="multiple-runs-of-the-same-sample">
@@ -270,8 +277,8 @@ downstream analysis. Below is an example for the same sample sequenced across 3 
 </section>
 <section id="full-samplesheet">
 <h3>Full samplesheet<a class="headerlink" href="#full-samplesheet" title="Permalink to this heading"></a></h3>
-<p>The samplesheet also can encode the information or whether a sample is single- or paired-end. Single-end samples
-can be provided by just letting empty the field corresponding to the <code class="docutils literal notranslate"><span class="pre">fastq_2</span></code> column.
+<p>The samplesheet also can encode the information of whether a sample is single- or paired-end. Single-end samples
+can be provided by just leaving the field corresponding to the <code class="docutils literal notranslate"><span class="pre">fastq_2</span></code> column empty.
 The samplesheet can have as many columns as you desire, however, there is a strict requirement for the first 3 columns to
 match those defined in the table below.</p>
 <p>A final samplesheet file consisting of both single- and paired-end data may look something like the one below.
