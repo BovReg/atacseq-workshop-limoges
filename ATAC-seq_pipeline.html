@@ -61,6 +61,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#process-skipping-options">Process skipping options</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#bovreg-parametrisation">BovReg parametrisation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#results-discussion">Results discussion</a></li>
 </ul>
 </li>
@@ -100,6 +101,8 @@ The <a class="reference external" href="https://www.nextflow.io/docs/latest/dsl2
 it much easier to maintain and update software dependencies. Where possible, these processes have been submitted to and installed from
 <a class="reference external" href="https://github.com/nf-core/modules">nf-core/modules</a> in order to make them available to all nf-core pipelines, and
 to everyone within the Nextflow community.</p>
+<p>The DSL2 version of the pipeline was implemented by <a class="reference external" href="https://github.com/bjlang">Björn Langer</a> and <a class="reference external" href="https://github.com/joseespinosa">Jose Espinosa-Carrasco</a>
+taking into account Gabriel Costa suggestions and with the help of <cite>Harshil Patel &lt;https://github.com/drpatelh&gt;</cite> in the framework of the BovReg project.</p>
 </section>
 <section id="pipeline-summary">
 <h2>Pipeline summary<a class="headerlink" href="#pipeline-summary" title="Permalink to this heading"></a></h2>
@@ -179,7 +182,7 @@ nf-core pipelines include a special configuration named <code class="docutils li
 dataset. Since the AWS environment provided has not enough computational resources, we will use this test profile to showcase
 the pipeline functionality during this tutorial.</p>
 <p>We will first launch the pipeline using the nf-core <code class="docutils literal notranslate"><span class="pre">launch</span></code> command and the minimal set of parameters to run the nf-core/atacseq
-pipeline with the test data set. Below, you will find several snippets to guide to chose the correct parametrization during this process:</p>
+pipeline with the test data set. Below, you will find several snippets to guide to chose the correct parametrisation during this process:</p>
 <ul>
 <li><p>Call the nf-core tools launch command:</p>
 <blockquote>
@@ -363,6 +366,10 @@ most important parameters.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">--skip_step</span></code> where step could correspond to several workflow pipeline such as <code class="docutils literal notranslate"><span class="pre">--skip_fastqc</span></code>, <code class="docutils literal notranslate"><span class="pre">--skip_picard_metrics</span></code> or <code class="docutils literal notranslate"><span class="pre">--skip_igv</span></code></p></li>
 </ul>
 </section>
+</section>
+<section id="bovreg-parametrisation">
+<h2>BovReg parametrisation<a class="headerlink" href="#bovreg-parametrisation" title="Permalink to this heading"></a></h2>
+<p>The first time we run the pipeline using the test profile we did not modify any of the default parameters. However,</p>
 </section>
 <section id="results-discussion">
 <h2>Results discussion<a class="headerlink" href="#results-discussion" title="Permalink to this heading"></a></h2>
