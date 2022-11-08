@@ -195,11 +195,25 @@ This is for 6 samples, where TREATMENT_REP3 has been sequenced twice:
 Parameters
 ==========
 
-You can find the full list of parameters `here <https://nf-co.re/atacseq/dev/parameters>`__
+As we have seen when using the ``nf-core launch`` command, the nf-core atacseq pipeline comes with a set of parameters that allow  
 
-different types of parameters
+.. (something such as discussing some of the important parameters)
 
-skip parameters etc
+.. You can find the full list of parameters `here <https://nf-co.re/atacseq/dev/parameters>`__
+
+.. different types of parameters
+
+.. skip parameters etc
+
+.. Parameters 
+
+Results discussion 
+=================
+
+.. (IGV session + multiqc reports)
+
+
+
 
 
 
