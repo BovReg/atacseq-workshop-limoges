@@ -22,14 +22,14 @@ Steps to launch the AWS cloud 9 environment
 
 For this tutorial, we will use the `AWS Cloud 9 virtual environment <https://aws.amazon.com/en/cloud9/>`_.
 
-Below we included the list with all the users name created that you need together with the `CBCRG <https://www.crg.eu/en/cedric_notredame">`_ account ID to sign in the AWS console and launch the enviroment.
+Below we included the list with all the users name created that you need together with the `CBCRG <https://www.crg.eu/en/cedric_notredame">`_ account ID to sign in the AWS console and launch the environment.
 
 1. Open this address on your browser:  https://eu-west-1.console.aws.amazon.com/cloud9/home
 2. Once you are in the AWS login page, select **IAM USER** and please fill the credentials below:
 
     Account ID: 885800555707
 
-    IAM user name: Check `this <https://docs.google.com/spreadsheets/d/1X4z9bUGzJnS1Ogm1Z8tm8A9NnVhZiJGq/edit?usp=sharing&ouid=113761000134872093168&rtpof=true&sd=true>`_ google spreadsheet to check the user assigned to you.
+    IAM user name: Check `this <https://docs.google.com/spreadsheets/d/1X4z9bUGzJnS1Ogm1Z8tm8A9NnVhZiJGq/edit?usp=sharing&ouid=113761000134872093168&rtpof=true&sd=true>`_ google spreadsheet to check the user assigned to you (under the ``user`` column).
 
     Password: provided by the organization during the session.
 

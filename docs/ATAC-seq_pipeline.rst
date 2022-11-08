@@ -195,7 +195,18 @@ This is for 6 samples, where TREATMENT_REP3 has been sequenced twice:
 Parameters
 ==========
 
-As we have seen when using the ``nf-core launch`` command, the nf-core atacseq pipeline comes with a set of parameters that allow  
+As we have seen when using the ``nf-core launch`` command, the nf-core atacseq pipeline comes with a set of parameters that allow you to define
+some options to run the pipeline.
+
+The whole list of parameters that the pipeline accepts along with its description and further information can be found 
+`here <https://nf-co.re/atacseq/dev/parameters>`_.
+
+Parameters are classified in several categories depending on their usage.
+
+Input/output options
+--------------------
+
+
 
 .. (something such as discussing some of the important parameters)
 
@@ -206,6 +217,8 @@ As we have seen when using the ``nf-core launch`` command, the nf-core atacseq p
 .. skip parameters etc
 
 .. Parameters 
+
+.. SAVE_REFERENCE!!!
 
 Results discussion 
 =================
