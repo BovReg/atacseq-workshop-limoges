@@ -1,8 +1,8 @@
 .. _home-page-about:
 
-**************
+****************
 About the course
-**************
+****************
 
 .. autosummary::
   :toctree: generated
@@ -36,7 +36,7 @@ course organized by the `BovReg project <https://www.bovreg.eu/>`_ in the Univer
 .. _home-page-outline:
 
 Outline
-============
+=======
 
 This bioinformatics part of the workshop will train participants to use nf-core pipelines. nf-core is a community that 
 maintains a set of Nextflow high-standards pipelines that perform the most common bioinformatics analyses. In particular, 
@@ -55,12 +55,19 @@ updated in the framework of BovReg to analyse the ATAC-seq data produced by the 
 ..         Trainees will work in a dedicated `AWS environment <https://en.wikipedia.org/wiki/AWS/>`_.
 
 
-.. .. _home-page-learning:
+.. _home-page-learning:
 
-.. Learning objectives
-.. ============
+Learning objectives
+===================
 
-.. * Locate and fetch Docker/Singularity images from dedicated repositories.
+* Get familiar with the nf-core pipeline repository.
+* Learn main nf-core commands for users.
+* Execute nf-core pipelines using nf-core tools.
+* Get familiar with the nf-core/atacseq pipeline and its parametrization.
+* Discuss pipeline results.
+* Run a nf-core pipeline using Tower GUI (Depending on the workshop pace).
+
+
 .. * Execute/Run a Docker/Singularity container from the command line.
 .. * Locate and fetch Nextflow pipelines from dedicated repositories.
 .. * Execute/Run a Nextflow pipeline.
@@ -109,15 +116,15 @@ Suggested agenda
 Wednesday November 9
 ---------------------
 
-* 09:00 - 10:30
-* 10:30 - 10:45
-* 10:45 - 12:00
+* 09:00 - 10:30 Setup of the environment and nf-core introduction
+* 10:30 - 10:45 Coffee break
+* 10:45 - 12:00 nf-core introduction
 
 .. _home-page-day1:
 
 Thursday November 10
 --------------------
 
-* 09:00 - 10:30
-* 10:30 - 10:45
-* 10:45 - 12:00
+* 09:00 - 10:30 Introduction to the nf-core/atacseq pipeline
+* 10:30 - 10:45 Coffee break
+* 10:45 - 12:00 nf-core/atacseq results discussion
