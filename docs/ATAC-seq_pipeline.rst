@@ -215,7 +215,7 @@ most important parameters.
 Input/output options
 --------------------
 
-Define where the pipeline should find input data and save output data.
+Define where the pipeline should find input data and save output data. All possible parametrisations available on `this <https://nf-co.re/atacseq/dev/parameters#inputoutput-options>`_ link.
 
 * ``--input`` As discussed above, this is a **required** parameter is used to provide a comma-separated file containing the information 
 about the samples in the experiment.
@@ -228,7 +228,7 @@ about the samples in the experiment.
 Reference genome options
 ------------------------
 
-Reference genome related files and options required for the workflow.
+Reference genome related files and options required for the workflow. Full list `here <https://nf-co.re/atacseq/dev/parameters#reference-genome-options>`_
 
 * ``--genome`` Name of iGenomes reference, e.g. ``--genome GRCh38``. Find more info `here <https://nf-co.re/usage/reference_genomes>`_.
 
@@ -246,7 +246,7 @@ Reference genome related files and options required for the workflow.
 Alignment options
 -----------------
 
-Options to adjust parameters and filtering criteria for read alignments.
+Options to adjust parameters and filtering criteria for read alignments, for a complete list refer to this `link <https://nf-co.re/atacseq/dev/parameters#alignment-options>`_.
 
 * ``--aligner`` Specifies the alignment algorithm to use - available options are 'bwa', 'bowtie2' and 'star'.
 
@@ -254,7 +254,7 @@ Options to adjust parameters and filtering criteria for read alignments.
 Peak calling options
 --------------------
 
-Options to adjust peak calling criteria.
+Peak calling criteria adjusting options, full list `here <https://nf-co.re/atacseq/dev/parameters#peak-calling-options>`_.
 
 * ``--narrow_peak`` Peak calling mode for MACS2. By default MACS2 mode is set to ``--broad``. To modify this behavior ``--narrow_peak`` has to be set.
 
