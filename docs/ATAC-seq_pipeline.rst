@@ -209,10 +209,95 @@ some options to run the pipeline.
 The whole list of parameters that the pipeline accepts along with its description and further information can be found 
 `here <https://nf-co.re/atacseq/dev/parameters>`_.
 
-Parameters are classified in several categories depending on their usage.
+Parameters are classified in several categories depending on their usage. See below a brief summary of some of the 
+most important parameters.
 
 Input/output options
 --------------------
+
+Define where the pipeline should find input data and save output data.
+
+* ``--input`` As discussed above, this is a **required** parameter is used to provide a comma-separated file containing the information 
+about the samples in the experiment.
+
+* ``--read_length`` Read length used to calculate MACS2 genome size for peak calling if ``--macs_gsize`` isn't provided.
+
+* ``--outdir`` **Required** parameter to set the directory where results will be dumped.
+
+
+Reference genome options
+------------------------
+
+Reference genome related files and options required for the workflow.
+
+* ``--genome`` Name of iGenomes reference, e.g. ``--genome GRCh38``. Find more info `here <https://nf-co.re/usage/reference_genomes>`_.
+
+* ``--fasta`` Path to FASTA genome file.
+
+* ``--gtf`` Path to GTF annotation file.
+
+* ``--macs_gsize`` Effective genome size parameter required by MACS2.
+
+* ``--mito_name`` Name of Mitochondrial chomosome in reference assembly e.g. chrM.
+
+* ``--save_reference`` Save references in your results folder so that it can be used in future pipeline runs (e.g. BWA index).
+
+
+Alignment options
+-----------------
+
+Options to adjust parameters and filtering criteria for read alignments.
+
+* ``--aligner`` Specifies the alignment algorithm to use - available options are 'bwa', 'bowtie2' and 'star'.
+
+
+Peak calling options
+--------------------
+
+Options to adjust peak calling criteria.
+
+* ``--narrow_peak`` Peak calling mode for MACS2. By default MACS2 mode is set to ``--broad``. To modify this behavior ``--narrow_peak`` has to be set.
+
+* ``--macs_fdr`` MACS2 minimum FDR (q-value) cutoff for peak detection.
+
+* ``--save_macs_pileup`` Instruct MACS2 to create bedGraph files normalised to signal per million reads.
+
+* ``--save_macs_pileup`` Set MACS2 to create bedGraph files normalised to signal per million reads.
+
+
+DEseq2 analysis options
+-----------------------
+
+Options to adjust DEseq2 analysis criteria.
+
+* ``--deseq2_vst`` Use vst transformation instead of rlog with DESeq2. Set to ``true`` by default.
+
+
+Process skipping options
+------------------------
+
+Options to skip various pipeline steps, find the whole list on this `link <https://nf-co.re/atacseq/dev/parameters#process-skipping-options>`_.
+
+* ``--skip_step`` where step could correspond to several workflow pipeline such as ``--skip_fastqc``, ``--skip_picard_metrics`` or ``--skip_igv``
+
+
+
+
+.. {
+..   "input": "/users/cn/jespinosa/DELETE_ME/atacseq_dataset_limoges/design_limoges.csv",
+..   "outdir": "results_limoges2",
+..   "gtf": "/users/cn/jespinosa/DELETE_ME/atacseq_dataset_limoges/data/Bos_taurus.ARS-UCD1.2.105.gtf.gz",
+..   "fasta": "/users/cn/jespinosa/DELETE_ME/atacseq_dataset_limoges/data/ARS-UCD1.2_Btau5.0.1Y.fa",
+..   "narrow_peak": true,
+..   "aligner": "bwa",
+..   "mito_name": "MT",
+..   "read_length": 150,
+..   "macs_fdr": 0.05,
+..   "save_macs_pileup": true,
+..   "deseq2_vst": true,
+..   "skip_preseq": true
+.. }
+
 
 
 
@@ -229,7 +314,7 @@ Input/output options
 .. SAVE_REFERENCE!!!
 
 Results discussion 
-=================
+==================
 
 .. (IGV session + multiqc reports)
 
