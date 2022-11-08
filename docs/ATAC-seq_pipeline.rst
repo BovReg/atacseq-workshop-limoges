@@ -134,7 +134,7 @@ pipeline with the test data set. Below, you will find several snippets to guide 
             email
             multiqc_title
 
-* Finally, we will just left all the rest of parameters set as default until reaching the final prompt:
+* Finally, we will just leave the rest of the parameters set as default until reaching the final prompt:
 
     .. code-block:: console
 
@@ -150,8 +150,16 @@ pipeline with the test data set. Below, you will find several snippets to guide 
 Samplesheet input
 =================
 
-To provide the samples to the pipeline, you will need to create a samplesheet with with information about
-the samples you would like to analyse as the ones shown below.
+To provide the samples to the pipeline, you will need to create a samplesheet with information about
+the samples you would like to analyse, similar to the one shown below.
+
+.. code-block:: console
+
+	sample,fastq_1,fastq_2
+	OSMOTIC_STRESS_T0_REP1,https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/testdata/SRR1822153_1.fastq.gz,https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/testdata/SRR1822153_2.fastq.gz
+	OSMOTIC_STRESS_T0_REP2,https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/testdata/SRR1822154_1.fastq.gz,https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/testdata/SRR1822154_2.fastq.gz
+	OSMOTIC_STRESS_T15_REP1,https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/testdata/SRR1822157_1.fastq.gz,https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/testdata/SRR1822157_2.fastq.gz
+	OSMOTIC_STRESS_T15_REP2,https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/testdata/SRR1822158_1.fastq.gz,https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/testdata/SRR1822158_2.fastq.gz
 
 The file above, is a comma-separated values (CSV) file with three columns. It can be provided to the pipeline using 
 the ``input`` parameter.
@@ -173,8 +181,8 @@ downstream analysis. Below is an example for the same sample sequenced across 3 
 Full samplesheet
 ----------------
 
-The samplesheet also can encode the information or whether a sample is single- or paired-end. Single-end samples 
-can be provided by just letting empty the field corresponding to the ``fastq_2`` column.
+The samplesheet also can encode the information of whether a sample is single- or paired-end. Single-end samples 
+can be provided by just leaving the field corresponding to the ``fastq_2`` column empty.
 The samplesheet can have as many columns as you desire, however, there is a strict requirement for the first 3 columns to 
 match those defined in the table below.
 
