@@ -29,7 +29,7 @@ Below we included the list with all the users name created that you need togethe
 
     Account ID: 885800555707
 
-    IAM user name: Check `this <https://docs.google.com/spreadsheets/d/1X4z9bUGzJnS1Ogm1Z8tm8A9NnVhZiJGq/edit?usp=sharing&ouid=113761000134872093168&rtpof=true&sd=true`_ google spreadsheet to check the user assigned to you.
+    IAM user name: Check `this <https://docs.google.com/spreadsheets/d/1X4z9bUGzJnS1Ogm1Z8tm8A9NnVhZiJGq/edit?usp=sharing&ouid=113761000134872093168&rtpof=true&sd=true>`_ google spreadsheet to check the user assigned to you.
 
     Password: provided by the organization during the session.
 
