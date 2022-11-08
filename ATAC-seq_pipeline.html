@@ -54,6 +54,11 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#input-output-options">Input/output options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reference-genome-options">Reference genome options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alignment-options">Alignment options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#peak-calling-options">Peak calling options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deseq2-analysis-options">DEseq2 analysis options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#process-skipping-options">Process skipping options</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#results-discussion">Results discussion</a></li>
@@ -301,9 +306,62 @@ This is for 6 samples, where TREATMENT_REP3 has been sequenced twice:</p>
 some options to run the pipeline.</p>
 <p>The whole list of parameters that the pipeline accepts along with its description and further information can be found
 <a class="reference external" href="https://nf-co.re/atacseq/dev/parameters">here</a>.</p>
-<p>Parameters are classified in several categories depending on their usage.</p>
+<p>Parameters are classified in several categories depending on their usage. See below a brief summary of some of the
+most important parameters.</p>
 <section id="input-output-options">
 <h3>Input/output options<a class="headerlink" href="#input-output-options" title="Permalink to this heading"></a></h3>
+<p>Define where the pipeline should find input data and save output data. All possible parametrisations available on <a class="reference external" href="https://nf-co.re/atacseq/dev/parameters#inputoutput-options">this</a> link.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--input</span></code> As discussed above, this is a <strong>required</strong> parameter is used to provide a comma-separated file containing the information</p></li>
+</ul>
+<p>about the samples in the experiment.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--read_length</span></code> Read length used to calculate MACS2 genome size for peak calling if <code class="docutils literal notranslate"><span class="pre">--macs_gsize</span></code> isn't provided.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--outdir</span></code> <strong>Required</strong> parameter to set the directory where results will be dumped.</p></li>
+</ul>
+</section>
+<section id="reference-genome-options">
+<h3>Reference genome options<a class="headerlink" href="#reference-genome-options" title="Permalink to this heading"></a></h3>
+<p>Reference genome related files and options required for the workflow. Full list <a class="reference external" href="https://nf-co.re/atacseq/dev/parameters#reference-genome-options">here</a></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--genome</span></code> Name of iGenomes reference, e.g. <code class="docutils literal notranslate"><span class="pre">--genome</span> <span class="pre">GRCh38</span></code>. Find more info <a class="reference external" href="https://nf-co.re/usage/reference_genomes">here</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--fasta</span></code> Path to FASTA genome file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--gtf</span></code> Path to GTF annotation file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--macs_gsize</span></code> Effective genome size parameter required by MACS2.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--mito_name</span></code> Name of Mitochondrial chomosome in reference assembly e.g. chrM.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--save_reference</span></code> Save references in your results folder so that it can be used in future pipeline runs (e.g. BWA index).</p></li>
+</ul>
+</section>
+<section id="alignment-options">
+<h3>Alignment options<a class="headerlink" href="#alignment-options" title="Permalink to this heading"></a></h3>
+<p>Options to adjust parameters and filtering criteria for read alignments, for a complete list refer to this <a class="reference external" href="https://nf-co.re/atacseq/dev/parameters#alignment-options">link</a>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--aligner</span></code> Specifies the alignment algorithm to use - available options are 'bwa', 'bowtie2' and 'star'.</p></li>
+</ul>
+</section>
+<section id="peak-calling-options">
+<h3>Peak calling options<a class="headerlink" href="#peak-calling-options" title="Permalink to this heading"></a></h3>
+<p>Peak calling criteria adjusting options, full list <a class="reference external" href="https://nf-co.re/atacseq/dev/parameters#peak-calling-options">here</a>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--narrow_peak</span></code> Peak calling mode for MACS2. By default MACS2 mode is set to <code class="docutils literal notranslate"><span class="pre">--broad</span></code>. To modify this behavior <code class="docutils literal notranslate"><span class="pre">--narrow_peak</span></code> has to be set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--macs_fdr</span></code> MACS2 minimum FDR (q-value) cutoff for peak detection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--save_macs_pileup</span></code> Instruct MACS2 to create bedGraph files normalised to signal per million reads.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--save_macs_pileup</span></code> Set MACS2 to create bedGraph files normalised to signal per million reads.</p></li>
+</ul>
+</section>
+<section id="deseq2-analysis-options">
+<h3>DEseq2 analysis options<a class="headerlink" href="#deseq2-analysis-options" title="Permalink to this heading"></a></h3>
+<p>Options to adjust DEseq2 analysis criteria.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--deseq2_vst</span></code> Use vst transformation instead of rlog with DESeq2. Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> by default.</p></li>
+</ul>
+</section>
+<section id="process-skipping-options">
+<h3>Process skipping options<a class="headerlink" href="#process-skipping-options" title="Permalink to this heading"></a></h3>
+<p>Options to skip various pipeline steps, find the whole list on this <a class="reference external" href="https://nf-co.re/atacseq/dev/parameters#process-skipping-options">link</a>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--skip_step</span></code> where step could correspond to several workflow pipeline such as <code class="docutils literal notranslate"><span class="pre">--skip_fastqc</span></code>, <code class="docutils literal notranslate"><span class="pre">--skip_picard_metrics</span></code> or <code class="docutils literal notranslate"><span class="pre">--skip_igv</span></code></p></li>
+</ul>
 </section>
 </section>
 <section id="results-discussion">
