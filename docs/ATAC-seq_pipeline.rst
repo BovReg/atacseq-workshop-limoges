@@ -13,7 +13,10 @@ very portable manner. It uses Docker/Singularity containers making installation 
 The `Nextflow DSL2 <https://www.nextflow.io/docs/latest/dsl2.html>`__ implementation of this pipeline uses one container per process which makes 
 it much easier to maintain and update software dependencies. Where possible, these processes have been submitted to and installed from 
 `nf-core/modules <https://github.com/nf-core/modules>`__ in order to make them available to all nf-core pipelines, and
-to everyone within the Nextflow community. 
+to everyone within the Nextflow community.
+
+The DSL2 version of the pipeline was implemented by `Björn Langer <https://github.com/bjlang>`_ and `Jose Espinosa-Carrasco <https://github.com/joseespinosa>`_ 
+taking into account Gabriel Costa suggestions and with the help of `Harshil Patel <https://github.com/drpatelh>` in the framework of the BovReg project.
 
 Pipeline summary
 ================
@@ -78,7 +81,7 @@ dataset. Since the AWS environment provided has not enough computational resourc
 the pipeline functionality during this tutorial.
 
 We will first launch the pipeline using the nf-core ``launch`` command and the minimal set of parameters to run the nf-core/atacseq 
-pipeline with the test data set. Below, you will find several snippets to guide to chose the correct parametrization during this process:
+pipeline with the test data set. Below, you will find several snippets to guide to chose the correct parametrisation during this process:
 
 * Call the nf-core tools launch command:
 
@@ -280,7 +283,10 @@ Options to skip various pipeline steps, find the whole list on this `link <https
 
 * ``--skip_step`` where step could correspond to several workflow pipeline such as ``--skip_fastqc``, ``--skip_picard_metrics`` or ``--skip_igv``
 
+BovReg parametrisation
+======================
 
+The first time we run the pipeline using the test profile we did not modify any of the default parameters. However, 
 
 
 .. {
@@ -298,6 +304,7 @@ Options to skip various pipeline steps, find the whole list on this `link <https
 ..   "skip_preseq": true
 .. }
 
+.. Mention the controls!!!
 
 
 
