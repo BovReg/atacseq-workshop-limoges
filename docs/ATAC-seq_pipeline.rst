@@ -16,7 +16,7 @@ it much easier to maintain and update software dependencies. Where possible, the
 to everyone within the Nextflow community.
 
 The DSL2 version of the pipeline was implemented by `Björn Langer <https://github.com/bjlang>`_ and `Jose Espinosa-Carrasco <https://github.com/joseespinosa>`_ 
-taking into account Gabriel Costa suggestions and with the help of `Harshil Patel <https://github.com/drpatelh>` in the framework of the BovReg project.
+taking into account Gabriel Costas suggestions and with the help of `Harshil Patel <https://github.com/drpatelh>`_ in the framework of the BovReg project.
 
 Pipeline summary
 ================
@@ -220,8 +220,7 @@ Input/output options
 
 Define where the pipeline should find input data and save output data. All possible parametrisations available on `this <https://nf-co.re/atacseq/dev/parameters#inputoutput-options>`_ link.
 
-* ``--input`` As discussed above, this is a **required** parameter is used to provide a comma-separated file containing the information 
-about the samples in the experiment.
+* ``--input`` As discussed `above <https://bovreg.github.io/atacseq-workshop-limoges/ATAC-seq_pipeline.html#samplesheet-input>`__, this is a **required** parameter which is used to provide a comma-separated file containing the information about the samples in the experiment.
 
 * ``--read_length`` Read length used to calculate MACS2 genome size for peak calling if ``--macs_gsize`` isn't provided.
 
