@@ -102,7 +102,7 @@ it much easier to maintain and update software dependencies. Where possible, the
 <a class="reference external" href="https://github.com/nf-core/modules">nf-core/modules</a> in order to make them available to all nf-core pipelines, and
 to everyone within the Nextflow community.</p>
 <p>The DSL2 version of the pipeline was implemented by <a class="reference external" href="https://github.com/bjlang">Björn Langer</a> and <a class="reference external" href="https://github.com/joseespinosa">Jose Espinosa-Carrasco</a>
-taking into account Gabriel Costa suggestions and with the help of <cite>Harshil Patel &lt;https://github.com/drpatelh&gt;</cite> in the framework of the BovReg project.</p>
+taking into account Gabriel Costas suggestions and with the help of <a class="reference external" href="https://github.com/drpatelh">Harshil Patel</a> in the framework of the BovReg project.</p>
 </section>
 <section id="pipeline-summary">
 <h2>Pipeline summary<a class="headerlink" href="#pipeline-summary" title="Permalink to this heading"></a></h2>
@@ -315,10 +315,7 @@ most important parameters.</p>
 <h3>Input/output options<a class="headerlink" href="#input-output-options" title="Permalink to this heading"></a></h3>
 <p>Define where the pipeline should find input data and save output data. All possible parametrisations available on <a class="reference external" href="https://nf-co.re/atacseq/dev/parameters#inputoutput-options">this</a> link.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">--input</span></code> As discussed above, this is a <strong>required</strong> parameter is used to provide a comma-separated file containing the information</p></li>
-</ul>
-<p>about the samples in the experiment.</p>
-<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--input</span></code> As discussed <a class="reference external" href="https://bovreg.github.io/atacseq-workshop-limoges/ATAC-seq_pipeline.html#samplesheet-input">above</a>, this is a <strong>required</strong> parameter which is used to provide a comma-separated file containing the information about the samples in the experiment.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">--read_length</span></code> Read length used to calculate MACS2 genome size for peak calling if <code class="docutils literal notranslate"><span class="pre">--macs_gsize</span></code> isn't provided.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">--outdir</span></code> <strong>Required</strong> parameter to set the directory where results will be dumped.</p></li>
 </ul>
