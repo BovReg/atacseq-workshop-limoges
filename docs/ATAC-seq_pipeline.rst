@@ -16,7 +16,7 @@ it much easier to maintain and update software dependencies. Where possible, the
 to everyone within the Nextflow community.
 
 The DSL2 version of the pipeline was implemented by `Björn Langer <https://github.com/bjlang>`_ and `Jose Espinosa-Carrasco <https://github.com/joseespinosa>`_ 
-taking into account Gabriel Costa suggestions and with the help of `Harshil Patel <https://github.com/drpatelh>`_ in the framework of the BovReg project.
+taking into account Gabriel Costa's suggestions and with the help of `Harshil Patel <https://github.com/drpatelh>`_ in the framework of the BovReg project.
 
 Pipeline summary
 ================
