@@ -18,6 +18,7 @@ On this tutorial, we will show how to use the run the nf-core pipeline using the
 
 First, you need to access the `tower.nf <https://tower.nf/>`__ website and login.
 
-
+.. image:: images/tower0.png
+  :width: 800
 
 ` <>`_
