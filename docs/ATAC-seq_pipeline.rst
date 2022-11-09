@@ -349,7 +349,7 @@ Besides the MultiQC report, the nf-core/atacseq pipeline generates an Integrativ
 session that could be very handy to visually inspect the different peaks called by the pipeline (the normalised bigWig
 tracks, per-sample peaks, consensus peaks). The figure below shows the tracks corresponding to the cell line run.
 
-.. image:: images/images/igv_cell_lines.png
+.. image:: images/igv_cell_lines.png
 	:width: 600
 
 To render the session, you will need first to download IGV using `this <https://software.broadinstitute.org/software/igv/download>`_ link.
