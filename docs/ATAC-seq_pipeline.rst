@@ -359,53 +359,19 @@ The file paths in the IGV session file will only work if the results are kept in
 Once installed, open IGV, go to File > Open Session and select the igv_session.xml file for loading.
 
 
+Nextflow Tower
+==============
 
-.. tower
+**Nextflow Tower** it is a browser based graphical interface that allows users to manage, monitor and launch Nextflow pipelines both on-premises
+and in the cloud.
 
+.. Note::
+    Tower offers an a open source free version and a commercial one. The main difference between them is that the latter enables you to launch and manage
+    pipelines on premises (e.g. your institutional HPC) while the latter does not, or at least not in the same manner (you will need to run a daemon 
+    in your system called `Tower Agent <https://help.tower.nf/22.2/agent/>`_). 
 
+On this tutorial, we will show how to use the run the nf-core pipeline using the free version of Tower.
 
+First, you need to access the `tower.nf <https://tower.nf/>`__ website and login.
 
-
-.. (something such as discussing some of the important parameters)
-
-.. You can find the full list of parameters `here <https://nf-co.re/atacseq/dev/parameters>`__
-
-.. different types of parameters
-
-.. skip parameters etc
-
-.. Parameters 
-
-.. SAVE_REFERENCE!!!
-
-
-
-.. (IGV session + multiqc reports)
-
-
-
-
-
-
-.. nextflow run nf-core/atacseq -r dev -params-file ./config/nf-atacseq-params.json -profile docker -c ./config/nextflow.config -resume
-
-
-.. Exercise
-.. ********
-
-.. Pull version ``3.8.1`` of the nf-core/atacseq pipeline, run it using the ``nf-core launch`` command and produce the ``nf-params.json``.
-
-.. .. raw:: html
-
-.. 	<details>
-.. 	<summary><a>Solution</a></summary>
-
-.. .. code-block:: console
-
-.. 	nextflow pull nf-core/rnaseq -r 3.8.1
-.. 	nf-core launch rnaseq -r 3.8.1
-
-.. .. raw:: html
-
-.. 	</details>
-.. |
+` <>`_
