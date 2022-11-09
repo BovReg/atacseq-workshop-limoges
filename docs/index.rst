@@ -16,3 +16,4 @@ Contents:
    setup
    nf-core
    ATAC-seq_pipeline
+   Nextflow Tower
