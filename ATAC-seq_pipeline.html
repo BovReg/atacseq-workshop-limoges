@@ -62,7 +62,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#bovreg-parametrisation">BovReg parametrisation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#results-discussion">Results discussion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#results">Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#igv-session">IGV session</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -331,6 +334,11 @@ most important parameters.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">--mito_name</span></code> Name of Mitochondrial chomosome in reference assembly e.g. chrM.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">--save_reference</span></code> Save references in your results folder so that it can be used in future pipeline runs (e.g. BWA index).</p></li>
 </ul>
+<dl class="simple">
+<dt>..Note::</dt><dd><p>Notice that you will need to enable the <code class="docutils literal notranslate"><span class="pre">-save_reference</span></code> parameter to keep the <code class="docutils literal notranslate"><span class="pre">fasta</span></code> and the <code class="docutils literal notranslate"><span class="pre">gtf</span></code> files in the
+suitable paths to open the IGV (Genome Browser) session.</p>
+</dd>
+</dl>
 </section>
 <section id="alignment-options">
 <h3>Alignment options<a class="headerlink" href="#alignment-options" title="Permalink to this heading"></a></h3>
@@ -366,9 +374,15 @@ most important parameters.</p>
 </section>
 <section id="bovreg-parametrisation">
 <h2>BovReg parametrisation<a class="headerlink" href="#bovreg-parametrisation" title="Permalink to this heading"></a></h2>
-<p>On the previous runs of the workflow we did not modify any of the parameters set by default in the pipeline or in the <code class="docutils literal notranslate"><span class="pre">test</span></code> profile or.
-However, in a real case scenario we probably want to modify these settings. In the framework of the BovReg project the nf-core/atacseq pipeline
-was indeed used to process all the ATAC-seq data and below you can find a real parametrisation of the pipeline.</p>
+<p>On the previous runs of the workflow we did not modify any of the parameters set by default in the pipeline or in the <code class="docutils literal notranslate"><span class="pre">test</span></code> profile.
+However, in a real case scenario we probably want to modify these settings. In the framework of the BovReg project, the nf-core/atacseq pipeline
+was indeed used to process all the ATAC-seq data and below you can find the real parametrisation of the pipeline used to this end.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is advisable to specify the parameters that differ from the pipeline's defaults using the <code class="docutils literal notranslate"><span class="pre">params-file</span></code>.
+This will allow you or others to reproduce the same results of your run by providing this file and thus, setting exactly
+the same pipeline parameters.</p>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sample,fastq_1,fastq_2</span>
 <span class="go">MAC-T_7kCELLS_R1,s3://cbcrg-eu/atacseq-training-bovreg/data/MAC-T_7kCELLS_R1.fastq.gz,</span>
 <span class="go">MAC-T_7kCELLS_R2,s3://cbcrg-eu/atacseq-training-bovreg/data/MAC-T_7kCELLS_R2.fastq.gz,</span>
@@ -376,9 +390,20 @@ was indeed used to process all the ATAC-seq data and below you can find a real p
 <span class="go">MDBK_7KCELLS_R2,s3://cbcrg-eu/atacseq-training-bovreg/data/MDBK_7kCELLS_R2.fastq.gz,</span>
 </pre></div>
 </div>
+<dl class="simple">
+<dt>..Note::</dt><dd><p>The format of the <code class="docutils literal notranslate"><span class="pre">samplesheet</span> <span class="pre">input</span></code> may be modified in version <code class="docutils literal notranslate"><span class="pre">2.1.0</span></code> to enable the processing of controls. Although, typically
+controls are not used in ATAC-seq experiments, we found that in our case it was increasing the number of called peaks and its
+reliability. ATAC-seq controls will consist on genomic DNA from the same sample fragmented by for instance sonication
+instead of the transposase, but otherwise sequenced along with the sample using the same adaptors.</p>
+</dd>
+</dl>
 </section>
-<section id="results-discussion">
-<h2>Results discussion<a class="headerlink" href="#results-discussion" title="Permalink to this heading"></a></h2>
+<section id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this heading"></a></h2>
+<p>The results of the pipeline will be available under the path set using the <code class="docutils literal notranslate"><span class="pre">outdir</span></code> parameter once the executions is finished.</p>
+<section id="igv-session">
+<h3>IGV session<a class="headerlink" href="#igv-session" title="Permalink to this heading"></a></h3>
+</section>
 </section>
 </section>
 
