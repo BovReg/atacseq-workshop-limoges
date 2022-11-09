@@ -296,7 +296,7 @@ since it displays the documentation alongside each of the parameters and validat
 JSON file is bundled with the pipeline and includes all the information mentioned above, see an example
 <a class="reference external" href="https://github.com/nf-core/atacseq/blob/master/nextflow_schema.json">here</a>.</p>
 <p>The chosen non-default parameters are dumped into a JSON file called <code class="docutils literal notranslate"><span class="pre">nf-params.json</span></code>. This file can be provided to new
-executions using the <code class="docutils literal notranslate"><span class="pre">-params-file</span></code> flag. See below an example of a params JSON file:</p>
+executions using the <code class="docutils literal notranslate"><span class="pre">--params-in</span></code> flag. See below an example of a params JSON file:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;outdir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;results&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/samplesheet/v2.0/samplesheet_test.csv&quot;</span><span class="w"></span>
@@ -304,7 +304,7 @@ executions using the <code class="docutils literal notranslate"><span class="pre
 </pre></div>
 </div>
 <p>It is a good practice in terms of reproducibility to explicitly indicate the version (revision) of the pipeline that
-you want to use. This is done using the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag e.g. <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">launch</span> <span class="pre">atacseq</span> <span class="pre">-params-file</span> <span class="pre">nf-params.json</span> <span class="pre">-r</span> <span class="pre">1.2.2</span></code>.</p>
+you want to use. This is done using the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag e.g. <code class="docutils literal notranslate"><span class="pre">nf-core</span> <span class="pre">launch</span> <span class="pre">atacseq</span> <span class="pre">--params-in</span> <span class="pre">nf-params.json</span> <span class="pre">-r</span> <span class="pre">dev</span></code>.</p>
 </section>
 <section id="nf-core-configs-and-profiles">
 <h3>nf-core configs and profiles<a class="headerlink" href="#nf-core-configs-and-profiles" title="Permalink to this heading"></a></h3>
