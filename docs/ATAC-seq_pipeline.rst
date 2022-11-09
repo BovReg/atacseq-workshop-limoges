@@ -251,7 +251,7 @@ Alignment options
 
 Options to adjust parameters and filtering criteria for read alignments, for a complete list refer to this `link <https://nf-co.re/atacseq/dev/parameters#alignment-options>`_.
 
-* ``--aligner`` Specifies the alignment algorithm to use - available options are 'bwa', 'bowtie2' and 'star'.
+* ``--aligner`` Specifies the alignment algorithm to use - available options are 'bwa', 'bowtie2' and 'star'. BWA is set as default aligner.
 
 
 Peak calling options
@@ -286,23 +286,22 @@ Options to skip various pipeline steps, find the whole list on this `link <https
 BovReg parametrisation
 ======================
 
-The first time we run the pipeline using the test profile we did not modify any of the default parameters. However, 
+On the previous runs of the workflow we did not modify any of the parameters set by default in the pipeline or in the ``test`` profile or. 
+However, in a real case scenario we probably want to modify these settings. In the framework of the BovReg project the nf-core/atacseq pipeline 
+was indeed used to process all the ATAC-seq data and below you can find a real parametrisation of the pipeline.  
+
+.. literalinclude:: ../nf-core/examples/nf-params-bovreg.json
+	:language: json
+
+.. code-block:: console
+            
+    sample,fastq_1,fastq_2
+    MAC-T_7kCELLS_R1,s3://cbcrg-eu/atacseq-training-bovreg/data/MAC-T_7kCELLS_R1.fastq.gz,
+    MAC-T_7kCELLS_R2,s3://cbcrg-eu/atacseq-training-bovreg/data/MAC-T_7kCELLS_R2.fastq.gz,
+    MDBK_7KCELLS_R1,s3://cbcrg-eu/atacseq-training-bovreg/data/MDBK_7kCELLS_R1.fastq.gz,
+    MDBK_7KCELLS_R2,s3://cbcrg-eu/atacseq-training-bovreg/data/MDBK_7kCELLS_R2.fastq.gz,
 
 
-.. {
-..   "input": "/users/cn/jespinosa/DELETE_ME/atacseq_dataset_limoges/design_limoges.csv",
-..   "outdir": "results_limoges2",
-..   "gtf": "/users/cn/jespinosa/DELETE_ME/atacseq_dataset_limoges/data/Bos_taurus.ARS-UCD1.2.105.gtf.gz",
-..   "fasta": "/users/cn/jespinosa/DELETE_ME/atacseq_dataset_limoges/data/ARS-UCD1.2_Btau5.0.1Y.fa",
-..   "narrow_peak": true,
-..   "aligner": "bwa",
-..   "mito_name": "MT",
-..   "read_length": 150,
-..   "macs_fdr": 0.05,
-..   "save_macs_pileup": true,
-..   "deseq2_vst": true,
-..   "skip_preseq": true
-.. }
 
 .. Mention the controls!!!
 

@@ -1,0 +1,15 @@
+
+{
+    "input": "./design_bovreg.csv",
+    "outdir": "results_bovreg",
+    "gtf": "./reference/Bos_taurus.ARS-UCD1.2.105.gtf.gz",
+    "fasta": "./reference/ARS-UCD1.2_Btau5.0.1Y.fa",
+    "narrow_peak": true,
+    "aligner": "bwa",
+    "mito_name": "MT",
+    "read_length": 150,
+    "macs_fdr": 0.05,
+    "save_macs_pileup": true,
+    "deseq2_vst": true,
+    "skip_preseq": true
+}
