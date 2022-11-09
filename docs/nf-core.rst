@@ -241,13 +241,13 @@ JSON file is bundled with the pipeline and includes all the information mentione
 `here <https://github.com/nf-core/atacseq/blob/master/nextflow_schema.json>`__.
 
 The chosen non-default parameters are dumped into a JSON file called ``nf-params.json``. This file can be provided to new 
-executions using the ``-params-file`` flag. See below an example of a params JSON file:
+executions using the ``--params-in`` flag. See below an example of a params JSON file:
 
 .. literalinclude:: ../nf-core/examples/nf-params.json
 	:language: json
 
 It is a good practice in terms of reproducibility to explicitly indicate the version (revision) of the pipeline that 
-you want to use. This is done using the ``-r`` flag e.g. ``nf-core launch atacseq -params-file nf-params.json -r 1.2.2``.
+you want to use. This is done using the ``-r`` flag e.g. ``nf-core launch atacseq --params-in nf-params.json -r dev``.
 
 nf-core configs and profiles
 ----------------------------
