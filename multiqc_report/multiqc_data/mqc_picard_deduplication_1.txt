@@ -1,0 +1,3 @@
+Sample	Unique Pairs	Duplicate Pairs Nonoptical
+OSMOTIC_STRESS_T0	330876.0	10884.0
+OSMOTIC_STRESS_T15	344882.0	7396.0
