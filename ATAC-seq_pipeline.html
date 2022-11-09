@@ -62,6 +62,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#bovreg-parametrisation">BovReg parametrisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bovreg-small-dataset">BovReg small dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#results">Results</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#multiqc-report">MultiQC Report</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#igv-session">IGV session</a></li>
@@ -384,6 +385,14 @@ was indeed used to process all the ATAC-seq data and below you can find the real
 This will allow you or others to reproduce the same results of your run by providing this file and thus, setting exactly
 the same pipeline parameters.</p>
 </div>
+</section>
+<section id="bovreg-small-dataset">
+<h2>BovReg small dataset<a class="headerlink" href="#bovreg-small-dataset" title="Permalink to this heading"></a></h2>
+<p>The snippet below shows an input samplesheet corresponding to two biological replicates of two different cow cell lines:</p>
+<ul class="simple">
+<li><p>a cell line produced from primary bovine mammary alveolar cells (MAC-T)</p></li>
+<li><p>the Madin-Darby bovine kidney (MDBK)</p></li>
+</ul>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sample,fastq_1,fastq_2</span>
 <span class="go">MAC-T_7kCELLS_R1,s3://cbcrg-eu/atacseq-training-bovreg/data/MAC-T_7kCELLS_R1.fastq.gz,</span>
 <span class="go">MAC-T_7kCELLS_R2,s3://cbcrg-eu/atacseq-training-bovreg/data/MAC-T_7kCELLS_R2.fastq.gz,</span>
@@ -407,8 +416,9 @@ See <a class="reference external" href="https://nf-co.re/atacseq/dev/output">her
 <section id="multiqc-report">
 <h3>MultiQC Report<a class="headerlink" href="#multiqc-report" title="Permalink to this heading"></a></h3>
 <p>All nf-core pipelines produce a <a class="reference external" href="https://multiqc.info/">MultiQC</a> report that summarises the pipeline results.
-The way MultiQC works is that it searches in a given directory for analysis logs and compiles a HTML report so that it reports the
+The way MultiQC works is that it searches in a given directory for analysis logs and compiles an HTML report so that it reports the
 output from numerous bioinformatics tools.</p>
+<p>On the previous example run using</p>
 </section>
 <section id="igv-session">
 <h3>IGV session<a class="headerlink" href="#igv-session" title="Permalink to this heading"></a></h3>
