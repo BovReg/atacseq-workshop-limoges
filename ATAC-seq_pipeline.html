@@ -336,7 +336,7 @@ most important parameters.</p>
 <h3>Alignment options<a class="headerlink" href="#alignment-options" title="Permalink to this heading"></a></h3>
 <p>Options to adjust parameters and filtering criteria for read alignments, for a complete list refer to this <a class="reference external" href="https://nf-co.re/atacseq/dev/parameters#alignment-options">link</a>.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">--aligner</span></code> Specifies the alignment algorithm to use - available options are 'bwa', 'bowtie2' and 'star'.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--aligner</span></code> Specifies the alignment algorithm to use - available options are 'bwa', 'bowtie2' and 'star'. BWA is set as default aligner.</p></li>
 </ul>
 </section>
 <section id="peak-calling-options">
@@ -366,7 +366,16 @@ most important parameters.</p>
 </section>
 <section id="bovreg-parametrisation">
 <h2>BovReg parametrisation<a class="headerlink" href="#bovreg-parametrisation" title="Permalink to this heading"></a></h2>
-<p>The first time we run the pipeline using the test profile we did not modify any of the default parameters. However,</p>
+<p>On the previous runs of the workflow we did not modify any of the parameters set by default in the pipeline or in the <code class="docutils literal notranslate"><span class="pre">test</span></code> profile or.
+However, in a real case scenario we probably want to modify these settings. In the framework of the BovReg project the nf-core/atacseq pipeline
+was indeed used to process all the ATAC-seq data and below you can find a real parametrisation of the pipeline.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sample,fastq_1,fastq_2</span>
+<span class="go">MAC-T_7kCELLS_R1,s3://cbcrg-eu/atacseq-training-bovreg/data/MAC-T_7kCELLS_R1.fastq.gz,</span>
+<span class="go">MAC-T_7kCELLS_R2,s3://cbcrg-eu/atacseq-training-bovreg/data/MAC-T_7kCELLS_R2.fastq.gz,</span>
+<span class="go">MDBK_7KCELLS_R1,s3://cbcrg-eu/atacseq-training-bovreg/data/MDBK_7kCELLS_R1.fastq.gz,</span>
+<span class="go">MDBK_7KCELLS_R2,s3://cbcrg-eu/atacseq-training-bovreg/data/MDBK_7kCELLS_R2.fastq.gz,</span>
+</pre></div>
+</div>
 </section>
 <section id="results-discussion">
 <h2>Results discussion<a class="headerlink" href="#results-discussion" title="Permalink to this heading"></a></h2>
