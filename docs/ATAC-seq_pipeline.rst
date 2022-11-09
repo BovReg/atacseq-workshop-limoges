@@ -307,7 +307,7 @@ BovReg small dataset
 The snippet below shows an input samplesheet corresponding to two biological replicates of two different cow cell lines: 
 
 * a cell line produced from primary bovine mammary alveolar cells (MAC-T)
-* the Madin-Darby bovine kidney (MDBK)
+* the Madin-Darby bovine kidney (MDBK) cell line 
 
 .. code-block:: console
             
