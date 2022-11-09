@@ -342,12 +342,25 @@ output from numerous bioinformatics tools.
 The MultiQC report corresponding to the previous example run using the two cell lines and the parametrisation described above can be 
 found on `this <https://bovreg.github.io/atacseq-workshop-limoges/multiqc_report/multiqc_report.html>`_  link.
 
+
 IGV session
 -----------
 
+Besides the MultiQC report, the nf-core/atacseq pipeline generates an Integrative Genome Viewer 
+`IGV <https://software.broadinstitute.org/software/igv/UserGuide>`_ 
+session that could be very handy to visually inspect the different peaks called by the pipeline (the normalised bigWig
+tracks, per-sample peaks, consensus peaks). The figure below shows the tracks corresponding to the cell line run.
+
+.. image:: images/images/igv_cell_lines.png
+	:width: 600
+
+To render the session, you will need first to download IGV using `this <https://software.broadinstitute.org/software/igv/download>`_ link.
+
+The file paths in the IGV session file will only work if the results are kept in the same place on your storage. If the results are moved or for example, if you prefer to load the data over the web then just replace the file paths with others that are more appropriate.
+
+Once installed, open IGV, go to File > Open Session and select the igv_session.xml file for loading.
 
 
-multiqc
 
 .. tower
 
