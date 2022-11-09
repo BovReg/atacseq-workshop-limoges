@@ -300,7 +300,15 @@ was indeed used to process all the ATAC-seq data and below you can find the real
     It is advisable to specify the parameters that differ from the pipeline's defaults using the ``params-file``. 
     This will allow you or others to reproduce the same results of your run by providing this file and thus, setting exactly
     the same pipeline parameters.
-    
+
+BovReg small dataset
+====================
+
+The snippet below shows an input samplesheet corresponding to two biological replicates of two different cow cell lines: 
+
+* a cell line produced from primary bovine mammary alveolar cells (MAC-T)
+* the Madin-Darby bovine kidney (MDBK)
+
 .. code-block:: console
             
     sample,fastq_1,fastq_2
@@ -327,8 +335,10 @@ MultiQC Report
 --------------
 
 All nf-core pipelines produce a `MultiQC <https://multiqc.info/>`_ report that summarises the pipeline results. 
-The way MultiQC works is that it searches in a given directory for analysis logs and compiles a HTML report so that it reports the 
+The way MultiQC works is that it searches in a given directory for analysis logs and compiles an HTML report so that it reports the 
 output from numerous bioinformatics tools.
+
+On the previous example run using
 
 
 
