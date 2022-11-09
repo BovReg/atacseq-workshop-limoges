@@ -16,7 +16,7 @@ it much easier to maintain and update software dependencies. Where possible, the
 to everyone within the Nextflow community.
 
 The DSL2 version of the pipeline was implemented by `Björn Langer <https://github.com/bjlang>`_ and `Jose Espinosa-Carrasco <https://github.com/joseespinosa>`_ 
-taking into account Gabriel Costas suggestions and with the help of `Harshil Patel <https://github.com/drpatelh>`_ in the framework of the BovReg project.
+taking into account Gabriel Costa suggestions and with the help of `Harshil Patel <https://github.com/drpatelh>`_ in the framework of the BovReg project.
 
 Pipeline summary
 ================
@@ -245,6 +245,10 @@ Reference genome related files and options required for the workflow. Full list 
 * ``--save_reference`` Save references in your results folder so that it can be used in future pipeline runs (e.g. BWA index).
 
 
+..Note::
+    Notice that you will need to enable the ``-save_reference`` parameter to keep the ``fasta`` and the ``gtf`` files in the 
+    suitable paths to open the IGV (Genome Browser) session.
+
 Alignment options
 -----------------
 
@@ -285,13 +289,18 @@ Options to skip various pipeline steps, find the whole list on this `link <https
 BovReg parametrisation
 ======================
 
-On the previous runs of the workflow we did not modify any of the parameters set by default in the pipeline or in the ``test`` profile or. 
-However, in a real case scenario we probably want to modify these settings. In the framework of the BovReg project the nf-core/atacseq pipeline 
-was indeed used to process all the ATAC-seq data and below you can find a real parametrisation of the pipeline.  
+On the previous runs of the workflow we did not modify any of the parameters set by default in the pipeline or in the ``test`` profile. 
+However, in a real case scenario we probably want to modify these settings. In the framework of the BovReg project, the nf-core/atacseq pipeline 
+was indeed used to process all the ATAC-seq data and below you can find the real parametrisation of the pipeline used to this end.
 
 .. literalinclude:: ../nf-core/examples/nf-params-bovreg.json
 	:language: json
 
+.. tip:: 
+    It is advisable to specify the parameters that differ from the pipeline's defaults using the ``params-file``. 
+    This will allow you or others to reproduce the same results of your run by providing this file and thus, setting exactly
+    the same pipeline parameters.
+    
 .. code-block:: console
             
     sample,fastq_1,fastq_2
@@ -301,9 +310,25 @@ was indeed used to process all the ATAC-seq data and below you can find a real p
     MDBK_7KCELLS_R2,s3://cbcrg-eu/atacseq-training-bovreg/data/MDBK_7kCELLS_R2.fastq.gz,
 
 
-.. Mention to reproducibility
+..Note::
+    The format of the ``samplesheet input`` may be modified in version ``2.1.0`` to enable the processing of controls. Although, typically
+    controls are not used in ATAC-seq experiments, we found that in our case it was increasing the number of called peaks and its 
+    reliability. ATAC-seq controls will consist on genomic DNA from the same sample fragmented by for instance sonication
+    instead of the transposase, but otherwise sequenced along with the sample using the same adaptors.
 
-.. Mention the controls!!!
+Results 
+=======
+
+The results of the pipeline will be available under the path set using the ``outdir`` parameter once the executions is finished.
+
+
+IGV session
+-----------
+.. multiqc
+
+.. tower
+
+
 
 
 
@@ -319,8 +344,7 @@ was indeed used to process all the ATAC-seq data and below you can find a real p
 
 .. SAVE_REFERENCE!!!
 
-Results discussion 
-==================
+
 
 .. (IGV session + multiqc reports)
 
