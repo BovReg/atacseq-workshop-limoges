@@ -381,6 +381,12 @@ suitable paths to open the IGV (Genome Browser) session.</p>
 <p>On the previous runs of the workflow we did not modify any of the parameters set by default in the pipeline or in the <code class="docutils literal notranslate"><span class="pre">test</span></code> profile.
 However, in a real case scenario we probably want to modify these settings. In the framework of the BovReg project, the nf-core/atacseq pipeline
 was indeed used to process all the ATAC-seq data and below you can find the real parametrisation of the pipeline used to this end.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;outdir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;results&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/samplesheet/v2.0/samplesheet_test.csv&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>It is advisable to specify the parameters that differ from the pipeline's defaults using the <code class="docutils literal notranslate"><span class="pre">params-file</span></code>.
