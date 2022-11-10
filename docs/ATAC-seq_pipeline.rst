@@ -337,8 +337,8 @@ All nf-core pipelines produce a `MultiQC <https://multiqc.info/>`_ report that s
 The way MultiQC works is that it searches in a given directory for analysis logs and compiles an HTML report so that it reports the 
 output from numerous bioinformatics tools.
 
-The MultiQC report corresponding to the previous example run using the two cell lines and the parametrisation described above can be 
-found on `this <https://bovreg.github.io/atacseq-workshop-limoges/multiqc_report/multiqc_report.html>`_  link.
+The MultiQC report corresponding to the ``full-test`` profile run using is 
+found on `this <https://nf-core-awsmegatests.s3-eu-west-1.amazonaws.com/atacseq/results-1b3a832db5a53c92c2c89a4d6d79455e860461ad/multiqc/narrowPeak/multiqc_report.html>`_  link.
 
 
 IGV session
