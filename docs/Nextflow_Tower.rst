@@ -21,4 +21,4 @@ First, you need to access the `tower.nf <https://tower.nf/>`__ website and login
 .. image:: images/tower0.png
   :width: 800
 
-` <>`_
+.. ` <>`_
