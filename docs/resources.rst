@@ -25,3 +25,5 @@ Resources
 * Seqera labs Nextflow training: https://training.seqera.io/
 
 * CBCRG Nextflow course for PhDs: https://github.com/cbcrg/nf-phdcourse22
+
+* Current ATAC-seq Standards: https://www.encodeproject.org/atac-seq/#standards 
