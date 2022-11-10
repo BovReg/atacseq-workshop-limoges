@@ -21,4 +21,24 @@ First, you need to access the `tower.nf <https://tower.nf/>`__ website and login
 .. image:: images/tower0.png
   :width: 800
 
+Once you reach the launchpad we can press the **Add Pipeline** button shown on the image below:
+
+.. image:: images/tower1.png
+  :width: 800
+
+This will open a menu that will allow us to choose which pipeline we would like to run. Any Nextflow pipeline publicly available on Github can be 
+loaded by Tower.
+
+You will realise that many of the options that should be provided to run the pipeline are similar to the ones we have already discuss. In this case,
+we will discuss how to run the pipeline in AWS batch and for this reason, if you want to replicate this exercise you will need to create an AWS batch
+compute environment before hand.
+
+.. tip::
+    Tower also enables to forge your AWS batch environment using its graphical interface, you can follow `this <https://help.tower.nf/22.1/compute-envs/aws-batch/#compute-environment>`_ tutorial to create your own 
+    compute environment.
+
+
+ 
+s3://bovreg/work
+
 .. ` <>`_
