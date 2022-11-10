@@ -291,7 +291,7 @@ On the previous runs of the workflow we did not modify any of the parameters set
 However, in a real case scenario we probably want to modify these settings. In the framework of the BovReg project, the nf-core/atacseq pipeline 
 was indeed used to process all the ATAC-seq data and below you can find the real parametrisation of the pipeline used to this end.
 
-.. literalinclude:: ../nf-core/examples/nf-params.json
+.. literalinclude:: ../atacseq/examples/nf-params.json
 	:language: json
 
 .. tip:: 
@@ -337,7 +337,7 @@ All nf-core pipelines produce a `MultiQC <https://multiqc.info/>`_ report that s
 The way MultiQC works is that it searches in a given directory for analysis logs and compiles an HTML report so that it reports the 
 output from numerous bioinformatics tools.
 
-The MultiQC report corresponding to the ``full-test`` profile run using is 
+The MultiQC report corresponding to the ``test_full`` profile run using is 
 found on `this <https://nf-core-awsmegatests.s3-eu-west-1.amazonaws.com/atacseq/results-1b3a832db5a53c92c2c89a4d6d79455e860461ad/multiqc/narrowPeak/multiqc_report.html>`_  link.
 
 
