@@ -49,6 +49,5 @@ Once you add your pipeline, it will be available in the **Launchpad** (see figur
 using the Tower GUI. The form to fill the parameters will be loaded thanks to the nf-core JSON schema that is also used by nf-core launch, 
 as we have already discussed in the previous session. 
 
-
-
-.. ` <>`_
+.. image:: images/tower3.png
+  :width: 800
