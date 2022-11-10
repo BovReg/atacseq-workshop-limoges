@@ -291,7 +291,7 @@ On the previous runs of the workflow we did not modify any of the parameters set
 However, in a real case scenario we probably want to modify these settings. In the framework of the BovReg project, the nf-core/atacseq pipeline 
 was indeed used to process all the ATAC-seq data and below you can find the real parametrisation of the pipeline used to this end.
 
-.. literalinclude:: ../docs/atacseq/examples/nf-params.json
+.. literalinclude:: ../atacseq/examples/nf-params.json
 	:language: json
 
 .. tip:: 
