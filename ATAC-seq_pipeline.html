@@ -381,6 +381,22 @@ suitable paths to open the IGV (Genome Browser) session.</p>
 <p>On the previous runs of the workflow we did not modify any of the parameters set by default in the pipeline or in the <code class="docutils literal notranslate"><span class="pre">test</span></code> profile.
 However, in a real case scenario we probably want to modify these settings. In the framework of the BovReg project, the nf-core/atacseq pipeline
 was indeed used to process all the ATAC-seq data and below you can find the real parametrisation of the pipeline used to this end.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./design_bovreg.csv&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;outdir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;results_bovreg&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;gtf&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./reference/Bos_taurus.ARS-UCD1.2.105.gtf.gz&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;fasta&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./reference/ARS-UCD1.2_Btau5.0.1Y.fa&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;narrow_peak&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;aligner&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bwa&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;mito_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MT&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;read_length&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;macs_fdr&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;save_macs_pileup&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;deseq2_vst&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;skip_preseq&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>It is advisable to specify the parameters that differ from the pipeline's defaults using the <code class="docutils literal notranslate"><span class="pre">params-file</span></code>.
