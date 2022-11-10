@@ -381,12 +381,6 @@ suitable paths to open the IGV (Genome Browser) session.</p>
 <p>On the previous runs of the workflow we did not modify any of the parameters set by default in the pipeline or in the <code class="docutils literal notranslate"><span class="pre">test</span></code> profile.
 However, in a real case scenario we probably want to modify these settings. In the framework of the BovReg project, the nf-core/atacseq pipeline
 was indeed used to process all the ATAC-seq data and below you can find the real parametrisation of the pipeline used to this end.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;outdir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;results&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://raw.githubusercontent.com/nf-core/test-datasets/atacseq/samplesheet/v2.0/samplesheet_test.csv&quot;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>It is advisable to specify the parameters that differ from the pipeline's defaults using the <code class="docutils literal notranslate"><span class="pre">params-file</span></code>.
@@ -426,7 +420,7 @@ See <a class="reference external" href="https://nf-co.re/atacseq/dev/output">her
 <p>All nf-core pipelines produce a <a class="reference external" href="https://multiqc.info/">MultiQC</a> report that summarises the pipeline results.
 The way MultiQC works is that it searches in a given directory for analysis logs and compiles an HTML report so that it reports the
 output from numerous bioinformatics tools.</p>
-<p>The MultiQC report corresponding to the <code class="docutils literal notranslate"><span class="pre">full-test</span></code> profile run using is
+<p>The MultiQC report corresponding to the <code class="docutils literal notranslate"><span class="pre">test_full</span></code> profile run using is
 found on <a class="reference external" href="https://nf-core-awsmegatests.s3-eu-west-1.amazonaws.com/atacseq/results-1b3a832db5a53c92c2c89a4d6d79455e860461ad/multiqc/narrowPeak/multiqc_report.html">this</a>  link.</p>
 </section>
 <section id="igv-session">
