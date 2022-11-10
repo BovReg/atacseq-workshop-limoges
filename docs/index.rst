@@ -17,3 +17,4 @@ Contents:
    nf-core
    ATAC-seq_pipeline
    Nextflow_Tower
+   resources
