@@ -21,6 +21,7 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Nextflow Tower" href="Nextflow_Tower.html" />
     <link rel="prev" title="nf-core" href="nf-core.html" /> 
 </head>
 
@@ -70,6 +71,8 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Nextflow_Tower.html">Nextflow Tower</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
         </div>
@@ -336,11 +339,11 @@ most important parameters.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">--mito_name</span></code> Name of Mitochondrial chomosome in reference assembly e.g. chrM.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">--save_reference</span></code> Save references in your results folder so that it can be used in future pipeline runs (e.g. BWA index).</p></li>
 </ul>
-<dl class="simple">
-<dt>..Note::</dt><dd><p>Notice that you will need to enable the <code class="docutils literal notranslate"><span class="pre">-save_reference</span></code> parameter to keep the <code class="docutils literal notranslate"><span class="pre">fasta</span></code> and the <code class="docutils literal notranslate"><span class="pre">gtf</span></code> files in the
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice that you will need to enable the <code class="docutils literal notranslate"><span class="pre">-save_reference</span></code> parameter to keep the <code class="docutils literal notranslate"><span class="pre">fasta</span></code> and the <code class="docutils literal notranslate"><span class="pre">gtf</span></code> files in the
 suitable paths to open the IGV (Genome Browser) session.</p>
-</dd>
-</dl>
+</div>
 </section>
 <section id="alignment-options">
 <h3>Alignment options<a class="headerlink" href="#alignment-options" title="Permalink to this heading"></a></h3>
@@ -356,7 +359,6 @@ suitable paths to open the IGV (Genome Browser) session.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">--narrow_peak</span></code> Peak calling mode for MACS2. By default MACS2 mode is set to <code class="docutils literal notranslate"><span class="pre">--broad</span></code>. To modify this behavior <code class="docutils literal notranslate"><span class="pre">--narrow_peak</span></code> has to be set.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">--macs_fdr</span></code> MACS2 minimum FDR (q-value) cutoff for peak detection.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">--save_macs_pileup</span></code> Instruct MACS2 to create bedGraph files normalised to signal per million reads.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--save_macs_pileup</span></code> Set MACS2 to create bedGraph files normalised to signal per million reads.</p></li>
 </ul>
 </section>
 <section id="deseq2-analysis-options">
@@ -370,7 +372,7 @@ suitable paths to open the IGV (Genome Browser) session.</p>
 <h3>Process skipping options<a class="headerlink" href="#process-skipping-options" title="Permalink to this heading"></a></h3>
 <p>Options to skip various pipeline steps, find the whole list on this <a class="reference external" href="https://nf-co.re/atacseq/dev/parameters#process-skipping-options">link</a>.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">--skip_step</span></code> where step could correspond to several workflow pipeline such as <code class="docutils literal notranslate"><span class="pre">--skip_fastqc</span></code>, <code class="docutils literal notranslate"><span class="pre">--skip_picard_metrics</span></code> or <code class="docutils literal notranslate"><span class="pre">--skip_igv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--skip_&lt;step&gt;</span></code> where step could correspond to several workflow pipeline parts such as <code class="docutils literal notranslate"><span class="pre">--skip_fastqc</span></code>, <code class="docutils literal notranslate"><span class="pre">--skip_picard_metrics</span></code> or <code class="docutils literal notranslate"><span class="pre">--skip_igv</span></code></p></li>
 </ul>
 </section>
 </section>
@@ -400,18 +402,18 @@ the same pipeline parameters.</p>
 <span class="go">MDBK_7KCELLS_R2,s3://cbcrg-eu/atacseq-training-bovreg/data/MDBK_7kCELLS_R2.fastq.gz,</span>
 </pre></div>
 </div>
-<dl class="simple">
-<dt>..Note::</dt><dd><p>The format of the <code class="docutils literal notranslate"><span class="pre">samplesheet</span> <span class="pre">input</span></code> may be modified in version <code class="docutils literal notranslate"><span class="pre">2.1.0</span></code> to enable the processing of controls. Although, typically
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The format of the <code class="docutils literal notranslate"><span class="pre">samplesheet</span> <span class="pre">input</span></code> may be modified in version <code class="docutils literal notranslate"><span class="pre">2.1.0</span></code> to enable the processing of controls. Although, typically
 controls are not used in ATAC-seq experiments, we found that in our case it was increasing the number of called peaks and its
 reliability. ATAC-seq controls will consist on genomic DNA from the same sample fragmented by for instance sonication
-instead of the transposase, but otherwise sequenced along with the sample using the same adaptors.</p>
-</dd>
-</dl>
+instead of the transposase, but otherwise sequenced along with the sample using the same adapters.</p>
+</div>
 </section>
 <section id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this heading"></a></h2>
-<p>The results of the pipeline will be available under the path set using the <code class="docutils literal notranslate"><span class="pre">outdir</span></code> parameter once the executions is finished. The nf-core
-website provides a thoroughly description of all the outputs that can be generated by the nf-core/atacseq pipeline.
+<p>The results of the pipeline will be available under the path set using the <code class="docutils literal notranslate"><span class="pre">outdir</span></code> parameter once the execution is finished. The nf-core
+website provides a thorough description of all the outputs that can be generated by the nf-core/atacseq pipeline.
 See <a class="reference external" href="https://nf-co.re/atacseq/dev/output">here</a>.</p>
 <section id="multiqc-report">
 <h3>MultiQC Report<a class="headerlink" href="#multiqc-report" title="Permalink to this heading"></a></h3>
@@ -423,7 +425,14 @@ found on <a class="reference external" href="https://bovreg.github.io/atacseq-wo
 </section>
 <section id="igv-session">
 <h3>IGV session<a class="headerlink" href="#igv-session" title="Permalink to this heading"></a></h3>
-<p>multiqc</p>
+<p>Besides the MultiQC report, the nf-core/atacseq pipeline generates an Integrative Genome Viewer
+<a class="reference external" href="https://software.broadinstitute.org/software/igv/UserGuide">IGV</a>
+session that could be very handy to visually inspect the different peaks called by the pipeline (the normalised bigWig
+tracks, per-sample peaks, consensus peaks). The figure below shows the tracks corresponding to the cell line run.</p>
+<a class="reference internal image-reference" href="_images/igv_cell_lines.png"><img alt="_images/igv_cell_lines.png" src="_images/igv_cell_lines.png" style="width: 600px;" /></a>
+<p>To render the session, you will need first to download IGV using <a class="reference external" href="https://software.broadinstitute.org/software/igv/download">this</a> link.</p>
+<p>The file paths in the IGV session file will only work if the results are kept in the same place on your storage. If the results are moved or for example, if you prefer to load the data over the web then just replace the file paths with others that are more appropriate.</p>
+<p>Once installed, open IGV, go to File &gt; Open Session and select the igv_session.xml file for loading.</p>
 </section>
 </section>
 </section>
@@ -433,6 +442,7 @@ found on <a class="reference external" href="https://bovreg.github.io/atacseq-wo
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="nf-core.html" class="btn btn-neutral float-left" title="nf-core" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Nextflow_Tower.html" class="btn btn-neutral float-right" title="Nextflow Tower" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

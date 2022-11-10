@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nextflow Tower &mdash; BovReg workshop ATAC-seq data analaysis  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Resources" href="resources.html" />
+    <link rel="prev" title="nf-core/atacseq" href="ATAC-seq_pipeline.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> BovReg workshop ATAC-seq data analaysis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">About the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nf-core.html">nf-core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ATAC-seq_pipeline.html">nf-core/atacseq</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Nextflow Tower</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BovReg workshop ATAC-seq data analaysis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Nextflow Tower</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nextflow-tower">
+<span id="nextflow-tower-page"></span><h1>Nextflow Tower<a class="headerlink" href="#nextflow-tower" title="Permalink to this heading"></a></h1>
+<p><strong>Nextflow Tower</strong> it is a browser based graphical interface that allows users to manage, monitor and launch Nextflow pipelines both on-premises
+and in the cloud.</p>
+<a class="reference internal image-reference" href="_images/tower.png"><img alt="_images/tower.png" src="_images/tower.png" style="width: 800px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tower offers an a open source free version and a commercial one. The main difference between them is that the latter enables you to launch and manage
+pipelines on premises (e.g. your institutional HPC) while the latter does not, or at least not in the same manner (you will need to run a daemon
+in your system called <a class="reference external" href="https://help.tower.nf/22.2/agent/">Tower Agent</a>).</p>
+</div>
+<p>On this tutorial, we will show how to use the run the nf-core pipeline using the free version of Tower.</p>
+<p>First, you need to access the <a class="reference external" href="https://tower.nf/">tower.nf</a> website and login.</p>
+<a class="reference internal image-reference" href="_images/tower0.png"><img alt="_images/tower0.png" src="_images/tower0.png" style="width: 800px;" /></a>
+<p>Once you reach the launchpad we can press the <strong>Add Pipeline</strong> button shown on the image below:</p>
+<a class="reference internal image-reference" href="_images/tower1.png"><img alt="_images/tower1.png" src="_images/tower1.png" style="width: 800px;" /></a>
+<p>This will open a menu, shown below, that will allow us to choose which pipeline we would like to run. Any Nextflow pipeline publicly available on Github can be
+loaded by Tower.</p>
+<a class="reference internal image-reference" href="_images/tower2.png"><img alt="_images/tower2.png" src="_images/tower2.png" style="width: 800px;" /></a>
+<p>You will realise that many of the options that should be provided to run the pipeline are similar to the ones we have already discuss. In this case,
+we will discuss how to run the pipeline in AWS batch and for this reason, if you want to replicate this exercise you will need to create an AWS batch
+compute environment before hand.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Tower also enables to forge your AWS batch environment using its graphical interface, you can follow <a class="reference external" href="https://help.tower.nf/22.1/compute-envs/aws-batch/#compute-environment">this</a> tutorial to create your own
+compute environment.</p>
+</div>
+<p>Also, to add a pipeline in Tower you will need to provide a <strong>Work directory</strong>. In this case we will be using the
+<a class="reference external" href="https://aws.amazon.com/s3/">Amazon S3 cloud storage system</a> as the work directory of our pipeline (e.g. <code class="docutils literal notranslate"><span class="pre">s3://cbcrg-eu/work</span></code>).</p>
+<p>You could also define a default parametrization of the pipeline using the <strong>Pipeline parameters</strong> window in the form.</p>
+<p>Once you add your pipeline, it will be available in the <strong>Launchpad</strong> (see figure below) and you will be able to launch the pipeline
+using the Tower GUI. The form to fill the parameters will be loaded thanks to the nf-core JSON schema that is also used by nf-core launch,
+as we have already discussed in the previous session.</p>
+<a class="reference internal image-reference" href="_images/tower3.png"><img alt="_images/tower3.png" src="_images/tower3.png" style="width: 800px;" /></a>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ATAC-seq_pipeline.html" class="btn btn-neutral float-left" title="nf-core/atacseq" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="resources.html" class="btn btn-neutral float-right" title="Resources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, CRG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
